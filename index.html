@@ -1,7 +1,153 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h1>Hello World</h1>
-      <p>I'm hosted with GitHub Pages.</p>
-  </body>
-</html>
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+
+// This would typically come from a database or CMS
+const projects = {
+  "drone-delivery": {
+    title: "Autonomous Drone Delivery System",
+    description:
+      "Designed and prototyped a mechanical system for package delivery drones, optimizing for weight, durability, and aerodynamics.",
+    fullDescription: `
+      <p>The Autonomous Drone Delivery System represents a breakthrough in last-mile logistics, combining advanced mechanical engineering with cutting-edge autonomous navigation systems.</p>
+      
+      <p>The project began with a comprehensive analysis of existing drone delivery systems, identifying key limitations in payload capacity, flight duration, and delivery mechanism reliability. Through iterative design and simulation, I developed a novel mechanical framework that reduced overall weight by 30% while increasing payload capacity by 25%.</p>
+      
+      <p>Key innovations include:</p>
+      <ul>
+        <li>A carbon-fiber composite frame with optimized structural reinforcement at high-stress points</li>
+        <li>A patented package securing and release mechanism that accommodates various package dimensions</li>
+        <li>Aerodynamic housing that reduces drag by 15% compared to conventional designs</li>
+        <li>Vibration dampening system to protect sensitive electronics and ensure stable flight</li>
+      </ul>
+      
+      <p>The prototype underwent extensive wind tunnel testing and field trials, demonstrating exceptional performance in various weather conditions and delivery scenarios. The system has been adopted by a leading logistics company and is currently being implemented in their pilot delivery program.</p>
+    `,
+    category: "Aerospace",
+    date: "June 2023",
+    duration: "8 months",
+    client: "LogisticsTech Inc.",
+    mainImage: "/placeholder.svg?height=600&width=1200",
+    gallery: [
+      "/placeholder.svg?height=400&width=600",
+      "/placeholder.svg?height=400&width=600",
+      "/placeholder.svg?height=400&width=600",
+      "/placeholder.svg?height=400&width=600",
+    ],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  },
+}
+
+export default function ProjectPage({ params }: { params: { slug: string } }) {
+  const project = projects[params.slug as keyof typeof projects]
+
+  if (!project) {
+    return <div>Project not found</div>
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 py-12 md:px-6 md:py-20">
+        <Button variant="ghost" asChild className="mb-8">
+          <Link href="/projects">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Projects
+          </Link>
+        </Button>
+
+        <div className="grid gap-8 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <Badge className="mb-4">{project.category}</Badge>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">{project.title}</h1>
+
+            <div className="relative aspect-video overflow-hidden rounded-lg mb-8">
+              <Image src={project.mainImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+            </div>
+
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none mb-8"
+              dangerouslySetInnerHTML={{ __html: project.fullDescription }}
+            />
+
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold mb-4">Project Gallery</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {project.gallery.map((image, index) => (
+                  <div key={index} className="relative aspect-square overflow-hidden rounded-lg">
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`Project image ${index + 1}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold mb-4">Project Video</h2>
+              <div className="relative aspect-video overflow-hidden rounded-lg">
+                <iframe
+                  src={project.videoUrl}
+                  title="Project Video"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <div className="bg-muted/50 rounded-lg p-6 sticky top-20">
+              <h2 className="text-xl font-bold mb-4">Project Details</h2>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-3 text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Completion Date</p>
+                    <p className="font-medium">{project.date}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 mr-3 text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Project Duration</p>
+                    <p className="font-medium">{project.duration}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <Tag className="h-5 w-5 mr-3 text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Category</p>
+                    <p className="font-medium">{project.category}</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="h-5 w-5 mr-3 flex items-center justify-center text-primary">
+                    <span className="text-lg font-bold">C</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Client</p>
+                    <p className="font-medium">{project.client}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t my-6"></div>
+
+              <h3 className="text-lg font-semibold mb-3">Interested in a similar project?</h3>
+              <Button asChild className="w-full">
+                <Link href="/contact">Get in Touch</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
