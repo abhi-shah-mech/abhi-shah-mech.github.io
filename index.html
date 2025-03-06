@@ -1,153 +1,1332 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Mechanical Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    :root {
+      --background: #ffffff;
+      --foreground: #0f172a;
+      --primary: #3b82f6;
+      --primary-foreground: #f8fafc;
+      --muted: #f1f5f9;
+      --muted-foreground: #64748b;
+      --border: #e2e8f0;
+    }
 
-// This would typically come from a database or CMS
-const projects = {
-  "drone-delivery": {
-    title: "Autonomous Drone Delivery System",
-    description:
-      "Designed and prototyped a mechanical system for package delivery drones, optimizing for weight, durability, and aerodynamics.",
-    fullDescription: `
-      <p>The Autonomous Drone Delivery System represents a breakthrough in last-mile logistics, combining advanced mechanical engineering with cutting-edge autonomous navigation systems.</p>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--foreground);
+      background-color: var(--background);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Utility Classes */
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-muted {
+      color: var(--muted-foreground);
+    }
+
+    .bg-muted {
+      background-color: var(--muted);
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .gap-6 {
+      gap: 1.5rem;
+    }
+
+    .gap-8 {
+      gap: 2rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .py-8 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .py-16 {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .py-24 {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .p-4 {
+      padding: 1rem;
+    }
+
+    .p-6 {
+      padding: 1.5rem;
+    }
+
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+
+    .mb-12 {
+      margin-bottom: 3rem;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .mt-8 {
+      margin-top: 2rem;
+    }
+
+    .mt-12 {
+      margin-top: 3rem;
+    }
+
+    .ml-2 {
+      margin-left: 0.5rem;
+    }
+
+    .mr-2 {
+      margin-right: 0.5rem;
+    }
+
+    .mr-3 {
+      margin-right: 0.75rem;
+    }
+
+    .space-y-2 > * + * {
+      margin-top: 0.5rem;
+    }
+
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    .space-y-6 > * + * {
+      margin-top: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .max-w-md {
+      max-width: 28rem;
+    }
+
+    .max-w-lg {
+      max-width: 32rem;
+    }
+
+    .max-w-xl {
+      max-width: 36rem;
+    }
+
+    .max-w-2xl {
+      max-width: 42rem;
+    }
+
+    .rounded-full {
+      border-radius: 9999px;
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+
+    .border {
+      border: 1px solid var(--border);
+    }
+
+    .border-t {
+      border-top: 1px solid var(--border);
+    }
+
+    .shadow-lg {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .fixed {
+      position: fixed;
+    }
+
+    .inset-0 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .top-0 {
+      top: 0;
+    }
+
+    .left-0 {
+      left: 0;
+    }
+
+    .right-0 {
+      right: 0;
+    }
+
+    .bottom-8 {
+      bottom: 2rem;
+    }
+
+    .z-10 {
+      z-index: 10;
+    }
+
+    .z-50 {
+      z-index: 50;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .h-screen {
+      height: 100vh;
+    }
+
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    .object-cover {
+      object-fit: cover;
+    }
+
+    .opacity-20 {
+      opacity: 0.2;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Components */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      padding: 0.625rem 1.25rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--muted);
+    }
+
+    .btn-lg {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 9999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .card {
+      background-color: var(--background);
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .input {
+      width: 100%;
+      padding: 0.625rem;
+      border-radius: 0.375rem;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+    }
+
+    .input:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .textarea {
+      width: 100%;
+      padding: 0.625rem;
+      border-radius: 0.375rem;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      min-height: 120px;
+    }
+
+    .textarea:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Header */
+    .header {
+      transition: all 0.3s;
+    }
+
+    .header-scrolled {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 300px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://placehold.co/1920x1080');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+    }
+
+    .hero-badge {
+      display: inline-block;
+      color: var(--primary);
+      animation: pulse 2s infinite;
+      padding: 0.375rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: var(--muted-foreground);
+      font-size: 1.125rem;
+      margin-top: 1rem;
+    }
+
+    .hero-profile {
+      position: relative;
+      height: 450px;
+      width: 450px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 2rem;
+    }
+
+    .hero-profile img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .hero-stat {
+      position: absolute;
+      background-color: var(--background);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border);
+      animation: bounce 3s infinite;
+    }
+
+    .hero-stat:nth-child(2) {
+      bottom: -1.5rem;
+      left: -1.5rem;
+    }
+
+    .hero-stat:nth-child(3) {
+      top: -1.5rem;
+      right: -1.5rem;
+      animation-delay: 300ms;
+    }
+
+    .hero-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    /* Project Card */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-image {
+      position: relative;
+      height: 16rem;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.7), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 10;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-link svg {
+      margin-left: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    .project-link:hover svg {
+      transform: translateX(5px);
+    }
+
+    /* Skill Badge */
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      background-color: rgba(59, 130, 246, 0.1);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+      transition: transform 0.2s;
+    }
+
+    .skill-badge:hover {
+      transform: scale(1.05);
+    }
+
+    /* Counter */
+    .counter {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-5%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+
+    .animate-bounce-slow {
+      animation: bounce 3s infinite;
+    }
+
+    .delay-300 {
+      animation-delay: 300ms;
+    }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+      .sm\:text-5xl {
+        font-size: 3rem;
+      }
+
+      .sm\:flex-row {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .md\:text-xl {
+        font-size: 1.25rem;
+      }
+
+      .md\:text-6xl {
+        font-size: 3.75rem;
+      }
+
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .md\:flex-row {
+        flex-direction: row;
+      }
+
+      .md\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .md\:py-12 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .md\:py-24 {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+
+      .md\:block {
+        display: block;
+      }
+
+      .md\:hidden {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .lg\:text-7xl {
+        font-size: 4.5rem;
+      }
+
+      .lg\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .lg\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .lg\:col-span-2 {
+        grid-column: span 2 / span 2;
+      }
+
+      .lg\:col-span-1 {
+        grid-column: span 1 / span 1;
+      }
+
+      .lg\:gap-12 {
+        gap: 3rem;
+      }
+
+      .lg\:block {
+        display: block;
+      }
+
+      .lg\:hidden {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 header" id="header">
+    <div class="container">
+      <div class="flex items-center justify-between py-4">
+        <a href="#" class="font-bold text-xl">
+          <span class="text-primary">ME</span>Portfolio
+        </a>
+        
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#" class="text-sm font-medium hover:text-primary">Home</a>
+          <a href="#about" class="text-sm font-medium hover:text-primary">About</a>
+          <a href="#projects" class="text-sm font-medium hover:text-primary">Projects</a>
+          <a href="#contact" class="text-sm font-medium hover:text-primary">Contact</a>
+          <a href="resume.pdf" target="_blank" class="btn btn-primary btn-sm">Resume</a>
+        </nav>
+        
+        <button class="md:hidden" id="mobile-menu-button" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <div class="container py-4 bg-background border-t">
+        <nav class="flex flex-col space-y-4">
+          <a href="#" class="text-sm font-medium hover:text-primary">Home</a>
+          <a href="#about" class="text-sm font-medium hover:text-primary">About</a>
+          <a href="#projects" class="text-sm font-medium hover:text-primary">Projects</a>
+          <a href="#contact" class="text-sm font-medium hover:text-primary">Contact</a>
+          <a href="resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-gradient"></div>
       
-      <p>The project began with a comprehensive analysis of existing drone delivery systems, identifying key limitations in payload capacity, flight duration, and delivery mechanism reliability. Through iterative design and simulation, I developed a novel mechanical framework that reduced overall weight by 30% while increasing payload capacity by 25%.</p>
-      
-      <p>Key innovations include:</p>
-      <ul>
-        <li>A carbon-fiber composite frame with optimized structural reinforcement at high-stress points</li>
-        <li>A patented package securing and release mechanism that accommodates various package dimensions</li>
-        <li>Aerodynamic housing that reduces drag by 15% compared to conventional designs</li>
-        <li>Vibration dampening system to protect sensitive electronics and ensure stable flight</li>
-      </ul>
-      
-      <p>The prototype underwent extensive wind tunnel testing and field trials, demonstrating exceptional performance in various weather conditions and delivery scenarios. The system has been adopted by a leading logistics company and is currently being implemented in their pilot delivery program.</p>
-    `,
-    category: "Aerospace",
-    date: "June 2023",
-    duration: "8 months",
-    client: "LogisticsTech Inc.",
-    mainImage: "/placeholder.svg?height=600&width=1200",
-    gallery: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-    ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-}
-
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects[params.slug as keyof typeof projects]
-
-  if (!project) {
-    return <div>Project not found</div>
-  }
-
-  return (
-    <div className="min-h-screen bg-background">
-      <div className="container px-4 py-12 md:px-6 md:py-20">
-        <Button variant="ghost" asChild className="mb-8">
-          <Link href="/projects">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
-          </Link>
-        </Button>
-
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <Badge className="mb-4">{project.category}</Badge>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">{project.title}</h1>
-
-            <div className="relative aspect-video overflow-hidden rounded-lg mb-8">
-              <Image src={project.mainImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+      <div class="container relative z-10 px-4 md:px-6">
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div class="space-y-4">
+            <div class="hero-badge">
+              Mechanical Engineer
             </div>
-
-            <div
-              className="prose prose-lg dark:prose-invert max-w-none mb-8"
-              dangerouslySetInnerHTML={{ __html: project.fullDescription }}
-            />
-
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Project Gallery</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {project.gallery.map((image, index) => (
-                  <div key={index} className="relative aspect-square overflow-hidden rounded-lg">
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`Project image ${index + 1}`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Project Video</h2>
-              <div className="relative aspect-video overflow-hidden rounded-lg">
-                <iframe
-                  src={project.videoUrl}
-                  title="Project Video"
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+            <h1 class="hero-title">
+              <span>Engineering</span>
+              <span class="hero-subtitle">Innovation</span>
+            </h1>
+            <p class="hero-description">
+              Transforming complex mechanical challenges into elegant, functional solutions through innovative design and precision engineering.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4">
+              <a href="#projects" class="btn btn-primary btn-lg">
+                View Projects
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="resume.pdf" target="_blank" class="btn btn-outline btn-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Resume
+              </a>
             </div>
           </div>
-
-          <div className="lg:col-span-1">
-            <div className="bg-muted/50 rounded-lg p-6 sticky top-20">
-              <h2 className="text-xl font-bold mb-4">Project Details</h2>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-3 text-primary" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Completion Date</p>
-                    <p className="font-medium">{project.date}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-3 text-primary" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Project Duration</p>
-                    <p className="font-medium">{project.duration}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <Tag className="h-5 w-5 mr-3 text-primary" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Category</p>
-                    <p className="font-medium">{project.category}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="h-5 w-5 mr-3 flex items-center justify-center text-primary">
-                    <span className="text-lg font-bold">C</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Client</p>
-                    <p className="font-medium">{project.client}</p>
-                  </div>
-                </div>
+          <div class="relative hidden lg:block">
+            <div class="hero-profile">
+              <img src="https://placehold.co/600x600" alt="Profile">
+              <div class="hero-stat">
+                <span class="text-lg font-bold">10+ Years Experience</span>
               </div>
-
-              <div className="border-t my-6"></div>
-
-              <h3 className="text-lg font-semibold mb-3">Interested in a similar project?</h3>
-              <Button asChild className="w-full">
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+              <div class="hero-stat">
+                <span class="text-lg font-bold">50+ Projects Completed</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+      <div class="hero-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary" style="transform: rotate(90deg)">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-muted">
+      <div class="container px-4 md:px-6">
+        <div class="flex flex-col items-center text-center mb-12">
+          <h2>About Me</h2>
+          <div style="width: 5rem; height: 0.375rem; background-color: var(--primary); margin-top: 1rem; margin-bottom: 2rem; border-radius: 9999px;"></div>
+        </div>
+        <div class="grid gap-12 lg:grid-cols-2 items-center">
+          <div class="space-y-4">
+            <h3>Professional Background</h3>
+            <p class="text-muted">
+              With over a decade of experience in mechanical engineering, I specialize in designing and optimizing mechanical systems for various industries including automotive, aerospace, and manufacturing. My approach combines technical expertise with creative problem-solving to deliver innovative solutions that exceed expectations.
+            </p>
+            <p class="text-muted">
+              I hold a Master's degree in Mechanical Engineering from MIT and have worked with leading companies like Tesla, Boeing, and General Electric. My work has been recognized with multiple industry awards for innovation and efficiency.
+            </p>
+            <div class="mt-4">
+              <h4 class="text-xl font-semibold mb-4">Core Skills</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">CAD Design</span>
+                <span class="skill-badge">Structural Analysis</span>
+                <span class="skill-badge">Thermal Systems</span>
+                <span class="skill-badge">Fluid Dynamics</span>
+                <span class="skill-badge">Prototyping</span>
+                <span class="skill-badge">Manufacturing</span>
+                <span class="skill-badge">Project Management</span>
+                <span class="skill-badge">3D Printing</span>
+                <span class="skill-badge">Robotics</span>
+                <span class="skill-badge">Sustainable Design</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-background p-6 rounded-lg shadow-lg border">
+              <div class="counter" data-count="120">0</div>
+              <h4 class="text-lg font-semibold mt-2">Projects Completed</h4>
+            </div>
+            <div class="bg-background p-6 rounded-lg shadow-lg border">
+              <div class="counter" data-count="15">0</div>
+              <h4 class="text-lg font-semibold mt-2">Patents Filed</h4>
+            </div>
+            <div class="bg-background p-6 rounded-lg shadow-lg border">
+              <div class="counter" data-count="25">0</div>
+              <h4 class="text-lg font-semibold mt-2">Industry Awards</h4>
+            </div>
+            <div class="bg-background p-6 rounded-lg shadow-lg border">
+              <div class="counter" data-count="10">0</div>
+              <h4 class="text-lg font-semibold mt-2">Years Experience</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24">
+      <div class="container px-4 md:px-6">
+        <div class="flex flex-col items-center text-center mb-12">
+          <h2>Featured Projects</h2>
+          <div style="width: 5rem; height: 0.375rem; background-color: var(--primary); margin-top: 1rem; margin-bottom: 2rem; border-radius: 9999px;"></div>
+          <p class="max-w-2xl text-muted md:text-lg">
+            Explore my portfolio of innovative mechanical engineering projects spanning various industries and technical challenges.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Autonomous Drone Delivery System">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Aerospace</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Autonomous Drone Delivery System</h3>
+              <p class="project-description">Designed and prototyped a mechanical system for package delivery drones, optimizing for weight, durability, and aerodynamics.</p>
+              <a href="projects/drone-delivery.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Electric Vehicle Battery Cooling">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Automotive</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Electric Vehicle Battery Cooling</h3>
+              <p class="project-description">Developed an innovative cooling system for EV batteries that improved efficiency by 35% while reducing weight and manufacturing costs.</p>
+              <a href="projects/ev-battery-cooling.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Industrial Robotic Arm">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Robotics</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Industrial Robotic Arm</h3>
+              <p class="project-description">Engineered a high-precision robotic arm for manufacturing applications with 6 degrees of freedom and advanced motion control.</p>
+              <a href="projects/robotic-arm.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Sustainable HVAC System">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Sustainable Design</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sustainable HVAC System</h3>
+              <p class="project-description">Created an energy-efficient HVAC system for commercial buildings that reduced energy consumption by 40% through innovative heat exchange.</p>
+              <a href="projects/sustainable-hvac.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Medical Device Prototype">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Medical</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Medical Device Prototype</h3>
+              <p class="project-description">Designed and prototyped a minimally invasive surgical tool with enhanced precision and ergonomics for improved patient outcomes.</p>
+              <a href="projects/medical-device.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Aerospace Component Optimization">
+              <div class="project-overlay"></div>
+              <span class="badge project-category">Aerospace</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Aerospace Component Optimization</h3>
+              <p class="project-description">Optimized critical aerospace components using topology optimization, reducing weight by 30% while maintaining structural integrity.</p>
+              <a href="projects/aerospace-optimization.html" class="project-link">
+                View Project
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex justify-center mt-12">
+          <a href="projects.html" class="btn btn-primary btn-lg">
+            View All Projects
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-muted">
+      <div class="container px-4 md:px-6">
+        <div class="flex flex-col items-center text-center mb-12">
+          <h2>Get In Touch</h2>
+          <div style="width: 5rem; height: 0.375rem; background-color: var(--primary); margin-top: 1rem; margin-bottom: 2rem; border-radius: 9999px;"></div>
+          <p class="max-w-xl text-muted md:text-lg">
+            Interested in collaborating or have a project in mind? I'd love to hear from you.
+          </p>
+        </div>
+        
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="space-y-6">
+            <div class="flex items-center space-x-4">
+              <div style="background-color: rgba(59, 130, 246, 0.1); padding: 0.75rem; border-radius: 9999px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Email</h3>
+                <p class="text-muted">contact@yourname.com</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div style="background-color: rgba(59, 130, 246, 0.1); padding: 0.75rem; border-radius: 9999px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">LinkedIn</h3>
+                <p class="text-muted">linkedin.com/in/yourname</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div style="background-color: rgba(59, 130, 246, 0.1); padding: 0.75rem; border-radius: 9999px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">GitHub</h3>
+                <p class="text-muted">github.com/yourname</p>
+              </div>
+            </div>
+          </div>
+          
+          <form class="space-y-4 bg-background p-6 rounded-lg shadow-lg border">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="space-y-2">
+                <label for="name" class="text-sm font-medium">Name</label>
+                <input id="name" class="input" placeholder="Your name">
+              </div>
+              <div class="space-y-2">
+                <label for="email" class="text-sm font-medium">Email</label>
+                <input id="email" type="email" class="input" placeholder="Your email">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label for="subject" class="text-sm font-medium">Subject</label>
+              <input id="subject" class="input" placeholder="Subject">
+            </div>
+            <div class="space-y-2">
+              <label for="message" class="text-sm font-medium">Message</label>
+              <textarea id="message" class="textarea" placeholder="Your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-8 md:py-12">
+      <div class="container px-4 md:px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-xl">Your Name</span>
+            <span class="text-muted">|</span>
+            <span class="text-muted">Mechanical Engineer</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="text-muted hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a href="#" class="text-muted hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span class="sr-only">GitHub</span>
+            </a>
+            <a href="#" class="text-muted hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span class="sr-only">Email</span>
+            </a>
+          </div>
+          <div class="text-sm text-muted">
+            © <span id="current-year"></span> Your Name. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      
+      // Change the icon
+      if (mobileMenu.classList.contains('open')) {
+        mobileMenuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+      } else {
+        mobileMenuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        `;
+      }
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        `;
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+    
+    // Animated Counters
+    const counters = document.querySelectorAll('.counter');
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const count = parseInt(counter.innerText);
+        const increment = target / 100;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 20);
+        } else {
+          counter.innerText = target + '+';
+        }
+      });
+    };
+    
+    // Intersection Observer for counters
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    if (counters.length > 0) {
+      observer.observe(document.querySelector('.counter').parentNode.parentNode);
+    }
+    
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
