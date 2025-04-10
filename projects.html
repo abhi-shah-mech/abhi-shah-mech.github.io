@@ -6,17 +6,25 @@
 <title>Projects | Abhishek Shah - Mechanical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* Base Styles */
   :root {
-    --background: #ffffff;
-    --foreground: #0f172a;
-    --primary: #3b82f6;
+    --background: #0f172a;
+    --foreground: #ffffff;
+    --primary: #8b5cf6;
+    --primary-light: #a78bfa;
+    --primary-dark: #7c3aed;
     --primary-foreground: #f8fafc;
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
-    --border: #e2e8f0;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --border: #334155;
+    --card: #1e293b;
+    --card-foreground: #ffffff;
+    --accent: #10b981;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --destructive-foreground: #f8fafc;
   }
 
   * {
@@ -30,6 +38,11 @@
     color: var(--foreground);
     background-color: var(--background);
     line-height: 1.5;
+    background-image: 
+      radial-gradient(circle at 25% 10%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+    scroll-behavior: smooth;
   }
 
   .container {
@@ -46,12 +59,31 @@
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
 
   h2 {
     font-size: 2.25rem;
     margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 2px;
   }
 
   h3 {
@@ -71,6 +103,10 @@
   /* Utility Classes */
   .text-primary {
     color: var(--primary);
+  }
+
+  .text-accent {
+    color: var(--accent);
   }
 
   .text-muted {
@@ -164,6 +200,10 @@
     padding: 1.5rem;
   }
 
+  .p-8 {
+    padding: 2rem;
+  }
+
   .mb-2 {
     margin-bottom: 0.5rem;
   }
@@ -200,24 +240,12 @@
     margin-top: 3rem;
   }
 
+  .mt-16 {
+    margin-top: 4rem;
+  }
+
   .mt-24 {
     margin-top: 6rem;
-  }
-
-  .ml-2 {
-    margin-left: 0.5rem;
-  }
-
-  .mr-2 {
-    margin-right: 0.5rem;
-  }
-
-  .mr-3 {
-    margin-right: 0.75rem;
-  }
-
-  .space-y-2 > * + * {
-    margin-top: 0.5rem;
   }
 
   .space-y-4 > * + * {
@@ -228,36 +256,20 @@
     margin-top: 1.5rem;
   }
 
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+
+  .space-y-16 > * + * {
+    margin-top: 4rem;
+  }
+
   .grid {
     display: grid;
   }
 
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .w-full {
-    width: 100%;
-  }
-
-  .max-w-md {
-    max-width: 28rem;
-  }
-
-  .max-w-lg {
-    max-width: 32rem;
-  }
-
-  .max-w-xl {
-    max-width: 36rem;
-  }
-
-  .max-w-2xl {
-    max-width: 42rem;
   }
 
   .rounded-full {
@@ -268,6 +280,14 @@
     border-radius: 0.5rem;
   }
 
+  .rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+
   .border {
     border: 1px solid var(--border);
   }
@@ -276,8 +296,16 @@
     border-top: 1px solid var(--border);
   }
 
+  .border-b {
+    border-bottom: 1px solid var(--border);
+  }
+
   .shadow-lg {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .relative {
@@ -311,10 +339,6 @@
     right: 0;
   }
 
-  .bottom-8 {
-    bottom: 2rem;
-  }
-
   .z-10 {
     z-index: 10;
   }
@@ -327,36 +351,16 @@
     overflow: hidden;
   }
 
-  .h-screen {
-    height: 100vh;
-  }
-
   .min-h-screen {
     min-height: 100vh;
   }
 
-  .object-cover {
-    object-fit: cover;
-  }
-
-  .opacity-20 {
-    opacity: 0.2;
+  .opacity-0 {
+    opacity: 0;
   }
 
   .hidden {
     display: none;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 
   /* Components */
@@ -364,39 +368,71 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     font-weight: 500;
     padding: 0.625rem 1.25rem;
-    transition: all 0.2s;
+    transition: all 0.3s;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+
+  .btn:hover::before {
+    width: 100%;
   }
 
   .btn-primary {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: var(--primary-foreground);
+    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
   }
 
   .btn-primary:hover {
-    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
   }
 
   .btn-outline {
     background-color: transparent;
     border: 1px solid var(--border);
+    box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.1);
   }
 
   .btn-outline:hover {
-    background-color: var(--muted);
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
   }
 
   .btn-lg {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     font-size: 1.125rem;
   }
 
-  .btn-sm {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
+  .btn-white {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--background);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-white:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
   }
 
   .badge {
@@ -404,35 +440,242 @@
     align-items: center;
     border-radius: 9999px;
     padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    background-color: rgba(59, 130, 246, 0.1);
-    color: var(--primary);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(16, 185, 129, 0.2));
+    color: var(--primary-light);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
   }
 
-  .card {
-    background-color: var(--background);
-    border-radius: 0.5rem;
-    border: 1px solid var(--border);
+  .badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  }
+
+  /* Glassmorphism Card */
+  .glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  }
+
+  /* Project Card */
+  .project-card {
+    position: relative;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 1rem;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
   }
 
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(16, 185, 129, 0.1));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+  }
+
+  .project-image {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    background-color: rgba(15, 23, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: all 0.5s ease;
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover .project-title {
+    transform: translateX(5px);
+  }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    overflow-y: auto;
+    padding: 2rem 1rem;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal.open {
+    display: flex;
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+  }
+
+  .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+  }
+
+  .modal.open .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #4b5563;
+    transition: all 0.3s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--destructive);
+    transform: rotate(90deg);
+  }
+
+  .modal-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #0f172a;
+    position: relative;
+  }
+
+  .modal-body {
+    white-space: pre-line;
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .modal-image {
+    height: 12rem;
+    background-color: #e5e7eb;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .modal-video {
+    height: 12rem;
+    background-color: #d1d5db;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   /* Header */
   .header {
     transition: all 0.3s;
-  }
-
-  .header-scrolled {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   /* Navigation */
@@ -440,254 +683,176 @@
     position: relative;
     font-weight: 500;
     padding: 0.5rem;
-    transition: color 0.2s;
+    transition: all 0.3s;
   }
 
   .nav-link:hover {
-    color: var(--primary);
+    color: var(--primary-light);
   }
 
   .nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 0;
     height: 2px;
-    background-color: var(--primary);
-    transition: width 0.3s;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    transition: width 0.3s ease, left 0.3s ease;
   }
 
   .nav-link:hover::after {
     width: 100%;
+    left: 0;
   }
 
   /* Mobile Menu */
   .mobile-menu {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
   }
 
   .mobile-menu.open {
     max-height: 300px;
+    transition: max-height 0.5s ease-in-out;
   }
 
-  /* Project Card */
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    border: 1px solid var(--border);
-    background-color: var(--background);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
-  .project-image {
-    position: relative;
-    height: 16rem;
-    overflow: hidden;
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
   }
 
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
-  .project-card:hover .project-image img {
-    transform: scale(1.1);
-  }
-
-  .project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.7), transparent);
+  .animate-on-scroll {
     opacity: 0;
-    transition: opacity 0.3s;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
   }
 
-  .project-card:hover .project-overlay {
-    opacity: 1;
+  .animate-fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 
-  .project-category {
+  .animate-pulse {
+    animation: pulse 3s infinite ease-in-out;
+  }
+
+  .animate-float {
+    animation: float 6s infinite ease-in-out;
+  }
+
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Decorative Elements */
+  .circle-decoration {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 10;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    opacity: 0.1;
+    z-index: -1;
   }
 
-  .project-content {
-    padding: 1.5rem;
+  .circle-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -150px;
   }
 
-  .project-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-description {
-    color: var(--muted-foreground);
-    margin-bottom: 1rem;
-  }
-
-  .project-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--primary);
-    font-weight: 500;
-  }
-
-  .project-link:hover {
-    text-decoration: underline;
-  }
-
-  .project-link svg {
-    margin-left: 0.5rem;
-    transition: transform 0.2s;
-  }
-
-  .project-link:hover svg {
-    transform: translateX(5px);
-  }
-
-  /* Filter */
-  .filter-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    border: 1px solid var(--border);
-  }
-
-  .filter-btn:hover {
-    background-color: var(--muted);
-  }
-
-  .filter-btn.active {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
-    border-color: var(--primary);
+  .circle-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    right: -100px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
   }
 
   /* Responsive */
   @media (min-width: 640px) {
-    .sm\:text-5xl {
-      font-size: 3rem;
-    }
-
-    .sm\:flex-row {
-      flex-direction: row;
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (min-width: 768px) {
-    .md\:text-xl {
-      font-size: 1.25rem;
-    }
-
-    .md\:text-6xl {
-      font-size: 3.75rem;
-    }
-
     .md\:grid-cols-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .md\:flex-row {
-      flex-direction: row;
-    }
-
-    .md\:px-6 {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-
-    .md\:py-12 {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-
-    .md\:py-24 {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-    .md\:block {
-      display: block;
-    }
-
-    .md\:hidden {
-      display: none;
     }
 
     .md\:flex {
       display: flex;
     }
+
+    .md\:hidden {
+      display: none;
+    }
   }
 
   @media (min-width: 1024px) {
-    .lg\:text-7xl {
-      font-size: 4.5rem;
-    }
-
-    .lg\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .lg\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .lg\:col-span-2 {
-      grid-column: span 2 / span 2;
-    }
-
-    .lg\:col-span-1 {
-      grid-column: span 1 / span 1;
-    }
-
-    .lg\:gap-12 {
-      gap: 3rem;
-    }
-
-    .lg\:block {
-      display: block;
-    }
-
-    .lg\:hidden {
-      display: none;
     }
   }
 </style>
 </head>
 <body>
+<!-- Decorative Elements -->
+<div class="circle-decoration circle-1"></div>
+<div class="circle-decoration circle-2"></div>
+
 <!-- Header -->
 <header class="fixed top-0 left-0 right-0 z-50 header" id="header">
   <div class="container">
     <div class="flex items-center justify-between py-4">
-      <a href="index.html" class="font-bold text-xl">
+      <a href="#" class="font-bold text-xl">
         <span class="text-primary">Abhishek Shah</span> Portfolio
       </a>
       
       <nav class="hidden md:flex items-center gap-6">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="projects.html" class="nav-link text-primary">Projects</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="#" class="nav-link" id="home-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link text-primary">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
         <a href="abhishek-shah-resume.pdf" download class="btn btn-primary btn-sm">Resume</a>
       </nav>
       
@@ -702,12 +867,12 @@
   </div>
   
   <div class="mobile-menu md:hidden" id="mobile-menu">
-    <div class="container py-4 bg-background border-t">
+    <div class="container py-4 border-t border-border">
       <nav class="flex flex-col space-y-4">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="projects.html" class="nav-link text-primary">Projects</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="#" class="nav-link" id="mobile-home-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link text-primary">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
         <a href="abhishek-shah-resume.pdf" download class="btn btn-primary">Resume</a>
       </nav>
     </div>
@@ -715,298 +880,240 @@
 </header>
 
 <div class="min-h-screen">
-  <!-- Page Header -->
-  <section class="py-16 md:py-24 bg-muted mt-24">
-    <div class="container px-4 md:px-6">
-      <div class="flex flex-col items-center text-center mb-12">
-        <h1 class="text-4xl font-bold mb-4">My Projects</h1>
-        <div style="width: 5rem; height: 0.375rem; background-color: var(--primary); margin-top: 1rem; margin-bottom: 2rem; border-radius: 9999px;"></div>
-        <p class="max-w-2xl text-muted md:text-lg">
-          A comprehensive showcase of my mechanical engineering projects across various industries and technical domains.
-        </p>
+  <div class="container space-y-16 py-16">
+    <!-- Hero Section -->
+    <section class="text-center space-y-8 animate-on-scroll mt-24">
+      <h1 class="text-5xl font-extrabold">Engineering Portfolio</h1>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        Solving complex engineering problems with innovative mechanical design and cross-disciplinary collaboration.
+      </p>
+      <div class="animate-float">
+        <a href="abhishek-shah-resume.pdf" download class="btn btn-white btn-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume
+        </a>
       </div>
-      
-      <!-- Project Filters -->
-      <div class="flex flex-wrap justify-center gap-2 mb-12">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="robotics">Robotics</button>
-        <button class="filter-btn" data-filter="consumer">Consumer Electronics</button>
-        <button class="filter-btn" data-filter="medical">Medical</button>
-        <button class="filter-btn" data-filter="safety">Safety Systems</button>
-        <button class="filter-btn" data-filter="av">A/V Systems</button>
-        <button class="filter-btn" data-filter="navigation">Navigation</button>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Grid -->
-  <section class="py-16">
-    <div class="container px-4 md:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Profile Section -->
+    <section class="flex justify-center animate-on-scroll">
+      <div class="w-48 h-48 bg-muted rounded-full shadow-inner flex items-center justify-center text-muted-foreground text-sm transition duration-500 ease-in-out hover:shadow-purple-500/40 hover:scale-105 animate-pulse relative overflow-hidden">
+        <img src="https://placehold.co/200x200" alt="Abhishek Shah" class="w-full h-full rounded-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="glass-card shadow-xl rounded-2xl p-8 space-y-4 animate-on-scroll relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl"></div>
+      <h2 class="text-3xl font-bold border-b border-border pb-2 relative z-10">About Me</h2>
+      <p class="text-muted-foreground text-lg leading-relaxed relative z-10">
+        With over 11 years of experience in mechanical engineering, I specialize in designing and optimizing mechanical systems for various industries including robotics, automation, consumer electronics, oil & gas, and medical. My approach combines technical expertise with creative problem-solving to deliver innovative solutions that exceed expectations.
+      </p>
+      <p class="text-muted-foreground text-lg leading-relaxed relative z-10">
+        I hold a Bachelor's degree in Mechatronics Engineering from Ontario Tech University and have worked with leading companies across multiple industries. My work has been recognized with multiple patents for innovation and efficiency.
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="space-y-8 animate-on-scroll">
+      <h2 class="text-3xl font-bold text-center">Featured Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card" data-category="robotics">
+        <div class="project-card stagger-item" data-project="0">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Underground Autonomous Delivery System">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Robotics</span>
+            <span>Insert Testing/Installed Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Underground Autonomous Delivery System</h3>
-            <p class="project-description">Led end-to-end development of multiple subsystems for an underground autonomous delivery solution, culminating in a successful deployment at a customer site in Dallas.</p>
-            <a href="projects/underground-delivery.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Underground Restaurant Drive Thru</h3>
+            <p class="text-muted-foreground mb-4">End-to-end development of multiple subsystems for an underground autonomous delivery solution.</p>
+            <span class="badge">Robotics</span>
           </div>
         </div>
         
         <!-- Project 2 -->
-        <div class="project-card" data-category="consumer">
+        <div class="project-card stagger-item" data-project="1">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Luxury Consumer Electronic Product">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Consumer Electronics</span>
+            <span>Insert CAD Image or Video Placeholder</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Luxury Consumer Electronic Product</h3>
-            <p class="project-description">Designed a luxury consumer electronic product with complex mechanisms including a telescopic stand, cam-driven lever, and friction-based user interface.</p>
-            <a href="projects/luxury-electronics.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Baseball 4-Way Junction</h3>
+            <p class="text-muted-foreground mb-4">Enable AUTTR to selectively traverse straight, right, or left with turntable pre-positioning.</p>
+            <span class="badge">Robotics</span>
           </div>
         </div>
         
         <!-- Project 3 -->
-        <div class="project-card" data-category="medical">
+        <div class="project-card stagger-item" data-project="2">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Medical Device for Cornea Graft">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Medical</span>
+            <span>Insert Product Feature Image or Video Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Medical Device for Cornea Graft</h3>
-            <p class="project-description">Designed a medical device for cornea graft tissue transplant with University of Miami, resulting in a patented solution (U.S. Patent #11957569).</p>
-            <a href="projects/medical-device.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Cosmetic Mirror</h3>
+            <p class="text-muted-foreground mb-4">Luxury cosmetic mirror with dual magnification, LED ring with adjustable brightness.</p>
+            <span class="badge">Consumer Electronics</span>
           </div>
         </div>
         
         <!-- Project 4 -->
-        <div class="project-card" data-category="safety">
+        <div class="project-card stagger-item" data-project="3">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Personal Gas Detector">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Safety Systems</span>
+            <span>Insert Device Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Personal Gas Detector</h3>
-            <p class="project-description">Developed a personal gas detector for Shepard Safety Systems, enhancing workplace safety through innovative design and reliable detection capabilities.</p>
-            <a href="projects/gas-detector.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Personal Dual Gas Detector</h3>
+            <p class="text-muted-foreground mb-4">A handheld dual gas detector for CO and H₂S with accurate detection capabilities.</p>
+            <span class="badge">Safety Systems</span>
           </div>
         </div>
         
         <!-- Project 5 -->
-        <div class="project-card" data-category="av">
+        <div class="project-card stagger-item" data-project="4">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Audio/Video Conferencing System">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">A/V Systems</span>
+            <span>Insert Medical Device Diagram or Microscope View Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Audio/Video Conferencing System</h3>
-            <p class="project-description">Optimized product design to achieve a 30% cost reduction on a high-volume audio/video conferencing product through strategic redesign initiatives.</p>
-            <a href="projects/av-system.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Graft Tissue Injector and Storage</h3>
+            <p class="text-muted-foreground mb-4">End-to-end mechanical development for custom syringe & storage with patent.</p>
+            <span class="badge">Medical</span>
           </div>
         </div>
         
         <!-- Project 6 -->
-        <div class="project-card" data-category="navigation">
+        <div class="project-card stagger-item" data-project="5">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="GPS and GNSS Systems">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Navigation</span>
+            <span>Insert Cable Spool CAD or Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">GPS and GNSS Systems</h3>
-            <p class="project-description">Optimized electromechanical packaging design to enhance product reliability, performance, and cost efficiency for precision GPS and GNSS systems.</p>
-            <a href="projects/gps-systems.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">ICON Wire Chain Spool</h3>
+            <p class="text-muted-foreground mb-4">Simplify 800 lbs cable chain spooling with two-way drive and pawl + ratchet system.</p>
+            <span class="badge">Industrial</span>
           </div>
         </div>
         
         <!-- Project 7 -->
-        <div class="project-card" data-category="robotics">
+        <div class="project-card stagger-item" data-project="6">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Robotic Arm for Manufacturing">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Robotics</span>
+            <span>Insert Before/After Comparison Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Robotic Arm for Manufacturing</h3>
-            <p class="project-description">Designed a precision robotic arm for manufacturing applications with 6 degrees of freedom, enhancing production efficiency and accuracy.</p>
-            <a href="projects/robotic-arm.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Laser Fat Removal Belt – Cost Reduction</h3>
+            <p class="text-muted-foreground mb-4">Redesign existing product enclosure achieving 40% cost savings.</p>
+            <span class="badge">Medical</span>
           </div>
         </div>
         
         <!-- Project 8 -->
-        <div class="project-card" data-category="consumer">
+        <div class="project-card stagger-item" data-project="7">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Smart Home Device">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Consumer Electronics</span>
+            <span>Insert Android-Cam Setup Image or Video Screenshot</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Smart Home Device</h3>
-            <p class="project-description">Developed an innovative smart home control device with intuitive user interface and seamless integration with existing home automation systems.</p>
-            <a href="projects/smart-home.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Android-Cam</h3>
+            <p class="text-muted-foreground mb-4">Interface backup camera with Android devices using off-the-shelf components.</p>
+            <span class="badge">Consumer Electronics</span>
           </div>
         </div>
         
         <!-- Project 9 -->
-        <div class="project-card" data-category="medical">
+        <div class="project-card stagger-item" data-project="8">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Portable Medical Diagnostic Device">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Medical</span>
+            <span>Insert Testing Track Layout Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Portable Medical Diagnostic Device</h3>
-            <p class="project-description">Engineered a compact, portable diagnostic device for point-of-care testing, improving accessibility to medical diagnostics in remote areas.</p>
-            <a href="projects/medical-diagnostic.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Torture Track</h3>
+            <p class="text-muted-foreground mb-4">Test cart dynamics under install tolerances with four corner profiles with offsets.</p>
+            <span class="badge">Testing</span>
           </div>
         </div>
         
         <!-- Project 10 -->
-        <div class="project-card" data-category="safety">
+        <div class="project-card stagger-item" data-project="9">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Industrial Safety System">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Safety Systems</span>
+            <span>Insert Stress Test Image Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Industrial Safety System</h3>
-            <p class="project-description">Designed a comprehensive safety monitoring system for industrial environments, reducing workplace accidents by 45% in the first year of implementation.</p>
-            <a href="projects/industrial-safety.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Pull Test Rail Bracket</h3>
+            <p class="text-muted-foreground mb-4">Rail joiner that resists full pull force without damage, supporting over 2500 lbs.</p>
+            <span class="badge">Industrial</span>
           </div>
         </div>
         
         <!-- Project 11 -->
-        <div class="project-card" data-category="av">
+        <div class="project-card stagger-item" data-project="10">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Immersive Audio System">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">A/V Systems</span>
+            <span>Insert Track CAD or Animation Placeholder</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Immersive Audio System</h3>
-            <p class="project-description">Created an innovative spatial audio system with custom-designed acoustic components, delivering an immersive listening experience for commercial applications.</p>
-            <a href="projects/immersive-audio.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Track Switcher</h3>
+            <p class="text-muted-foreground mb-4">Enable selective straight/right traversal with stepper + lead screw + sensors.</p>
+            <span class="badge">Robotics</span>
           </div>
         </div>
         
         <!-- Project 12 -->
-        <div class="project-card" data-category="navigation">
+        <div class="project-card stagger-item" data-project="11">
           <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Precision Navigation System">
-            <div class="project-overlay"></div>
-            <span class="badge project-category">Navigation</span>
+            <span>Insert ERP Screenshot Here</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Precision Navigation System</h3>
-            <p class="project-description">Developed a high-precision navigation system for autonomous vehicles, achieving sub-centimeter accuracy in challenging environments.</p>
-            <a href="projects/precision-navigation.html" class="project-link">
-              View Project
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <h3 class="project-title">Custom ERP System</h3>
+            <p class="text-muted-foreground mb-4">Full-stack dev using Google Apps Script for BOM flattener + unique part ID generation.</p>
+            <span class="badge">Software</span>
           </div>
         </div>
       </div>
-      
-      <div class="flex justify-center mt-12">
-        <a href="index.html" class="btn btn-outline btn-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          Back to Home
-        </a>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="glass-card shadow-xl rounded-2xl p-8 space-y-6 animate-on-scroll">
+      <h2 class="text-3xl font-bold">Get In Touch</h2>
+      <div class="space-y-4">
+        <p class="text-lg text-muted-foreground">
+          Interested in working together? Feel free to reach out through any of the following channels:
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <a href="mailto:abhishekshah7@gmail.com" class="hover:text-primary transition-colors">abhishekshah7@gmail.com</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="tel:7372034804" class="hover:text-primary transition-colors">(737) 203-4804</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <a href="https://www.linkedin.com/in/ashah-mecheng" target="_blank" class="hover:text-primary transition-colors">linkedin.com/in/ashah-mecheng</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Footer -->
-  <footer class="border-t py-8 md:py-12">
+  <footer class="border-t border-border py-8 md:py-12 mt-16 glass-card">
     <div class="container px-4 md:px-6">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-2">
           <span class="font-bold text-xl">Abhishek Shah</span>
-          <span class="text-muted">|</span>
-          <span class="text-muted">Mechanical Engineer</span>
+          <span class="text-muted-foreground">|</span>
+          <span class="text-muted-foreground">Mechanical Engineer</span>
         </div>
         <div class="flex items-center gap-4">
-          <a href="https://www.linkedin.com/in/ashah-mecheng" class="text-muted hover:text-primary">
+          <a href="https://www.linkedin.com/in/ashah-mecheng" class="text-muted-foreground hover:text-primary transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
@@ -1014,21 +1121,21 @@
             </svg>
             <span class="sr-only">LinkedIn</span>
           </a>
-          <a href="mailto:abhishekshah7@gmail.com" class="text-muted hover:text-primary">
+          <a href="mailto:abhishekshah7@gmail.com" class="text-muted-foreground hover:text-primary transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             <span class="sr-only">Email</span>
           </a>
-          <a href="tel:7372034804" class="text-muted hover:text-primary">
+          <a href="tel:7372034804" class="text-muted-foreground hover:text-primary transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <span class="sr-only">Phone</span>
           </a>
         </div>
-        <div class="text-sm text-muted">
+        <div class="text-sm text-muted-foreground">
           © <span id="current-year"></span> Abhishek Shah. All rights reserved.
         </div>
       </div>
@@ -1036,21 +1143,191 @@
   </footer>
 </div>
 
-<!-- Resume download script -->
+<!-- Project Modal -->
+<div class="modal" id="project-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <h3 class="modal-title" id="modal-title">Project Title</h3>
+    <div class="modal-body" id="modal-details">Project details will appear here.</div>
+    <div class="modal-image">Image Placeholder</div>
+    <div class="modal-video">Video Placeholder</div>
+  </div>
+</div>
+
 <script>
-  // Create a Blob with the PDF data and create a download link
+  // Project data
+  const projects = [
+    {
+      title: "Underground Restaurant Drive Thru",
+      details: `REQUIREMENTS: Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to an AUTTR.
+
+RESPONSIBILITIES: Product owner and mechanical engineer for Input Portal and Caching System: Industrial Design, Mech. Design, Project Planning, Controls Planning, Testing, Assembly.
+
+RESULTS:
+- Passed equivalent of two months of continuous use testing
+- Designed slider + cam-lock mechanism electrical box
+- Custom spring-loaded plunger mechanism
+- Stepper-actuated belt & pulley system with full sensor suite
+- CAD Master Model for system integration`,
+      placeholder: "Insert Testing/Installed Image Here"
+    },
+    {
+      title: "Baseball 4-Way Junction",
+      details: `REQUIREMENTS: Enable AUTTR to selectively traverse straight, right, or left.
+
+RESPONSIBILITIES: End-to-end mechanical development, requirements, scheduling, mech. design, controls planning, assembly/testing.
+
+RESULTS:
+- Turntable pre-positions track in <1 second
+- Serviceable in underground vaults
+- Stepper motor with gearbox + flexible coupler
+- Variable turn radius
+- Flag sensors for position confirmation`,
+      placeholder: "Insert CAD Image or Video Placeholder"
+    },
+    {
+      title: "Cosmetic Mirror",
+      details: `REQUIREMENTS: Luxury Cosmetic Mirror with dual magnification, LED ring with adjustable brightness, long telescopic adjustability
+
+RESPONSIBILITIES: Mechanical Design, Project Scheduling, Vendor Management
+
+RESULTS:
+- Suction cup using cams, levers, springs
+- Tri-section telescopic arm with power/data
+- Ergonomic friction joints
+- Swivel joint w/ 3 DOF & power continuity
+- LED ring with shallow throw, no hotspots`,
+      placeholder: "Insert Product Feature Image or Video Here"
+    },
+    {
+      title: "Personal Dual Gas Detector",
+      details: `REQUIREMENTS: A handheld dual gas detector for CO and H₂S
+
+RESPONSIBILITIES: Industrial Design, Mechanical Design, vendor development, testing, documentation, client engagement
+
+RESULTS:
+- Accurate CO/H₂S detection
+- Produced at 10K units/year
+- Passed IS & CSA standards
+- Drop, leak, impact & thermal tested`,
+      placeholder: "Insert Device Image Here"
+    },
+    {
+      title: "Graft Tissue Injector and Storage",
+      details: `REQUIREMENTS: End-to-end mechanical development for custom syringe & storage
+
+RESPONSIBILITIES: Mechanical Design, vendor development, patent drafting
+
+RESULTS:
+- Co-inventor of US Patent #11957569
+- Microscope-inspectable tissue storage
+- Custom injector + adapter
+- Sterile manufacturing`,
+      placeholder: "Insert Medical Device Diagram or Microscope View Here"
+    },
+    {
+      title: "ICON Wire Chain Spool",
+      details: `REQUIREMENTS: Simplify 800 lbs cable chain spooling
+
+RESPONSIBILITIES: Concept design to production for cable spooling mechanism
+
+RESULTS:
+- Two-way drive with pawl + ratchet
+- Single-person use gearbox
+- Caster with V-groove + forklift points
+- Manual lockout`,
+      placeholder: "Insert Cable Spool CAD or Image Here"
+    },
+    {
+      title: "Laser Fat Removal Belt – Cost Reduction",
+      details: `REQUIREMENTS: Redesign existing product enclosure
+
+RESPONSIBILITIES: Mechanical redesign, cost optimization
+
+RESULTS:
+- 40% cost savings
+- Maintained vendor and functionality`,
+      placeholder: "Insert Before/After Comparison Image Here"
+    },
+    {
+      title: "Android-Cam",
+      details: `REQUIREMENTS: Interface backup camera with Android devices
+
+RESPONSIBILITIES: Hardware and integration prototyping
+
+RESULTS:
+- Used off-the-shelf backup camera
+- Worked with Android phone display
+- Demo video uploaded`,
+      placeholder: "Insert Android-Cam Setup Image or Video Screenshot"
+    },
+    {
+      title: "Torture Track",
+      details: `REQUIREMENTS: Test cart dynamics under install tolerances
+
+RESPONSIBILITIES: Mech. Design, Track Geometry Testing
+
+RESULTS:
+- Four corner profiles with offsets
+- Test high-speed behavior
+- Simulated magnetic suspension load`,
+      placeholder: "Insert Testing Track Layout Image Here"
+    },
+    {
+      title: "Pull Test Rail Bracket",
+      details: `REQUIREMENTS: Rail joiner that resists full pull force without damage
+
+RESPONSIBILITIES: Bracket design and validation
+
+RESULTS:
+- Supports over 2500 lbs
+- Conforms to pipe using 2 DOF
+- Optimized for cost`,
+      placeholder: "Insert Stress Test Image Here"
+    },
+    {
+      title: "Track Switcher",
+      details: `REQUIREMENTS: Enable selective straight/right traversal
+
+RESPONSIBILITIES: Mech. Design, Project Management, Assembly
+
+RESULTS:
+- Compact vs 4-way junction
+- Stepper + lead screw + sensors
+- Synchronization logic
+- Built off torture track insights`,
+      placeholder: "Insert Track CAD or Animation Placeholder"
+    },
+    {
+      title: "Custom ERP System",
+      details: `REQUIREMENTS: Learn HTML/JS and automate BOMs
+
+RESPONSIBILITIES: Full-stack dev using Google Apps Script
+
+RESULTS:
+- BOM flattener + unique part ID generation
+- Standard naming convention
+- Streamlined procurement with vendors`,
+      placeholder: "Insert ERP Screenshot Here"
+    }
+  ];
+
   document.addEventListener('DOMContentLoaded', function() {
-    // This would normally be where we'd set up the PDF data
-    // For now, we'll just create a placeholder PDF file
-    
     // Set up event listeners for the resume download buttons
     const resumeLinks = document.querySelectorAll('a[href="abhishek-shah-resume.pdf"]');
     resumeLinks.forEach(link => {
       link.addEventListener('click', function(e) {
+        // We'll keep this for now, but it will be replaced when the actual PDF is provided
+        console.log("Resume download initiated");
+      });
+    });
+    
+    // Home link - refresh the page
+    const homeLinks = document.querySelectorAll('#home-link, #mobile-home-link');
+    homeLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        // In a real implementation, this would download the actual PDF
-        // For now, we'll just alert the user
-        alert("In a real implementation, this would download Abhishek Shah's resume PDF.");
+        window.location.reload();
       });
     });
     
@@ -1095,6 +1372,26 @@
       });
     });
     
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
     // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -1108,29 +1405,87 @@
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Project filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        // Get filter value
-        const filterValue = button.getAttribute('data-filter');
-        
-        // Filter projects
-        projectCards.forEach(card => {
-          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
+    // Intersection Observer for animations
+    const animatedSections = document.querySelectorAll(".animate-on-scroll");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
+      },
+      { threshold: 0.1 }
+    );
+
+    animatedSections.forEach(section => observer.observe(section));
+    
+    // Staggered animation for project cards
+    const staggerItems = document.querySelectorAll('.stagger-item');
+    const staggerObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add staggered delay based on index
+            setTimeout(() => {
+              entry.target.style.animation = `slideUp 0.6s ease-out forwards`;
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    staggerItems.forEach(item => staggerObserver.observe(item));
+    
+    // Project Modal
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDetails = document.getElementById('modal-details');
+    const modalClose = document.getElementById('modal-close');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const projectIndex = card.getAttribute('data-project');
+        const project = projects[projectIndex];
+        
+        modalTitle.textContent = project.title;
+        modalDetails.textContent = project.details;
+        
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Add hover effect to project cards
+    projectCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) scale(1.02)';
+        card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(139, 92, 246, 0.3)';
+        card.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+        card.style.borderColor = '';
       });
     });
   });
