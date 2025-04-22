@@ -15,7 +15,7 @@ export default function VideoCard({ video }) {
           alt={video.description}
           className="rounded-box object-contain w-full aspect-square"
         />
-        <div className="absolute bg-neutral/75 text-md lg:text-sm bottom-0 rounded-b-box p-2 right-0 left-0">
+        <div className="absolute text-center bg-neutral/75 text-md lg:text-sm bottom-0 rounded-b-box p-2 right-0 left-0">
           {video.description}
         </div>
       </div>
