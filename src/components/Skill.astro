@@ -1,0 +1,15 @@
+---
+import settings from "../../config/settings.yaml";
+const { title, description, image } = Astro.props;
+const imageURL = `${settings.base_url}/skills/${image}`;
+---
+
+<div
+  class="relative group flex transition-all duration-500 hover:scale-105 items-center bg-white/10 p-8 rounded-box shadow-sm flex-col gap-4 overflow-hidden"
+>
+  <div class="rounded-full bg-base-200 p-4 size-24 z-10">
+    <img src={imageURL} class="w-auto" />
+  </div>
+  <h3 class="text-lg font-bold text-accent text-center z-10">{title}</h3>
+  <p class="text-center text-base-300 z-10">{description}</p>
+</div>

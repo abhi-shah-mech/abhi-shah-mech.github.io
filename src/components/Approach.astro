@@ -1,0 +1,41 @@
+---
+import approach from "../../contents/approach.yaml";
+---
+
+<section class="container py-16 mx-auto px-4">
+    <h2 class="text-center mb-16 text-4xl text-secondary font-bold">
+        {approach.approach_title}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+            approach.items.map((item: any, index: number) => {
+                if (index == 1) {
+                    return (
+                        <div class="flex bg-gradient-to-r p-[2px] from-purple-500 via-pink-500 to-yellow-500 animate-border bg-[length:200%_200%] relative flex-col border-zinc-700 border-2 rounded-box space-y-4">
+                            <div class="bg-neutral flex flex-col space-y-4 rounded-box p-8">
+                                <strong class="text-center text-9xl font-extralight text-accent">
+                                    {index + 1}
+                                </strong>
+                                <h3 class="text-accent text-center text-2xl font-semibold">
+                                    {item.title}
+                                </h3>
+                                <p class="text-center">{item.description}</p>
+                            </div>
+                        </div>
+                    );
+                }
+                return (
+                    <div class="flex flex-col space-y-4 border-2 border-zinc-600 rounded-box p-8">
+                        <strong class="text-center text-6xl md:text-9xl font-extralight text-accent">
+                            {index + 1}
+                        </strong>
+                        <h3 class="text-accent text-center text-2xl font-semibold">
+                            {item.title}
+                        </h3>
+                        <p class="text-center">{item.description}</p>
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>

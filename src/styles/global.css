@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: cupcake;
+}
+@plugin '@tailwindcss/typography';
+
+body {
+    font-family: Inter, sans-serif;
+    @apply bg-gradient-to-b from-[#000319] to-[#1a1a1a];
+    @apply min-h-screen;
+    @apply text-base-100;
+}
+
+li::marker {
+    @apply text-base-100;
+}
+
+.animate-border {
+    animation: borderAnim 2s linear infinite;
+}
+
+@keyframes borderAnim {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import projects from "../../contents/projects.yaml";
+import ProjectCard from "./ProjectCard.astro";
+const items = await getCollection("projects");
+---
+
+<section
+    id="portfolio"
+    class="py-16 flex flex-col gap-4 items-center justify-center container mx-auto px-4"
+>
+    <h2 class="text-4xl mb-8 text-secondary font-bold text-center">
+        {projects.projects_title}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {
+            items.map((item, index) => {
+                return <ProjectCard data={item} key={index} />;
+            })
+        }
+    </div>
+</section>

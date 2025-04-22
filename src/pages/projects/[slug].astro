@@ -1,0 +1,71 @@
+---
+import { getCollection, render } from "astro:content";
+import { ArrowLeft } from "lucide-react";
+import settings from "../../../config/settings.yaml";
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import VideoCard from "../../components/VideoCard.jsx";
+import ImageCard from "../../components/ImageCard.jsx";
+
+export async function getStaticPaths() {
+    const articles = await getCollection("projects");
+    return articles.map((article: any) => {
+        return {
+            params: { slug: article.data.slug },
+            props: { article },
+        };
+    });
+}
+
+const { article } = Astro.props;
+const images = article?.data?.images?.map((image: any) => {
+    return {
+        ...image,
+        src: `${settings.base_url}/project-images/${image.src}`,
+    };
+});
+const videos = article?.data?.videos?.map((video: any) => {
+    return {
+        ...video,
+        thumbnail: `${settings.base_url}/project-images/${video.thumbnail}`,
+    };
+});
+const { Content } = await render(article);
+---
+
+<Layout title={article?.data?.title}>
+    <div class="pb-8 pt-20 container mx-auto px-5">
+        <div class="mb-5">
+            <a class="btn btn-ghost" href=`${settings.base_url}/#portfolio`>
+                <ArrowLeft /> Home
+            </a>
+        </div>
+        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
+            <!-- TEXT: appears first on mobile -->
+            <div
+                class="prose prose-a:text-secondary prose-h1:text-white prose-h2:text-accent prose-p:text-base-100 prose-li:text-base-200 list-disc"
+            >
+                <Content />
+            </div>
+
+            <!-- IMAGES: below text on mobile, sticky on md+ -->
+            <div class="lg:sticky lg:top-24 self-start h-fit">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 5xl:grid-cols-3 gap-4"
+                >
+                    {
+                        videos?.map((video: any) => (
+                            <VideoCard client:only="react" video={video} />
+                        ))
+                    }
+                    {
+                        images.map((image: any) => (
+                            <ImageCard client:only="react" image={image} />
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <Footer />
+</Layout>

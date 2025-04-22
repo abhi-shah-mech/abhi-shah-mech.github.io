@@ -1,0 +1,14 @@
+---
+import OverviewItem from "./OverviewItem.astro";
+const { items = [] } = Astro.props;
+---
+
+<div
+  class="bg-base-100/5 shadow-sm gap-8 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 rounded-box"
+>
+  {
+    items.map((item: any, index: number) => (
+      <OverviewItem title={item.title} value={item.value} key={index} />
+    ))
+  }
+</div>

@@ -1,0 +1,21 @@
+about_title: About Me
+about_description: I’m a mechanical engineer with 11+ years of experience designing and optimizing systems across robotics, automation, consumer electronics, oil & gas, and medical industries. I bring together technical precision and creative problem-solving to deliver innovative, patent-recognized solutions. I hold a B.Eng in Mechatronics from Ontario Tech University and have collaborated with top companies in the field.
+skills_title: My Skills
+skills:
+  - title: Mechanical System Design
+    image: skill-1.svg
+    description: Design of reliable, high-performance mechanical systems for robotics, automation, and precision applications.
+  - title: CAD Modeling & Simulation
+    image: skill-2.svg
+    description: Skilled in SolidWorks and ANSYS for 3D modeling, stress analysis, and design optimization.
+  - title: Product Development & Prototyping
+    image: skill-3.svg
+    description: From concept to prototype—rapid development, testing, and iteration of functional designs.
+  - title: Cross-Disciplinary Collaboration
+    image: skill-4.svg
+    description: Experienced in integrating mechanical systems with electronics and software in mechatronic products.
+contact_title: Get In Touch
+contact_description: Interested in working together? Feel free to reach out through any of the following channels.
+phone: (737) 203-4804
+email: abhishekshah7@gmail.com
+linkedin: https://linkedin.com/in/ashah-mecheng

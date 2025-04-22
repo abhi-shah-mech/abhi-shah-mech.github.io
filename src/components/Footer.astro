@@ -1,0 +1,63 @@
+---
+import { LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
+import about from "../../contents/about.yaml";
+---
+
+<footer
+    class="container border-t border-zinc-800 pt-8 mx-auto px-5"
+    id="contact"
+>
+    <div class="grid grid-cols-1 py-16 md:grid-cols-2 gap-5">
+        <div>
+            <h3 class="font-bold mb-5 text-4xl text-secondary">
+                Schedule a call with me to see if I can help
+            </h3>
+            <p class="text-xl">
+                Reach out to me today and let’s discuss how I can help you
+                achieve your goals.
+            </p>
+        </div>
+        <div class="space-y-5">
+            <a href={`tel:${about.phone}`} class="block">
+                <div
+                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
+                >
+                    <div class="p-3 bg-primary text-zinc-500 rounded-full">
+                        <PhoneIcon />
+                    </div>
+                    {about.phone}
+                </div>
+            </a>
+            <a href={`mailto:${about.email}`} class="block">
+                <div
+                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
+                >
+                    <div class="p-3 bg-primary text-zinc-500 rounded-full">
+                        <MailIcon />
+                    </div>
+                    {about.email}
+                </div>
+            </a>
+            <a
+                href={about.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block"
+            >
+                <div
+                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
+                >
+                    <div class="p-3 bg-primary text-zinc-500 rounded-full">
+                        <LinkedinIcon />
+                    </div>
+                    {about.linkedin}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="text-center pb-5">
+        <p class="text-sm text-zinc-500">
+            © {new Date().getFullYear()} - All rights reserved.
+        </p>
+    </div>
+</footer>
