@@ -27,6 +27,9 @@ export default function ImageCard({ image }) {
               alt={image.description}
               className="h-full w-auto"
             />
+            <div className="bg-black/40 font-bold absolute bottom-0 left-0 right-0 p-2 text-center">
+              {image.description}
+            </div>
             <button
               className="btn btn-soft btn-circle absolute top-2 left-2"
               onClick={() => {

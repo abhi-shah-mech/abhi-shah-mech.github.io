@@ -9,10 +9,9 @@ const url = `${settings.base_url}/projects/${project.slug}`;
 
 <a
     href={url}
-    class="group flex flex-col cursor-pointer justify-center gap-4 p-4 items-start"
+    class="group border rounded-box border-base-100/20 flex flex-col cursor-pointer justify-center gap-4 items-start"
 >
-    <!-- Image Container with Zoom -->
-    <div class="overflow-hidden rounded-box w-full">
+    <div class="overflow-hidden bg-white rounded-t-box w-full">
         <img
             src={cover}
             alt={project.title}
@@ -21,25 +20,26 @@ const url = `${settings.base_url}/projects/${project.slug}`;
         />
     </div>
 
-    <h3 class="text-xl line-clamp-1 text-accent font-bold">{project.title}</h3>
-    <p class="text-base-300 text-sm line-clamp-1">{project.description}</p>
+    <div class="p-4 space-y-4">
+        <h3 class="text-xl line-clamp-1 text-accent font-bold">
+            {project.title}
+        </h3>
+        <p class="text-base-300 text-sm line-clamp-1">{project.description}</p>
 
-    <!-- Slide Container -->
-    <div class="relative h-6 w-full overflow-hidden">
-        <!-- Tags (slide out) -->
-        <p
-            class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full"
-        >
-            {project.tags?.join(", ")}
-        </p>
-        <!-- View Project Link (slide in) -->
-        <button
-            class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
-            aria-label={`View project: ${project.title}`}
-        >
-            <div class="flex gap-3 items-center justify-start">
-                <div>View Project</div><ArrowRight />
-            </div>
-        </button>
+        <div class="relative h-6 w-full overflow-hidden">
+            <p
+                class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full"
+            >
+                {project.tags?.join(", ")}
+            </p>
+            <button
+                class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
+                aria-label={`View project: ${project.title}`}
+            >
+                <div class="flex gap-3 items-center justify-start">
+                    <div>View Project</div><ArrowRight />
+                </div>
+            </button>
+        </div>
     </div>
 </a>

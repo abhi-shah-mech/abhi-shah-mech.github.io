@@ -12,7 +12,7 @@ const items = await getCollection("projects");
     <h2 class="text-4xl mb-8 text-secondary font-bold text-center">
         {projects.projects_title}
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {
             items.map((item, index) => {
                 return <ProjectCard data={item} key={index} />;

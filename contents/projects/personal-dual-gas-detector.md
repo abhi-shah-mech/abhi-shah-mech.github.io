@@ -9,17 +9,17 @@ tags: [
   "Safety Device"
 ]
 images:
+  - description: ID Render
+    src: "dual-gas-detector4.png"
   - description: Prototype
-    src: "dual-gas-detector1.png"
-  - description: Render
+    src: "dual-gas-detector3.png"
+  - description: IP67 Waterproof Testing
     src: "dual-gas-detector2.png"
   - description: Product
-    src: "dual-gas-detector3.png"
-  - description: Leak test
-    src: "dual-gas-detector4.png"
+    src: "dual-gas-detector1.png"
 ---
 
-# Underground Restaurant Drive Thru
+# Personal Dual Gas Detector
 
 ## Requirements:
 
