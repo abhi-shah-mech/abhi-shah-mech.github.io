@@ -21,14 +21,14 @@ export default function ImageCard({ image }) {
       </div>
       {showModal && (
         <div className="modal modal-open">
-          <div className="modal-box flex items-center justify-center w-full max-w-3xl p-0 relative rounded-box">
+          <div className="modal-box w-full flex items-center justify-center aspect-video max-w-5xl p-0 relative rounded-box">
             <img
               src={image.src}
               alt={image.description}
-              className="max-h-96 h-full"
+              className="h-full w-auto"
             />
             <button
-              className="btn btn-ghost btn-circle absolute top-2 left-2"
+              className="btn btn-soft btn-circle absolute top-2 left-2"
               onClick={() => {
                 setShowModal(false);
               }}

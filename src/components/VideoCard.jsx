@@ -21,10 +21,15 @@ export default function VideoCard({ video }) {
       </div>
       {showModal && (
         <div className="modal modal-open">
-          <div className="modal-box w-full max-w-3xl p-0 relative rounded-box">
-            <iframe src={video.src} className="aspect-video w-full" />
+          <div className="modal-box w-full aspect-video max-w-5xl p-0 relative rounded-box">
+            <iframe
+              src={video.src}
+              className="aspect-video w-full"
+              allow="autoplay"
+              allowfullscreen
+            />
             <button
-              className="btn btn-ghost btn-circle absolute top-2 left-2"
+              className="btn btn-soft btn-circle absolute top-2 left-2"
               onClick={() => {
                 setShowModal(false);
               }}

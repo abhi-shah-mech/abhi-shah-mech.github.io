@@ -6,54 +6,56 @@ import Overview from "./Overview.astro";
 ---
 
 <section
-  class="px-4"
-  style=`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center;`
+    class="px-4"
+    style=`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center;`
 >
-  <div
-    class="h-screen mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100"
-  >
     <div
-      class="max-w-4xl gap-4 container mx-auto justify-center flex flex-col mb-8 md:mb-24 items-center"
+        class="h-[90vh] mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100"
     >
-      <img
-        src={`${settings.base_url}/portrait.jpg`}
-        alt="Abhishek Shah"
-        class="rounded-full size-32 md:size-52 border-8 border-white/10"
-      />
-      <h1 class="text-3xl md:text-5xl font-black text-center">
-        <span class="text-primary">{hero.hero_name}</span> - {hero.hero_title}
-      </h1>
-      <p class="md:text-2xl text-secondary text-center mb-4">
-        {hero.hero_subtitle}
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Portfolio button -->
-        <a
-          href={`${settings.base_url}/#portfolio`}
-          class="btn hover:bg-secondary btn-lg md:btn-xl"
-          >View Portfolio <LayoutGrid /></a
+        <div
+            class="max-w-4xl container mx-auto justify-start flex flex-col mb-8 md:mb-24 items-center"
         >
-        <!-- Download resume button -->
-        <a
-          href={`${settings.base_url}/downloads/AbhiShah-Portfolio-2025.pdf`}
-          class="btn btn-lg flex items-center justify-center md:btn-xl btn-ghost group relative overflow-hidden"
-        >
-          <span
-            class="flex items-center justify-center transition-transform duration-300 transform group-hover:-translate-y-full w-full"
-          >
-            Download Resume <ArrowDownToLine />
-          </span>
-          <span
-            class="flex items-center justify-center absolute top-full left-0 w-full h-full transition-transform duration-300 transform group-hover:-translate-y-full bg-base-100 text-base-content"
-          >
-            Download Resume <ArrowDownToLine />
-          </span>
-        </a>
-      </div>
+            <img
+                src={`${settings.base_url}/portrait.jpg`}
+                alt="Abhishek Shah"
+                class="rounded-full size-32 mb-4 md:size-52 border-8 border-white/10"
+            />
+            <h1 class="text-3xl md:text-5xl font-black text-center">
+                <span class="text-primary">{hero.hero_name}</span> - {
+                    hero.hero_title
+                }
+            </h1>
+            <p class="md:text-2xl text-secondary text-center mb-4">
+                {hero.hero_subtitle}
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Portfolio button -->
+                <a
+                    href={`${settings.base_url}/#portfolio`}
+                    class="btn hover:bg-secondary btn-lg md:btn-xl"
+                    >View Portfolio <LayoutGrid /></a
+                >
+                <!-- Download resume button -->
+                <a
+                    href={`${settings.base_url}/downloads/AbhiShah-Portfolio-2025.pdf`}
+                    class="btn btn-lg flex items-center justify-center md:btn-xl btn-ghost group relative overflow-hidden"
+                >
+                    <span
+                        class="flex items-center justify-center transition-transform duration-300 transform group-hover:-translate-y-full w-full"
+                    >
+                        Download Resume <ArrowDownToLine />
+                    </span>
+                    <span
+                        class="flex items-center justify-center absolute top-full left-0 w-full h-full transition-transform duration-300 transform group-hover:-translate-y-full bg-base-100 text-base-content"
+                    >
+                        Download Resume <ArrowDownToLine />
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!-- Statistics -->
+        <div class="container max-w-5xl mx-auto -mb-16 md:-mb-32">
+            <Overview items={hero.overview_items} />
+        </div>
     </div>
-    <!-- Statistics -->
-    <div class="container max-w-5xl mx-auto -mb-16 md:-mb-32">
-      <Overview items={hero.overview_items} />
-    </div>
-  </div>
 </section>
