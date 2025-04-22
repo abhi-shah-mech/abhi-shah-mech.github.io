@@ -25,7 +25,7 @@ Worked closely with Industrial, Electrical and Firmware engineers. Developed req
 
 ## Results:
 
-- [Product Website](https://presale.moglow.com/)
+- <a href="https://presale.moglow.com/" target="_blank" rel="noopener noreferrer">Product Website</a>
 - Engineered a suction cup utilizing cams, levers and springs.
 - Designed a synchronized tri-section telescopic arm with
   integrated power and data
