@@ -6,14 +6,14 @@ import Overview from "./Overview.astro";
 ---
 
 <section
-    class="px-4"
-    style=`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center;`
+    class="px-4 pt-8 md:pt-32"
+    style={`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center; padding-bottom: ${settings.vertical_spacing}px;`}
 >
     <div
-        class="h-[90vh] mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100"
+        class="mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100"
     >
         <div
-            class="max-w-4xl container mx-auto justify-start flex flex-col mb-8 md:mb-24 items-center"
+            class="max-w-4xl container mx-auto justify-start flex flex-col mb-16 md:mb-32 items-center"
         >
             <img
                 src={`${settings.base_url}/portrait.jpg`}
@@ -55,8 +55,6 @@ import Overview from "./Overview.astro";
             </div>
         </div>
         <!-- Statistics -->
-        <div class="container max-w-5xl mx-auto -mb-16 md:-mb-32">
-            <Overview items={hero.overview_items} />
-        </div>
+        <Overview items={hero.overview_items} />
     </div>
 </section>

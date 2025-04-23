@@ -3,11 +3,13 @@ import { getCollection } from "astro:content";
 import projects from "../../contents/projects.yaml";
 import ProjectCard from "./ProjectCard.astro";
 const items = await getCollection("projects");
+import settings from "../../config/settings.yaml";
 ---
 
 <section
     id="portfolio"
-    class="py-4 flex flex-col gap-4 items-center justify-center container mx-auto px-4"
+    style={`padding-bottom: ${settings.vertical_spacing}px;`}
+    class="flex flex-col gap-4 items-center justify-center container mx-auto px-4"
 >
     <h2 class="text-4xl mb-8 text-secondary font-bold text-center">
         {projects.projects_title}
