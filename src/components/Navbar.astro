@@ -4,101 +4,94 @@ import settings from "../../config/settings.yaml";
 ---
 
 <nav class="navbar shadow bg-black/50 fixed top-0 left-0 right-0 z-30">
-    <div class="flex-1">
+  <div class="flex-1">
+    <a
+      href=`${settings.base_url}/`
+      class="text-xl px-5 font-black text-neutral-content">Abhishek Shah</a
+    >
+  </div>
+  <div class="flex-none lg:hidden">
+    <label for="mobile-menu" class="btn btn-square btn-ghost">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="inline-block w-6 h-6 stroke-current"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </label>
+    <input type="checkbox" id="mobile-menu" class="drawer-toggle" />
+    <div class="drawer-side z-40">
+      <label for="mobile-menu" class="drawer-overlay"></label>
+      <ul
+        class="menu p-5 space-y-5 w-80 h-full bg-neutral text-neutral-content"
+      >
+        <li>
+          <a class="btn btn-ghost" href=`${settings.base_url}/`>Home</a>
+        </li>
+        <li>
+          <a class="btn btn-ghost" href=`${settings.base_url}/#portfolio`
+            >Portfolio</a
+          >
+        </li>
+        <li>
+          <a class="btn btn-ghost" href=`${settings.base_url}/#about`>About</a>
+        </li>
+        <li>
+          <a class="btn btn-ghost" href=`${settings.base_url}/#contact`
+            >Contact</a
+          >
+        </li>
+        <li>
+          <a
+            class="btn btn-accent btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Resume"
+            download
+            href={`${settings.base_url}/downloads/${settings.resume_file}`}
+            >Download Resume <DownloadIcon size={12} /></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex-none hidden lg:flex">
+    <ul class="menu menu-horizontal gap-3 font-bold p-0">
+      <li>
         <a
-            href=`${settings.base_url}`
-            class="text-xl px-5 font-black text-neutral-content"
-            >Abhishek Shah</a
+          class="hover:text-accent transition-colors duration-500"
+          href=`${settings.base_url}/#portfolio`>Portfolio</a
         >
-    </div>
-    <div class="flex-none lg:hidden">
-        <label for="mobile-menu" class="btn btn-square btn-ghost">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="inline-block w-6 h-6 stroke-current"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </label>
-        <input type="checkbox" id="mobile-menu" class="drawer-toggle" />
-        <div class="drawer-side z-40">
-            <label for="mobile-menu" class="drawer-overlay"></label>
-            <ul
-                class="menu p-5 space-y-5 w-80 h-full bg-neutral text-neutral-content"
-            >
-                <li>
-                    <a class="btn btn-ghost" href=`${settings.base_url}/`
-                        >Home</a
-                    >
-                </li>
-                <li>
-                    <a
-                        class="btn btn-ghost"
-                        href=`${settings.base_url}/#portfolio`>Portfolio</a
-                    >
-                </li>
-                <li>
-                    <a class="btn btn-ghost" href=`${settings.base_url}/#about`
-                        >About</a
-                    >
-                </li>
-                <li>
-                    <a
-                        class="btn btn-ghost"
-                        href=`${settings.base_url}/#contact`>Contact</a
-                    >
-                </li>
-                <li>
-                    <a
-                        class="btn btn-accent btn-outline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Download Resume"
-                        download
-                        href={`${settings.base_url}/downloads/AbhiShah-Resume-2025.pdf`}
-                        >Download Resume <DownloadIcon size={12} /></a
-                    >
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="flex-none hidden lg:flex">
-        <ul class="menu menu-horizontal gap-3 font-bold p-0">
-            <li>
-                <a
-                    class="hover:text-accent transition-colors duration-500"
-                    href=`${settings.base_url}/#portfolio`>Portfolio</a
-                >
-            </li>
-            <li>
-                <a
-                    class="hover:text-accent transition-colors duration-500"
-                    href=`${settings.base_url}/#about`>About</a
-                >
-            </li>
-            <li>
-                <a
-                    class="hover:text-accent transition-colors duration-500"
-                    href=`${settings.base_url}/#contact`>Contact</a
-                >
-            </li>
-            <li>
-                <a
-                    class="btn btn-accent btn-outline btn-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download Resume"
-                    download
-                    href={`${settings.base_url}/downloads/AbhiShah-Resume-2025.pdf`}
-                    >Download Resume <DownloadIcon size={12} /></a
-                >
-            </li>
-        </ul>
-    </div>
+      </li>
+      <li>
+        <a
+          class="hover:text-accent transition-colors duration-500"
+          href=`${settings.base_url}/#about`>About</a
+        >
+      </li>
+      <li>
+        <a
+          class="hover:text-accent transition-colors duration-500"
+          href=`${settings.base_url}/#contact`>Contact</a
+        >
+      </li>
+      <li>
+        <a
+          class="btn btn-accent btn-outline btn-sm"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download Resume"
+          download
+          href={`${settings.base_url}/downloads/${settings.resume_file}`}
+          >Download Resume <DownloadIcon size={12} /></a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
