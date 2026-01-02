@@ -1,21 +1,33 @@
 about_title: About Me
-about_description: I’m a mechanical engineer with 12 years of experience designing and optimizing systems across robotics, automation, consumer electronics, oil & gas, and medical industries. I bring together technical precision and creative problem-solving to deliver innovative, patent-recognized solutions. I hold a B.Eng in Mechatronics from Ontario Tech University and have collaborated with top companies in the field.
+about_description: |
+  I’m a mechatronics engineer with 12 years of experience designing electromechanical systems for robotics, automation, and high-volume consumer and industrial products. I specialize in turning complex requirements into manufacturing-ready designs by integrating mechanical systems, sensors, actuators, and control logic with a strong focus on reliability, cost, and scalability.
+
+  My experience spans concept development, detailed design, prototyping, validation, and production support. I’m highly proficient in Creo, NX, CATIA, SolidWorks, and Onshape, and I regularly work hands-on with power tools, rapid prototyping, and 3D printing to iterate quickly and de-risk designs early. My work has resulted in two granted patents.
+
+  I’ve collaborated closely with program managers, product managers, directors, electrical and firmware engineers, and third-party vendors to drive alignment across disciplines. I’m comfortable negotiating requirements, balancing technical tradeoffs, and influencing design decisions to deliver robust systems that meet both product and business goals.
+
+  Outside of work, I enjoy building Arduino-based home automation projects, hands-on woodworking (including designing and building furniture), playing volleyball, and gaming — interests that reflect my curiosity, craftsmanship, and problem-solving mindset.
+
 skills_title: My Skills
 skills:
-  - title: Mechanical System Design
+  - title: Electromechanical System Design
     image: skill-1.svg
-    description: Design of reliable, high-performance mechanical systems for robotics, automation, and precision applications.
-  - title: CAD Modeling & Simulation
+    description: Design of integrated mechanical, electrical, and control systems for high-volume, manufacturing-ready products.
+
+  - title: CAD & Mechanical Design
     image: skill-2.svg
-    description: Skilled in SolidWorks and ANSYS for 3D modeling, stress analysis, and design optimization.
+    description: Advanced proficiency in Creo, NX, CATIA, SolidWorks, and Onshape for robust part design, assemblies, and production documentation.
+
   - title: Product Development & Prototyping
     image: skill-3.svg
-    description: From concept to prototype—rapid development, testing, and iteration of functional designs.
-  - title: Cross-Disciplinary Collaboration
+    description: End-to-end product development from concept through prototyping, validation, and production support using hands-on fabrication and rapid iteration.
+
+  - title: Cross-Functional & Vendor Collaboration
     image: skill-4.svg
-    description: Experienced in integrating mechanical systems with electronics and software in mechatronic products.
+    description: Proven experience working with program managers, product managers, electrical and firmware teams, leadership, and third-party vendors to negotiate requirements and deliver scalable systems.
+
 contact_title: Get In Touch
-contact_description: Interested in working together? Feel free to reach out through any of the following channels.
+contact_description: Interested in collaborating on electromechanical products or discussing new opportunities? Feel free to reach out through any of the following channels.
 phone: (737) 203-4804
 email: abhishekshah7@gmail.com
 linkedin: https://linkedin.com/in/ashah-mecheng
