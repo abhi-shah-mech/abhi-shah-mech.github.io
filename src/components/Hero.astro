@@ -9,27 +9,32 @@ import hero from "./../../contents/hero.yaml";
   style={`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center; padding-bottom: ${settings.vertical_spacing}px;`}
 >
   <div class="mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100">
-    <div
-      class="max-w-4xl container mx-auto justify-start flex flex-col mb-8 md:mb-12 items-center"
-    >
+    <!-- Main hero content -->
+    <div class="max-w-4xl container mx-auto flex flex-col items-center text-center">
       <img
         src={`${settings.base_url}/portrait.jpg`}
         alt="Abhishek Shah"
         class="rounded-full size-32 mb-4 md:size-52 border-8 border-white/10"
       />
-      <h1 class="text-3xl md:text-5xl font-black text-center">
+
+      <h1 class="text-3xl md:text-5xl font-black">
         <span class="text-primary">{hero.hero_name}</span> - {hero.hero_title}
       </h1>
-      <p class="md:text-2xl text-secondary text-center mb-4">
+
+      <!-- Slightly looser subtitle spacing, especially on desktop -->
+      <p class="md:text-2xl text-secondary mt-3 mb-5 md:mb-6">
         {hero.hero_subtitle}
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Make CTA block spacing explicit and symmetric-ish -->
+      <div class="mt-1 mb-4 md:mb-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- Portfolio button -->
         <a
           href={`${settings.base_url}/#portfolio`}
           class="btn hover:bg-secondary btn-lg md:btn-xl"
           >View Portfolio <LayoutGrid /></a
         >
+
         <!-- Download resume button -->
         <a
           target="_blank"
@@ -49,15 +54,20 @@ import hero from "./../../contents/hero.yaml";
         </a>
       </div>
     </div>
-{hero.capability_chips?.length > 0 && (
-  <div class="max-w-4xl container mx-auto flex flex-wrap justify-center gap-3 px-4">
-    {hero.capability_chips.map((chip) => (
-      <span class="capability-chip">{chip}</span>
-    ))}
-  </div>
-)}
+
+    <!-- Capability chips: bring closer to CTAs, keep some separation from next section -->
+    {hero.capability_chips?.length > 0 && (
+      <div
+        class="max-w-4xl container mx-auto mt-2 md:mt-3 flex flex-wrap justify-center gap-3 px-4"
+      >
+        {hero.capability_chips.map((chip) => (
+          <span class="capability-chip">{chip}</span>
+        ))}
+      </div>
+    )}
   </div>
 </section>
+
 <style>
   .capability-chip {
     padding: 0.45rem 0.9rem;
@@ -70,4 +80,3 @@ import hero from "./../../contents/hero.yaml";
     white-space: nowrap;
   }
 </style>
-
