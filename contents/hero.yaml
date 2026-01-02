@@ -1,15 +1,6 @@
 hero_name: Abhishek Shah
 hero_title: Engineering Portfolio
 hero_subtitle: Building reliable electromechanical systems through design, controls, and validation. Hands-on experience with prototyping, testing, and production support. 
-overview_items:
-  - title: Years of Experience
-    value: 12
-  - title: Projects Completed
-    value: 50+
-  - title: Clients Served
-    value: 20+
-  - title: Certifications
-    value: 5+
 
 capability_chips:
   - Electromechanical System Design
