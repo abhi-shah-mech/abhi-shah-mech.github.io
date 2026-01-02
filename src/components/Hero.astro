@@ -10,7 +10,7 @@ import hero from "./../../contents/hero.yaml";
 >
   <div class="mt-24 md:mt-0 md:pt-0 flex flex-col justify-center text-base-100">
     <!-- Main hero content -->
-    <div class="max-w-4xl container mx-auto flex flex-col items-center text-center">
+    <div class="w-full max-w-6xl mx-auto flex flex-col items-center text-center">
       <img
         src={`${settings.base_url}/portrait.jpg`}
         alt="Abhishek Shah"
@@ -55,7 +55,7 @@ import hero from "./../../contents/hero.yaml";
 
     <!-- Capability chips -->
     {hero.capability_chips?.length > 0 && (
-      <div class="max-w-4xl container mx-auto mt-3 md:mt-4 flex flex-wrap justify-center gap-3 px-4">
+      <div class="w-full max-w-6xl mx-auto mt-3 md:mt-4 flex flex-wrap justify-center gap-3 px-4">
         {hero.capability_chips.map((chip) => (
           <span class="capability-chip">{chip}</span>
         ))}
