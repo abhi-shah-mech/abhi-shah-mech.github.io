@@ -8,7 +8,7 @@ import hero from "./../../contents/hero.yaml";
   class="px-4 pt-8 md:pt-32"
   style={`background-image: url('${settings.base_url}/hero-bg.png'); background-size: cover; background-position: center; padding-bottom: ${settings.vertical_spacing}px;`}
 >
-  <div class="mt-24 md:pt-0 md:mt-0 flex flex-col justify-center text-base-100">
+  <div class="mt-24 md:mt-0 md:pt-0 flex flex-col justify-center text-base-100">
     <!-- Main hero content -->
     <div class="max-w-4xl container mx-auto flex flex-col items-center text-center">
       <img
@@ -21,21 +21,19 @@ import hero from "./../../contents/hero.yaml";
         <span class="text-primary">{hero.hero_name}</span> - {hero.hero_title}
       </h1>
 
-      <!-- Slightly looser subtitle spacing, especially on desktop -->
       <p class="md:text-2xl text-secondary mt-3 mb-5 md:mb-6">
         {hero.hero_subtitle}
       </p>
 
-      <!-- Make CTA block spacing explicit and symmetric-ish -->
-      <div class="mt-1 mb-5 md:mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Portfolio button -->
+      <!-- CTA block: increased vertical spacing above and below -->
+      <div class="mt-6 mb-8 md:mt-8 md:mb-12 grid grid-cols-1 md:grid-cols-2 gap-4">
         <a
           href={`${settings.base_url}/#portfolio`}
           class="btn hover:bg-secondary btn-lg md:btn-xl"
-          >View Portfolio <LayoutGrid /></a
         >
+          View Portfolio <LayoutGrid />
+        </a>
 
-        <!-- Download resume button -->
         <a
           target="_blank"
           href={`${settings.base_url}/downloads/${settings.resume_file}`}
@@ -55,11 +53,9 @@ import hero from "./../../contents/hero.yaml";
       </div>
     </div>
 
-    <!-- Capability chips: bring closer to CTAs, keep some separation from next section -->
+    <!-- Capability chips -->
     {hero.capability_chips?.length > 0 && (
-      <div
-        class="max-w-4xl container mx-auto mt-2 md:mt-3 flex flex-wrap justify-center gap-3 px-4"
-      >
+      <div class="max-w-4xl container mx-auto mt-3 md:mt-4 flex flex-wrap justify-center gap-3 px-4">
         {hero.capability_chips.map((chip) => (
           <span class="capability-chip">{chip}</span>
         ))}
