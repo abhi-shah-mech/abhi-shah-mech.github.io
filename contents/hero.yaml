@@ -10,3 +10,11 @@ overview_items:
     value: 20+
   - title: Certifications
     value: 5+
+
+capability_chips:
+  - Electromechanical System Design
+  - Motion & Actuation
+  - Sensors & Feedback Loops
+  - Control Systems
+  - Embedded–Mechanical Integration
+  - DFM / DFA & Validation
