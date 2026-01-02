@@ -50,7 +50,13 @@ import Overview from "./Overview.astro";
         </a>
       </div>
     </div>
-    <!-- Statistics -->
-    <Overview items={hero.overview_items} />
+{hero.capability_chips?.length > 0 && (
+  <div class="max-w-4xl container mx-auto flex flex-wrap justify-center gap-3 px-4">
+    {hero.capability_chips.map((chip) => (
+      <span class="capability-chip">{chip}</span>
+    ))}
+  </div>
+)}
+
   </div>
 </section>
