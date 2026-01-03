@@ -2,7 +2,7 @@
 title: Cosmetic Mirror                                                                        
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
-cover: "cosmetic-mirror-3.png"
+cover: "cosmetic-mirror-4.png"
 tags: ["cosmetic mirror", "lighting", "adjustable"]
 images:
   - description: CAD Model
