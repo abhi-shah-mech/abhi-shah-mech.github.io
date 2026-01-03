@@ -36,6 +36,5 @@ videos:
 - Built and validated over 100 working prototypes.
 
 ## Results
-- **[Watch the system demo on YouTube](https://www.youtube.com/@dreaminnovationtechnologie2115)**
-- Sold approximately 30 units, each installed in customer vehicles and still in active use.
+- Sold 30 units, each hand installed in customer vehicles and was actively used.
 
