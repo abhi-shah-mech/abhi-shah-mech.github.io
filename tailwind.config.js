@@ -6,14 +6,17 @@ export default {
     themes: [
       {
         cupcake_custom: {
-          primary: "#c08050",      // copper/bronze accent
-          secondary: "#a06840",    // darker copper
-          accent: "#d4956a",       // lighter copper highlight
-          neutral: "#1c1a18",      // deep warm charcoal (background)
-          base-100: "#f5f0eb",     // warm off-white/cream
-          base-200: "#e8e0d8",     // light warm gray
-          base-300: "#d4ccc4",     // medium warm gray
-          base-content: "#262220", // dark charcoal for text
+          // soft “cupcake” accents
+          primary: "#f472b6",        // pink
+          secondary: "#a78bfa",      // purple
+          accent: "#34d399",         // mint
+          neutral: "#0b1220",
+
+          // dark bases + light text (this is the important part)
+          "base-100": "#0b1220",     // page background
+          "base-200": "#111a2e",     // cards/sections
+          "base-300": "#1b2a4a",     // borders/deeper surfaces
+          "base-content": "#e5e7eb", // text color
         },
       },
       "cupcake",
