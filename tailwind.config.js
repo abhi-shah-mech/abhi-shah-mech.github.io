@@ -6,13 +6,6 @@ export default {
     themes: [
       {
         cupcake_custom: {
-           // soft “cupcake” accents
-          primary: "#f472b6",        // pink
-          secondary: "#a78bfa",      // purple
-          accent: "#34d399",         // mint
-
-          // dark bases + light text (this is the important part)
-          "base-content": "#e5e7eb", // text color
         },
       },
       "cupcake",
