@@ -2,15 +2,13 @@
 title: Personal Dual Gas Detector
 slug: personal-dual-gas-detector
 description: A personal dual gas detector for hazardous environments
-cover: "dual-gas-detector1.png"
+cover: "dual-gas-detector4.png"
 tags: [
   "Gas Detector",
   "Hazardous Environment",
   "Safety Device"
 ]
 images:
-  - description: ID Render
-    src: "dual-gas-detector4.png"
   - description: Prototype
     src: "dual-gas-detector3.png"
   - description: IP67 Waterproof Testing
