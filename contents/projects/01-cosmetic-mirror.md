@@ -1,5 +1,5 @@
 ---
-title: Cosmetic Mirror
+title: Cosmetic Mirror                                                                        
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
 cover: "cosmetic-mirror-3.png"
