@@ -8,43 +8,38 @@ const url = `${settings.base_url}/projects/${project.slug}`;
 ---
 
 <a
-  href={url}
-  class="group border rounded-box border-base-100/20 flex flex-col cursor-pointer items-start
-         min-h-[520px] md:min-h-[560px]"
+    href={url}
+    class="group border rounded-box border-base-100/20 flex flex-col cursor-pointer justify-center gap-4 items-start"
 >
-  <div class="overflow-hidden bg-white rounded-t-box w-full">
-    <img
-      src={cover}
-      alt={project.title}
-      loading="lazy"
-      class="w-full aspect-video object-contain align-top transition-transform duration-500 transform group-hover:scale-105"
-    />
-  </div>
-
-  <div class="p-4 space-y-4 flex flex-col flex-1 w-full">
-    <h3 class="text-xl text-accent font-bold line-clamp-2">
-      {project.title}
-    </h3>
-
-    <p class="text-base-300 text-sm leading-relaxed line-clamp-3">
-      {project.description}
-    </p>
-
-    <!-- Push tags/button to the bottom for consistent card layout -->
-    <div class="relative mt-auto h-8 w-full overflow-hidden">
-      <p
-        class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full"
-      >
-        {project.tags?.join(", ")}
-      </p>
-      <button
-        class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
-        aria-label={`View project: ${project.title}`}
-      >
-        <div class="flex gap-3 items-center justify-start">
-          <div>View Project</div><ArrowRight />
-        </div>
-      </button>
+    <div class="overflow-hidden bg-white rounded-t-box w-full">
+        <img
+            src={cover}
+            alt={project.title}
+            loading="lazy"
+            class="w-full aspect-video object-contain align-top transition-transform duration-500 transform group-hover:scale-105"
+        />
     </div>
-  </div>
+
+    <div class="p-4 space-y-4">
+        <h3 class="text-xl line-clamp-1 text-accent font-bold">
+            {project.title}
+        </h3>
+        <p class="text-base-300 text-sm line-clamp-1">{project.description}</p>
+
+        <div class="relative h-6 w-full overflow-hidden">
+            <p
+                class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full"
+            >
+                {project.tags?.join(", ")}
+            </p>
+            <button
+                class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
+                aria-label={`View project: ${project.title}`}
+            >
+                <div class="flex gap-3 items-center justify-start">
+                    <div>View Project</div><ArrowRight />
+                </div>
+            </button>
+        </div>
+    </div>
 </a>
