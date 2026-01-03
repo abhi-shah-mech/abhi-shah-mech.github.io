@@ -13,9 +13,6 @@ export default {
           neutral: "#0b1220",
 
           // dark bases + light text (this is the important part)
-          "base-100": "#0b1220",     // page background
-          "base-200": "#111a2e",     // cards/sections
-          "base-300": "#1b2a4a",     // borders/deeper surfaces
           "base-content": "#e5e7eb", // text color
         },
       },
