@@ -1,5 +1,5 @@
 ---
-title: Cost Reduction - Laser Fat Removal Belt
+title: Laser Fat Removal Belt
 slug: cost-reduction-laser-fat-removal-belt
 description: Cost reduction of a laser fat removal belt
 cover: "fat-removal-belt-2.png"
