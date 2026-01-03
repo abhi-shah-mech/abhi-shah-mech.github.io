@@ -8,9 +8,14 @@ images:
   - description: System prototype and installation
     src: "image-file-name.png"
 videos:
-  - description: System demo
+  - description: System demo video 1
     thumbnail: "thumbnail-file-name.png"
-    src: "https://www.youtube.com/@dreaminnovationtechnologie2115"
+    src: "https://www.youtube.com/embed/Raw0RzyteF0"
+videos:
+  - description: System demo video 2
+    thumbnail: "thumbnail-file-name.png"
+    src: "https://www.youtube.com/embed/Zx80_kAq00o"
+
 ---
 
 # Android-Car BackupCam
