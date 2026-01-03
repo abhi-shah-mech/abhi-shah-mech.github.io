@@ -5,7 +5,7 @@ description: A cosmetic mirror with integrated lighting and adjustable angles
 cover: "cosmetic-mirror-5.png"
 tags: ["cosmetic mirror", "lighting", "adjustable"]
 images:
-  - description: Rendering
+  - description: Product Photography
     src: "cosmetic-mirror-4.png"
   - description: CAD Model - Extended
     src: "cosmetic-mirror-3.png"
