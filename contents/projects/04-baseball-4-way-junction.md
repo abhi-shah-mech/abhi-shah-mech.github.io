@@ -10,12 +10,12 @@ tags: [
 ]
 images:
   - description: Prototype
-    src: "baseball-3.png"
+    src: "baseball-2.png"
   - description: CAD Model
-    src: "bassball-3.png"
+    src: "baseball-4.png"
 videos:
   - description: Product Testing
-    thumbnail: "bassball-2.png"
+    thumbnail: "baseball-3.png"
     src: "https://docs.google.com/file/d/1d_bVGlfo-B4Z24vf64iOHNfX2GY_GYHJ/preview"
 ---
 
