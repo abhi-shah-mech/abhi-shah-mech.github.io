@@ -9,7 +9,7 @@ images:
 videos:
   - description: Video Description
     thumbnail: "thumbnail-file-name.png"
-    src: "[video-link](https://www.youtube.com/@dreaminnovationtechnologie2115)"
+    src: "https://www.youtube.com/@dreaminnovationtechnologie2115"
 ---
 
 # Android-Car BackupCam
@@ -29,5 +29,5 @@ videos:
 Ideation to 100 fully functioning prototypes with working application, packaging and product labeling. 
 
 ## Results:
-- [Watch demo on YouTube]([[https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/@dreaminnovationtechnologie2115)])
+- **[Watch demo on YouTube](https://www.youtube.com/@dreaminnovationtechnologie2115)**
 - Sold about 30 of the units with installation in the car that are still being used. 
