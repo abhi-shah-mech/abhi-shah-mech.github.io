@@ -6,7 +6,7 @@ cover: "image-file-name.png"
 tags: [Tag1, Tag2, Tag3]
 images:
   - description: System prototype and installation
-    src: "image-file-name.png"
+    src: "AndroidCam.png"
 videos:
   - description: System demo video 1
     thumbnail: "thumbnail-file-name.png"
