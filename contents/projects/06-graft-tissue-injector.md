@@ -23,7 +23,9 @@ Industrial Design, Mechanical Design, vendor development, testing, documentation
 
 ## Results:
 
-- Co-inventor of U.S. Patent # [11957569](https://patents.justia.com/patent/11957569) ; [20200276010](https://patents.justia.com/patent/20200276010)
+- - Co-inventor of U.S. Patents:
+  <a href="https://patents.justia.com/patent/11957569" target="_blank" rel="noopener noreferrer">US 11,957,569</a>,
+  <a href="https://patents.justia.com/patent/20200276010" target="_blank" rel="noopener noreferrer">US 2020/0276010</a>
 - _Top Image_: Cornea Graft Tissue storage. Designed a cornea graft storage system that suspends tissue between two liquid
   membranes, enabling real-time health inspection under a microscope
 - _Bottom Image_: Developed a custom syringe with a specialized adapter for controlled graft tissue delivery and extraction
