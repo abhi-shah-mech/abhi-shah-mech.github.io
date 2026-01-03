@@ -3,7 +3,7 @@ title: Cosmetic Mirror
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
 cover: "cosmetic-mirror-5.png"
-tags: ["Electromechanical", "Product Design", "Project Management", "Complex Mechanism"]
+tags: ["Injection Mold", "Die Cast", "Complex Mechanisms"]
 images:
   - description: Product Photography
     src: "cosmetic-mirror-4.png"
