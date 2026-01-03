@@ -1,33 +1,35 @@
 ---
 title: Android-Car BackupCam
-slug: project-slug
-description: Make any car backup camera work with any Android device with virtually no lag.
+slug: android-car-backupcam
+description: Make any car backup camera work with an Android device with virtually no lag.
 cover: "image-file-name.png"
 images:
-  - description: Image Description
+  - description: System prototype and installation
     src: "image-file-name.png"
 videos:
-  - description: Video Description
+  - description: System demo
     thumbnail: "thumbnail-file-name.png"
     src: "https://www.youtube.com/@dreaminnovationtechnologie2115"
 ---
 
 # Android-Car BackupCam
 
-## Requirements:
-- Must enable my Android smartphone to function as a live display for an off-the-shelf automotive backup camera without a dedicated head unit. 
-- Must have easy connect/disconnect user experience. 
-- Must detect vehicle reverse-gear engagement and use it as the primary trigger for system activation. 
-- Must automatically launch the camera application based on gear state to minimize driver distraction. 
-- Shall automatically terminate the camera application based on gear state to minimize driver distraction.
-- Shall Support switching betwee USB OTG data transfer and phone charging to improve user experience.
-- Must deliver stable video performance with minimal latency during operation for safe driving.
-- Must prioritize seamless operation and minimal user intervention for safety.
+## Requirements
+1. Enable an Android smartphone to function as a live display for an off-the-shelf automotive backup camera without a dedicated head unit.
+2. Provide a simple and intuitive connect/disconnect user experience.
+3. Detect vehicle reverse-gear engagement and use it as the primary trigger for system activation.
+4. Automatically launch the camera application when the vehicle enters reverse to minimize driver distraction.
+5. Automatically terminate the camera application when exiting reverse.
+6. Support switching between USB OTG data transfer and phone charging to improve usability.
+7. Deliver stable, low-latency video performance suitable for real-time reversing.
+8. Prioritize seamless operation with minimal user interaction for driver safety.
 
-## Responsibilities:
+## Responsibilities
+- Led the project from initial concept through multiple fully functional prototypes.
+- Developed hardware, Android application, packaging, and product labeling.
+- Built and validated over 100 working prototypes.
 
-Ideation to 100 fully functioning prototypes with working application, packaging and product labeling. 
+## Results
+- **[Watch the system demo on YouTube](https://www.youtube.com/@dreaminnovationtechnologie2115)**
+- Sold approximately 30 units, each installed in customer vehicles and still in active use.
 
-## Results:
-- **[Watch demo on YouTube](https://www.youtube.com/@dreaminnovationtechnologie2115)**
-- Sold about 30 of the units with installation in the car that are still being used. 
