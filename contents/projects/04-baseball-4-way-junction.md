@@ -2,7 +2,7 @@
 title: Baseball 4 Way Junction
 slug: baseball-4-way-junction
 description: A baseball-style turntable for the AUTTR system
-cover: "bassball-2.png"
+cover: "baseball-2.png"
 tags: [
   "AUTTR",
   "4 Way Junction",
@@ -10,7 +10,7 @@ tags: [
 ]
 images:
   - description: Prototype
-    src: "bassball-2.png"
+    src: "baseball-3.png"
   - description: CAD Model
     src: "bassball-3.png"
 videos:
