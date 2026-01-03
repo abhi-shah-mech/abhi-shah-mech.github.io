@@ -5,7 +5,7 @@ description: Make any car backup camera work with an Android device with virtual
 cover: "AndroidCam.png"
 tags: [Tag1, Tag2, Tag3]
 images:
-  - description: System prototype and installation
+  - description: Packaging with Instruction Manual
     src: "AndroidCam.png"
 videos:
   - description: System demo video 1
