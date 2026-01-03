@@ -6,14 +6,14 @@ export default {
     themes: [
       {
         cupcake_custom: {
-          primary: "#2563eb",
-          secondary: "#7c3aed",
-          accent: "#059669",
-          neutral: "#1f2937",
-          "base-100": "#ffffff",
-          "base-200": "#f3f4f6",
-          "base-300": "#e5e7eb",
-          "base-content": "#111827",
+          primary: "#c08050",      // copper/bronze accent
+          secondary: "#a06840",    // darker copper
+          accent: "#d4956a",       // lighter copper highlight
+          neutral: "#1c1a18",      // deep warm charcoal (background)
+          base-100: "#f5f0eb",     // warm off-white/cream
+          base-200: "#e8e0d8",     // light warm gray
+          base-300: "#d4ccc4",     // medium warm gray
+          base-content: "#262220", // dark charcoal for text
         },
       },
       "cupcake",
