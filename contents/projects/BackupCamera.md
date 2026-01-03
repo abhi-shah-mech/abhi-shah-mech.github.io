@@ -9,11 +9,11 @@ images:
     src: "AndroidCam.png"
 videos:
   - description: System demo video 1
-    thumbnail: "thumbnail-file-name.png"
+    thumbnail: "AndroidCam.png"
     src: "https://www.youtube.com/embed/Raw0RzyteF0"
 
   - description: System demo video 2
-    thumbnail: "thumbnail-file-name.png"
+    thumbnail: "AndroidCam.png"
     src: "https://www.youtube.com/embed/Zx80_kAq00o"
 
 ---
