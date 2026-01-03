@@ -1,5 +1,5 @@
 ---
-title: Graft Tissue Injector and Storage
+title: Tissue Injector & Storage
 slug: graft-tissue-injector
 description: A graft tissue injector and storage system designed for medical applications.
 cover: "graft-tissue-1.png"
