@@ -10,9 +10,9 @@ tags: [
 ]
 images:
   - description: Before
-    src: "fat-removal-belt-1.png"
-  - description: After
     src: "fat-removal-belt-2.png"
+  - description: After
+    src: "fat-removal-belt-1.png"
 ---
 
 # Cost Reduction - Laser Fat Removal Belt
