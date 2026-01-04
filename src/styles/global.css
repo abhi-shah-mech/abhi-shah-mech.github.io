@@ -12,7 +12,7 @@ body {
 }
 
 li::marker {
-    @apply text-base-100/80;
+    @apply text-base-100/50;
 }
 
 .animate-border {
