@@ -8,9 +8,13 @@ body {
     font-family: Inter, sans-serif;
     @apply bg-gradient-to-b from-[#000000] to-[#000000e0];
     @apply min-h-screen;
-    @apply text-base-100/50;
+    @apply text-base-100/70;
 }
 
+p,
+li {
+  @apply text-base-100/85;
+}
 li::marker {
     @apply text-base-100;
 }
