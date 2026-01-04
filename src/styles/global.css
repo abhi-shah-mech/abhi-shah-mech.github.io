@@ -6,7 +6,7 @@
 
 body {
     font-family: Inter, sans-serif;
-    @apply bg-gradient-to-b from-[#000319] to-[#1a1a1a];
+    @apply bg-gradient-to-b from-[#000000] to-[#000000e0];
     @apply min-h-screen;
     @apply text-base-100;
 }
