@@ -13,7 +13,7 @@ body {
 
 section p {
     @apply text-base-100/50;
-
+}
 section li::marker {
     @apply text-base-100;
 }
