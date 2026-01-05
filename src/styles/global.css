@@ -11,8 +11,13 @@ body {
     @apply text-base-100;
 }
 
+p,
+li {
+  @apply text-base-100/50;
+}
+
 li::marker {
-    @apply text-base-100;
+    @apply text-base-100/50;
 }
 
 .animate-border {
