@@ -11,12 +11,10 @@ body {
     @apply text-base-100;
 }
 
-p,
-li {
-  @apply text-base-100/50;
-}
+section p {
+    @apply text-base-100/50;
 
-li::marker {
+section li::marker {
     @apply text-base-100;
 }
 
