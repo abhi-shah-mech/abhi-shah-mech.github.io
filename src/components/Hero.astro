@@ -35,7 +35,10 @@ import hero from "./../../contents/hero.yaml";
       <div class="mt-6 mb-8 md:mt-8 md:mb-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
         <a
           href={`${settings.base_url}/#portfolio`}
-          class="btn hover:bg-primary btn-lg md:btn-xl"
+          class="btn btn-lg md:btn-xl border border-primary
+            hover:bg-primary
+            hover:ring-1 hover:ring-primary/40
+            transition-shadow"
         >
           View Projects <LayoutGrid />
         </a>
@@ -43,7 +46,7 @@ import hero from "./../../contents/hero.yaml";
         <a
           target="_blank"
           href={`${settings.base_url}/downloads/${settings.resume_file}`}
-          class="btn btn-lg flex items-center justify-center md:btn-xl btn-ghost group relative overflow-hidden"
+          class="btn btn-lg flex items-center justify-center md:btn-xl btn-ghost border border-primary group relative overflow-hidden"
         >
           <span class="flex items-center justify-center transition-transform duration-300 transform group-hover:-translate-y-full w-full">
             Download Resume (PDF) <ArrowDownToLine />
