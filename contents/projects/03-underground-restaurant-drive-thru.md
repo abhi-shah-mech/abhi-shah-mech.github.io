@@ -2,7 +2,7 @@
 title: Underground QSR Drive Thru
 slug: underground-restaurant-drive-thru
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
-cover: "drive-thru-1.png"
+cover: "drive-thru-5.png"
 tags: [
   "AUTTR",
   "Drive Thru",
