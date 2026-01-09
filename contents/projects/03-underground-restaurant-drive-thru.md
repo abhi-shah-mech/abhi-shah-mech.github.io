@@ -4,15 +4,15 @@ slug: underground-restaurant-drive-thru
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
 cover: "drive-thru-6.png"
 tags: [
-  "AUTTR",
-  "Drive Thru",
-  "Underground Restaurant"
+  "Robotics",
+  "Automation",
+  "Industrial Equipment"
 ]
 images:
   - description: Input Portal
     src: "drive-thru-5.png"
   - description: Output Portal and Cache Storage
-    src: "drive-thru-2.png"
+    src: "drive-thru-6.png"
   - description: CAD Model in Onshape
     src: "drive-thru-3.png"
 videos:
