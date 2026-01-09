@@ -10,7 +10,7 @@ tags: [
 ]
 images:
   - description: Installed in Fast Food Drive Thru
-    src: "drive-thru-1.png"
+    src: "drive-thru-6.png"
   - description: Installed in Fast Food Kitchen
     src: "drive-thru-2.png"
   - description: CAD Model of the system
