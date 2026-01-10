@@ -1,5 +1,5 @@
 ---
-title: Cosmetic Mirror                                                                        
+title: COSMETIC MIRROR WITH 4 DEGREES OF FREEDOM                                                                       
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
 cover: "cosmetic-mirror-5.png"
@@ -18,27 +18,19 @@ videos:
     src: "https://docs.google.com/file/d/14jz-uVtI0WmMnJ7zrY3FO0dO-wX80RSh/preview"
 ---
 
-# Cosmetic Mirror
+# COSMETIC MIRROR WITH 4 DEGREES OF FREEDOM
 
-## Requirements:
-
+## REQUIREMENTS
 Luxury Cosmetic Mirror with dual magnification, LED ring with adjustable brightness, a long telescopic adjustability
 
-## Responsibilities:
-
+## RESPONSIBILITIES
 Worked closely with Industrial, Electrical and Firmware engineers. Developed requirements, project scheduling, mechanical design, vendor management and client meetings
 
-## Results:
-
+## RESULTS
 - <a href="https://presale.moglow.com/" target="_blank" rel="noopener noreferrer">Product Website</a>
-- Engineered a suction cup utilizing cams, levers and springs.
-- Designed a synchronized tri-section telescopic arm with
-  integrated power and data
-- Enabled infinite non-index stopping and fine-tuned friction for
-  controlled ergonomics
-- Designed a swivel joint with three degrees of freedom while
-  maintaining power and data continuity
-- Developed an LED ring with an ultra-shallow throw and no
-  visible hotspots
-- Utilized 3D printing, injection molding, wire edm, die casting,
-  machining, overmolding, anodizing and extrusion
+- Engineered a suction cup utilizing cams, levers and springs
+- Designed a synchronized tri-section telescopic arm with integrated power and data
+- Enabled infinite non-index stopping and fine-tuned friction for controlled ergonomics
+- Designed a swivel joint with three degrees of freedom while maintaining power and data continuity
+- Developed an LED ring with an ultra-shallow throw and no visible hotspots
+- Utilized 3D printing, injection molding, wire edm, die casting, machining, overmolding, anodizing and extrusion
