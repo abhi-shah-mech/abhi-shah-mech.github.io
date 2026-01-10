@@ -9,11 +9,11 @@ tags: [
   "Industrial Equipment"
 ]
 images:
-  - description: Input Portal
-    src: "drive-thru-3.png"
-  - description: Output Portal and Cache Storage
-    src: "drive-thru-5.png"
   - description: CAD Model in Onshape
+    src: "drive-thru-3.png"
+  - description: Input Portal
+    src: "drive-thru-5.png"
+  - description: Output Portal and Cache Storage
     src: "drive-thru-1.png"
 videos:
   - description: Testing Pre-Install
