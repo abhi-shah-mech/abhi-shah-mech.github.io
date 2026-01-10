@@ -22,22 +22,22 @@ videos:
     src: "https://docs.google.com/file/d/1Zdy-otQjCdVyLi0xSFChQUpEcQKY4R9x/preview"
 ---
 
-# Underground Food Delivery
+# UNDERGROUND FOOD DELIVERY
 
-## Requirements
+## REQUIREMENTS
 Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to a AUTTR (Autonomous Underground Tote Transport Robot). AUTTR would take it to the Output Portal which will then bring it above ground deliver to the customer inside a car.
 
-## Responsibilities
+## RESPONSIBILITIES
 Lead Product Engineer for Input Portal and Caching System.  
 Product design, Project Planning, Controls Planning, Testing/Validation and Customer Installation.
 
-## Results
+## RESULTS
 * Passed UL testing for safe install at a commercial kitchen
 * Successfully passed long term validation testing and installed at a site for a customer with 600 locations across the U.S.   
 * 5 seconds cycle time from inside the kitchen to a temperature controlled Cache that can hold upto 6 orders at a time  
 * 45 second cycle time from the Cache to the Customer
 
-## Engineering Highlights
+## ENGINEERING HIGHLIGHTS
 * Designed an electrical box with a slider and cam-lock mechanism for secure operation while having easy access during an emergency  
 * Developed a custom spring-loaded plunger mechanism for an emergency mechanical unlock
 * Integrated a stepper-actuated belt and pulley system with encoder, hall-effect, flag, beam break, and proximity sensors for precise positioning and feedback
