@@ -1,5 +1,5 @@
 ---
-title: Personal Dual Gas Detector
+title: CO2 & H2S GAS DETECTOR
 slug: personal-dual-gas-detector
 description: A personal dual gas detector for hazardous environments
 cover: "dual-gas-detector5.png"
@@ -17,18 +17,15 @@ images:
     src: "dual-gas-detector1.png"
 ---
 
-# Personal Dual Gas Detector
+# CO2 & H2S GAS DETECTOR
 
-## Requirements:
-
+## REQUIREMENTS
 A handheld dual gas detector
 
-## Responsibilities:
-
+## RESPONSIBILITIES
 Industrial Design, Mechanical Design, vendor development, testing, documentation and client relationship
 
-## Results:
-
+## RESULTS
 * Engineered to detect CO and H₂S with high accuracy
 * Led industrial and mechanical design, overseeing manufacturing from concept to 10K units/year production
 * Designed and tested to meet IS and CSA standards
