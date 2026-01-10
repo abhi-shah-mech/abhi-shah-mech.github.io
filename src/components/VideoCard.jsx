@@ -13,7 +13,7 @@ export default function VideoCard({ video }) {
         <img
           src={video.thumbnail}
           alt={video.description}
-          className="rounded-box object-contain w-full aspect-square"
+          className="rounded-box object-contain w-full aspect-video"
         />
         <div className="absolute text-center bg-neutral/75 text-md lg:text-sm bottom-0 rounded-b-box p-2 right-0 left-0">
           {video.description}
