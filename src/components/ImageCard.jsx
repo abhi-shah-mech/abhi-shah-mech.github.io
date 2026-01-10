@@ -10,12 +10,13 @@ export default function ImageCard({ image }) {
           setShowModal(true);
         }}
       >
-        <img
-          src={image.src}
-          alt={image.description}
-          className="rounded-box object-contain w-full aspect-video bg-black/20"
-
-        />
+        <div className="rounded-box w-full aspect-video overflow-hidden">
+          <img
+            src={image.src}
+            alt={image.description}
+            className="h-full w-full object-contain"
+          />
+        </div>
         <div className="absolute text-center bg-neutral/75 text-md lg:text-sm bottom-0 rounded-b-box p-2 right-0 left-0">
           {image.description}
         </div>
