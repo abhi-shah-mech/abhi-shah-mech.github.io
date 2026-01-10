@@ -1,12 +1,13 @@
 ---
-title: Underground Drive Thru
+title: UNDERGROUND FOOD DELIVERY
 slug: underground-restaurant-drive-thru
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
 cover: "drive-thru-1.png"
 tags: [
   "Robotics",
   "Automation",
-  "Industrial Equipment"
+  "Industrial Equipment",
+  "NEMA4X"
 ]
 images:
   - description: CAD Model in Onshape
@@ -21,28 +22,24 @@ videos:
     src: "https://docs.google.com/file/d/1Zdy-otQjCdVyLi0xSFChQUpEcQKY4R9x/preview"
 ---
 
-# Underground Restaurant Drive Thru
+# Underground Food Delivery
 
-## Requirements:
+## Requirements
+Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to a AUTTR (Autonomous Underground Tote Transport Robot). AUTTR would take it to the Output Portal which will then bring it above ground deliver to the customer inside a car.
 
-Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to a AUTTR (Autonomous Underground Transport Robot)
+## Responsibilities
+Lead Product Engineer for Input Portal and Caching System.  
+Product design, Project Planning, Controls Planning, Testing/Validation and Customer Installation.
 
-## Responsibilities:
+## Results
+* Passed UL testing for safe install at a commercial kitchen
+* Successfully passed long term validation testing and installed at a site for a customer with 600 locations across the U.S.   
+* 5 seconds cycle time from inside the kitchen to a temperature controlled Cache that can hold upto 6 orders at a time  
+* 45 second cycle time from the Cache to the Customer
 
-Product owner and mechanical engineer for Input Portal and Caching System
-Industrial Design, Mech. Design, Project Planning, Controls Planning,
-Testing, Assembly
-
-## Results:
-
-* Successfully passed the equivalent of two months of
-continuous use testing, ensuring long-term durability
-* Designed an electrical box with a slider and cam-lock
-mechanism for easy access and secure operation
-* Developed a custom spring-loaded plunger mechanism for
-controlled engagement
-* Integrated a stepper-actuated belt and pulley system with
-encoder, hall-effect, flag, beam break, and proximity sensors for
-precise positioning and feedback
-* Created a CAD Master Model for the entire system, streamlining
-subsystem integration and design consistency
+## Engineering Highlights
+* Designed an electrical box with a slider and cam-lock mechanism for secure operation while having easy access during an emergency  
+* Developed a custom spring-loaded plunger mechanism for an emergency mechanical unlock
+* Integrated a stepper-actuated belt and pulley system with encoder, hall-effect, flag, beam break, and proximity sensors for precise positioning and feedback
+* Designed interlocks for external Cache unit for safety during maintenance and repair
+* Created a CAD Master Model for the entire system, streamlining subsystem integration and design consistency  
