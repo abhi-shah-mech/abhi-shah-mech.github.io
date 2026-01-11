@@ -1,5 +1,5 @@
 ---
-title: COSMETIC MIRROR WITH 4 DEGREES OF FREEDOM                                                                       
+title: COSMETIC MIRROR WITH 4 D.O.F.                                                                       
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
 cover: "cosmetic-mirror-4.png"
@@ -18,7 +18,7 @@ videos:
     src: "https://docs.google.com/file/d/14jz-uVtI0WmMnJ7zrY3FO0dO-wX80RSh/preview"
 ---
 
-# COSMETIC MIRROR WITH 4 DEGREES OF FREEDOM
+# COSMETIC MIRROR WITH 4 D.O.F.
 
 ## REQUIREMENTS
 Luxury Cosmetic Mirror with dual magnification, LED ring with adjustable brightness, a long telescopic adjustability
@@ -28,6 +28,8 @@ Worked closely with Industrial, Electrical and Firmware engineers. Developed req
 
 ## RESULTS
 - <a href="https://presale.moglow.com/" target="_blank" rel="noopener noreferrer">Product Website</a>
+
+## ENGINEEERING HIGHLIGHTS
 - Engineered a suction cup utilizing cams, levers and springs
 - Designed a synchronized tri-section telescopic arm with integrated power and data
 - Enabled infinite non-index stopping and fine-tuned friction for controlled ergonomics
