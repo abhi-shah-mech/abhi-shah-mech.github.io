@@ -2,11 +2,11 @@
 title: COSMETIC MIRROR WITH 4 DEGREES OF FREEDOM                                                                       
 slug: cosmetic-mirror
 description: A cosmetic mirror with integrated lighting and adjustable angles
-cover: "cosmetic-mirror-5.png"
+cover: "cosmetic-mirror-4.png"
 tags: ["Injection Mold", "Die Cast", "Complex Mechanisms"]
 images:
-  - description: Product Photography
-    src: "cosmetic-mirror-4.png"
+  - description: Rendering
+    src: "cosmetic-mirror-5.png"
   - description: CAD Model - Extended
     src: "cosmetic-mirror-3.png"
   - description: CAD Model - Collapsed
