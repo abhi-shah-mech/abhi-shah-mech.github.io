@@ -3,7 +3,7 @@ title: COSMETIC MIRROR WITH 4 D.O.F.
 slug: cosmetic-mirror
 description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
 cover: "cosmetic-mirror-4.png"
-tags: ["Injection Mold", "Die Cast", "Complex Mechanisms"]
+tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Aluminum Extrusion", "Ball & Socket Joint", "Compression Springs", "Lighting Design" ]
 images:
   - description: Rendering
     src: "cosmetic-mirror-5.png"
@@ -21,18 +21,30 @@ videos:
 # COSMETIC MIRROR WITH 4 D.O.F.
 
 ## REQUIREMENTS
-Luxury Cosmetic Mirror with dual magnification, LED ring with adjustable brightness, a long telescopic adjustability
+- Create a cosmetic mirror that adapts to the user, eliminating bending, strain, and awkward posture
+- Elevate daily beauty routines through soft, adjustable lighting and intuitive interaction
+- Express premium quality through metallic finishes, refined proportions, and precise surface detailing
+- Balance function and elegance so the product feels both purposeful and beautifully crafted
+- Provide reasonable margins for the business to be successful
 
 ## RESPONSIBILITIES
-Worked closely with Industrial, Electrical and Firmware engineers. Developed requirements, project scheduling, mechanical design, vendor management and client meetings
+- Owned mechanical design and system architecture for a luxury, adjustable cosmetic mirror
+- Developed and refined telescopic height-adjustment and multi-axis pivot mechanisms
+- Integrated mechanical, electrical, and lighting subsystems into a cohesive product
+- Prototyped, tested, and documented designs through production readiness
+- Led client-facing discussions to define and negotiate requirements, align on technical tradeoffs, and communicate development progress
 
 ## RESULTS
-- <a href="https://presale.moglow.com/" target="_blank" rel="noopener noreferrer">Product Website</a>
+- Product will be available for sale in February 2026 <a href="https://presale.moglow.com/" target="_blank" rel="noopener noreferrer">Product Website</a>
+- Successfully aligned client vision, technical feasibility, and user experience through iterative development and clear decision-making
+- Advanced the product from concept through functional prototypes to pre-sale readiness
+- Established a strong foundation for production and market launch through validated design, testing, and documentation
+- Prioritized features and tradeoffs to maintain product clarity while meeting schedule and feasibility constraints
 
 ## ENGINEEERING HIGHLIGHTS
-- Engineered a suction cup utilizing cams, levers and springs
-- Designed a synchronized tri-section telescopic arm with integrated power and data
-- Enabled infinite non-index stopping and fine-tuned friction for controlled ergonomics
-- Designed a swivel joint with three degrees of freedom while maintaining power and data continuity
-- Developed an LED ring with an ultra-shallow throw and no visible hotspots
-- Utilized 3D printing, injection molding, wire edm, die casting, machining, overmolding, anodizing and extrusion
+- Engineered a cam-driven suction cup mechanism using levers and springs to achieve secure, repeatable attachment
+- Designed a synchronized, three-stage telescopic stem with integrated power and data routing
+- Enabled infinite, non-indexed height adjustment through a tuned friction-based braking mechanism for controlled ergonomics
+- Developed a swivel joint providing three degrees of freedom while maintaining uninterrupted power and data continuity
+- Created an ultra-shallow LED light ring with uniform illumination and no visible hotspots
+- Executed rapid iteration and production-intent parts using 3D printing, injection molding, wire EDM, die casting, CNC machining, overmolding, anodizing, and extrusion
