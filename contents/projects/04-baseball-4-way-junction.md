@@ -6,7 +6,10 @@ cover: "baseball-2.png"
 tags: [
   "AUTTR",
   "4 Way Junction",
-  "Baseball Turntable"
+  "Baseball Turntable",
+  "XYZ",
+  "Stepper Motor",
+  "Custom Gearbox"
 ]
 images:
   - description: Prototype
