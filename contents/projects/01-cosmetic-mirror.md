@@ -3,7 +3,7 @@ title: COSMETIC MIRROR WITH 4 D.O.F.
 slug: cosmetic-mirror
 description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
 cover: "cosmetic-mirror-4.png"
-tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Aluminum Extrusion", "Ball & Socket Joint", "Compression Springs", "Lighting Design" ]
+tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Aluminum Extrusion", "Ball & Socket Joint", "Springs", "Lighting Design"]
 images:
   - description: Rendering
     src: "cosmetic-mirror-5.png"
