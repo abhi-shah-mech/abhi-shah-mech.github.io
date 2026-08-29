@@ -1,5 +1,5 @@
 ---
-title: UNDERGROUND FOOD DELIVERY
+title: Underground Food Delivery
 slug: underground-restaurant-drive-thru
 order: 3
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
@@ -23,7 +23,7 @@ videos:
     src: "underground-food-delivery.mp4"
 ---
 
-# UNDERGROUND FOOD DELIVERY
+# Underground Food Delivery
 
 ## REQUIREMENTS
 Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to a AUTTR (Autonomous Underground Tote Transport Robot). AUTTR would take it to the Output Portal which will then bring it above ground deliver to the customer inside a car.

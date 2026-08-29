@@ -1,5 +1,5 @@
 ---
-title: COSMETIC MIRROR WITH 4 D.O.F.                                                                       
+title: Cosmetic Mirror With 4 D.O.F.
 slug: cosmetic-mirror
 order: 1
 description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
@@ -19,7 +19,7 @@ videos:
     src: "cosmetic-mirror.mp4"
 ---
 
-# COSMETIC MIRROR WITH 4 D.O.F.
+# Cosmetic Mirror With 4 D.O.F.
 
 ## REQUIREMENTS
 - Create a cosmetic mirror that adapts to the user, eliminating bending, strain, and awkward posture
