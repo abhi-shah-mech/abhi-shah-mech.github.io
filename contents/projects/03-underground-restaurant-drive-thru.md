@@ -10,20 +10,17 @@ tags: [
   "Industrial Equipment",
   "NEMA4X"
 ]
-images:
+process_images:
   - description: CAD Model in Onshape
     src: "drive-thru-3.png"
+  - description: Internal Testing
+    thumbnail: "drive-thru-4.png"
+    src: "underground-food-delivery.mp4"
   - description: Input Portal
     src: "drive-thru-5.png"
   - description: Output Portal and Cache Storage
     src: "drive-thru-1.png"
-videos:
-  - description: Testing Pre-Install
-    thumbnail: "drive-thru-4.png"
-    src: "underground-food-delivery.mp4"
 ---
-
-# Underground Food Delivery
 
 ## REQUIREMENTS
 Deliver orders from inside the kitchen to a temperature controlled Cache outside through an exterior wall and then underground to a AUTTR (Autonomous Underground Tote Transport Robot). AUTTR would take it to the Output Portal which will then bring it above ground deliver to the customer inside a car.

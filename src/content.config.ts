@@ -17,7 +17,14 @@ const projects = defineCollection({
     images: z.array(z.any()).optional(),
     videos: z.array(z.any()).optional(),
     process_images: z
-      .array(z.object({ description: z.string(), src: z.string() }))
+      .array(
+        z.object({
+          description: z.string(),
+          src: z.string(),
+          // presence of `thumbnail` marks this step as a video instead of an image
+          thumbnail: z.string().optional(),
+        })
+      )
       .optional(),
   }),
 });

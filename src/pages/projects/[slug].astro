@@ -33,10 +33,20 @@ const videos = article?.data?.videos?.map((video: any) => {
             : `${settings.base_url}/project-videos/${video.src}`,
     };
 });
-const processImages = article?.data?.process_images?.map((image: any) => {
+const processImages = article?.data?.process_images?.map((item: any) => {
+    if (item.thumbnail) {
+        // process step is a video
+        return {
+            ...item,
+            thumbnail: `${settings.base_url}/project-images/${item.thumbnail}`,
+            src: item.src.startsWith("http")
+                ? item.src
+                : `${settings.base_url}/project-videos/${item.src}`,
+        };
+    }
     return {
-        ...image,
-        src: `${settings.base_url}/project-images/${image.src}`,
+        ...item,
+        src: `${settings.base_url}/project-images/${item.src}`,
     };
 });
 const { Content } = await render(article);
@@ -68,10 +78,14 @@ const proseClasses = `prose max-w-none
                     </h1>
 
                     <div class="flex flex-col lg:flex-row items-center gap-3 mb-14">
-                        {processImages.map((image: any, index: number) => (
+                        {processImages.map((item: any, index: number) => (
                             <Fragment>
                                 <div class="w-full lg:flex-1">
-                                    <ImageCard client:only="react" image={image} />
+                                    {item.thumbnail ? (
+                                        <VideoCard client:only="react" video={item} />
+                                    ) : (
+                                        <ImageCard client:only="react" image={item} />
+                                    )}
                                 </div>
                                 {index < processImages.length - 1 && (
                                     <ArrowRight
