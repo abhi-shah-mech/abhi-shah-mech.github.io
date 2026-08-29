@@ -1,6 +1,7 @@
 ---
 title: CO2 & H2S GAS DETECTOR
 slug: personal-dual-gas-detector
+order: 2
 description: A personal dual gas detector for hazardous environments
 cover: "dual-gas-detector5.png"
 tags: [

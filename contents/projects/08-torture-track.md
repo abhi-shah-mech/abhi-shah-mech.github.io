@@ -1,7 +1,8 @@
 ---
 title: Torture Track
 slug: torture-track
-description: A test track for testing the durability of products
+order: 8
+description: A stress-test track with configurable corner geometries used to validate cart cornering behavior and magnetic suspension performance under install tolerance extremes.
 cover: "torture-track-1.png"
 tags: [
   "Mechanical Engineering",
@@ -14,7 +15,7 @@ images:
 videos:
   - description: Product Testing
     thumbnail: "torture-track-2.png"
-    src: "https://docs.google.com/file/d/1ohrYnjWMKcVG0uPEWNZNZWqfpfhq-1TQ/preview"
+    src: "torture-track.mp4"
 ---
 
 # Torture Track

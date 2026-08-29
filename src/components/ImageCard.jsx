@@ -23,11 +23,11 @@ export default function ImageCard({ image }) {
       </div>
       {showModal && (
         <div className="modal modal-open">
-          <div className="modal-box w-full flex items-center justify-center aspect-video max-w-5xl p-0 relative rounded-box">
+          <div className="modal-box w-full flex items-center justify-center aspect-video max-w-5xl p-0 relative rounded-box bg-black overflow-hidden">
             <img
               src={image.src}
               alt={image.description}
-              className="h-full w-auto"
+              className="h-full w-full object-contain"
             />
             <div className="bg-black/40 font-bold absolute bottom-0 left-0 right-0 p-2 text-center">
               {image.description}

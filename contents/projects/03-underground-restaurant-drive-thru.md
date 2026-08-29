@@ -1,6 +1,7 @@
 ---
 title: UNDERGROUND FOOD DELIVERY
 slug: underground-restaurant-drive-thru
+order: 3
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
 cover: "drive-thru-1.png"
 tags: [
@@ -19,7 +20,7 @@ images:
 videos:
   - description: Testing Pre-Install
     thumbnail: "drive-thru-4.png"
-    src: "https://docs.google.com/file/d/1Zdy-otQjCdVyLi0xSFChQUpEcQKY4R9x/preview"
+    src: "underground-food-delivery.mp4"
 ---
 
 # UNDERGROUND FOOD DELIVERY

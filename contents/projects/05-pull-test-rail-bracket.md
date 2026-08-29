@@ -1,6 +1,7 @@
 ---
 title: Pull Test Rail Bracket
 slug: pull-test-rail-bracket
+order: 5
 description: Pull test rail bracket for a cart
 cover: "rail-bracket-1.png"
 tags: [
@@ -14,7 +15,7 @@ images:
 videos:
   - description: Product Testing
     thumbnail: "rail-bracket-2.png"
-    src: "https://docs.google.com/file/d/1qd3g0rY3JKVuTWlvzN1QkDTiuqB9GA7e/preview"
+    src: "pull-test-rail-bracket.mp4"
 ---
 
 # Pull Test Rail Bracket

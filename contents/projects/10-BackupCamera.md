@@ -1,6 +1,7 @@
 ---
 title: Android-Car BackupCam
 slug: android-car-backupcam
+order: 10
 description: Make any car backup camera work with an Android device with virtually no lag.
 cover: "AndroidCam.png"
 tags: [Prototyping, Injection Mold, Electromechanical, App Development]

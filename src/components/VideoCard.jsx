@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function VideoCard({ video }) {
   const [showModal, setShowModal] = useState(false);
+  const isExternal = video.src.startsWith("http");
   return (
     <>
       <div
@@ -21,13 +22,23 @@ export default function VideoCard({ video }) {
       </div>
       {showModal && (
         <div className="modal modal-open">
-          <div className="modal-box w-full aspect-video max-w-5xl p-0 relative rounded-box">
-            <iframe
-              src={video.src}
-              className="aspect-video w-full"
-              allow="autoplay"
-              allowfullscreen
-            />
+          <div className="modal-box w-full aspect-video max-w-5xl p-0 relative rounded-box bg-black overflow-hidden">
+            {isExternal ? (
+              <iframe
+                src={video.src}
+                className="aspect-video w-full"
+                allow="autoplay"
+                allowfullscreen
+              />
+            ) : (
+              <video
+                src={video.src}
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                muted
+              />
+            )}
             <button
               className="btn btn-soft btn-circle absolute top-2 left-2"
               onClick={() => {

@@ -2,7 +2,9 @@
 import { getCollection } from "astro:content";
 import projects from "../../contents/projects.yaml";
 import ProjectCard from "./ProjectCard.astro";
-const items = await getCollection("projects");
+const items = (await getCollection("projects")).sort(
+    (a, b) => a.data.order - b.data.order
+);
 import settings from "../../config/settings.yaml";
 ---
 

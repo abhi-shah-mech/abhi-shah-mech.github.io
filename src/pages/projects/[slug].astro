@@ -28,6 +28,9 @@ const videos = article?.data?.videos?.map((video: any) => {
     return {
         ...video,
         thumbnail: `${settings.base_url}/project-images/${video.thumbnail}`,
+        src: video.src.startsWith("http")
+            ? video.src
+            : `${settings.base_url}/project-videos/${video.src}`,
     };
 });
 const { Content } = await render(article);

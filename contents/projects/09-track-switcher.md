@@ -1,7 +1,8 @@
 ---
 title: Track Switcher
 slug: track-switcher
-description: A test track for testing the durability of products
+order: 9
+description: A compact, stepper-motor-driven track switch that routes a cart straight or right, offering a smaller footprint alternative to a 4-way junction.
 cover: "track-switcher-1.png"
 tags: [
   "Mechanical Engineering",
@@ -14,7 +15,7 @@ images:
 videos:
   - description: CAD Video
     thumbnail: "track-switcher-2.png"
-    src: "https://docs.google.com/file/d/15EGplH5wC5KpqmpWUxRwSVT_NfQrcfeb/preview"
+    src: "track-switcher.mp4"
 ---
 
 # Track Switcher
