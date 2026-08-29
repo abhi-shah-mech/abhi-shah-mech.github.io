@@ -49,6 +49,18 @@ const processImages = article?.data?.process_images?.map((item: any) => {
         src: `${settings.base_url}/project-images/${item.src}`,
     };
 });
+// consecutive process_images entries sharing the same `group` number are
+// stacked together in a single column instead of each getting their own
+const processGroups: any[][] = [];
+for (const item of processImages ?? []) {
+    const lastGroup = processGroups[processGroups.length - 1];
+    if (item.group !== undefined && lastGroup && lastGroup[0].group === item.group) {
+        lastGroup.push(item);
+    } else {
+        processGroups.push([item]);
+    }
+}
+
 const { Content } = await render(article);
 
 const proseClasses = `prose max-w-none
@@ -78,16 +90,18 @@ const proseClasses = `prose max-w-none
                     </h1>
 
                     <div class="flex flex-col lg:flex-row items-center gap-3 mb-14">
-                        {processImages.map((item: any, index: number) => (
+                        {processGroups.map((group: any[], index: number) => (
                             <Fragment>
-                                <div class="w-full lg:flex-1">
-                                    {item.thumbnail ? (
-                                        <VideoCard client:only="react" video={item} />
-                                    ) : (
-                                        <ImageCard client:only="react" image={item} />
-                                    )}
+                                <div class="w-full lg:flex-1 flex flex-col gap-3">
+                                    {group.map((item: any) => (
+                                        item.thumbnail ? (
+                                            <VideoCard client:only="react" video={item} />
+                                        ) : (
+                                            <ImageCard client:only="react" image={item} />
+                                        )
+                                    ))}
                                 </div>
-                                {index < processImages.length - 1 && (
+                                {index < processGroups.length - 1 && (
                                     <ArrowRight
                                         className="shrink-0 text-primary rotate-90 lg:rotate-0"
                                         size={32}

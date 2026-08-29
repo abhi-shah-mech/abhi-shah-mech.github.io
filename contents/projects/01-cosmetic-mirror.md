@@ -8,8 +8,10 @@ tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Alumin
 process_images:
   - description: CAD Model - Collapsed
     src: "cosmetic-mirror-3.png"
+    group: 1
   - description: CAD Model - Extended
     src: "cosmetic-mirror-2.png"
+    group: 1
   - description: Rendering
     src: "cosmetic-mirror-5.png"
   - description: Product Prototype

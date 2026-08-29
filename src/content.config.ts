@@ -23,6 +23,9 @@ const projects = defineCollection({
           src: z.string(),
           // presence of `thumbnail` marks this step as a video instead of an image
           thumbnail: z.string().optional(),
+          // consecutive entries sharing the same `group` number are stacked
+          // together in one column instead of each getting their own
+          group: z.number().optional(),
         })
       )
       .optional(),
