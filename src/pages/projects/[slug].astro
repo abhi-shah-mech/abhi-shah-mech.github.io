@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import settings from "../../../config/settings.yaml";
 import Footer from "../../components/Footer.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -33,7 +33,22 @@ const videos = article?.data?.videos?.map((video: any) => {
             : `${settings.base_url}/project-videos/${video.src}`,
     };
 });
+const processImages = article?.data?.process_images?.map((image: any) => {
+    return {
+        ...image,
+        src: `${settings.base_url}/project-images/${image.src}`,
+    };
+});
 const { Content } = await render(article);
+
+const proseClasses = `prose max-w-none
+    prose-a:text-primary
+    prose-li:marker:text-base-100/50
+    prose-h1:text-white
+    prose-h2:text-accent
+    prose-p:text-base-100
+    prose-li:text-base-200
+    list-disc`;
 ---
 
 <Layout title={article?.data?.title}>
@@ -43,40 +58,56 @@ const { Content } = await render(article);
                 <ArrowLeft /> Home
             </a>
         </div>
-        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
-            <!-- TEXT: appears first on mobile -->
-            <div
-                class="prose
-                   prose-a:text-primary
-                   prose-li:marker:text-base-100/50
-                   prose-h1:text-white
-                   prose-h2:text-accent
-                   prose-p:text-base-100
-                   prose-li:text-base-200
-                   list-disc"
 
-            >
-                <Content />
-            </div>
+        {
+            processImages && processImages.length > 0 ? (
+                <Fragment>
+                    <!-- PROCESS layout: title, then a step-by-step image flow, then full-width text -->
+                    <h1 class="text-3xl md:text-5xl font-black text-white mb-10">
+                        {article?.data?.title}
+                    </h1>
 
-            <!-- IMAGES: below text on mobile, sticky on md+ -->
-            <div class="lg:sticky lg:top-24 self-start h-fit">
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 5xl:grid-cols-3 gap-4"
-                >
-                    {
-                        videos?.map((video: any) => (
-                            <VideoCard client:only="react" video={video} />
-                        ))
-                    }
-                    {
-                        images.map((image: any) => (
-                            <ImageCard client:only="react" image={image} />
-                        ))
-                    }
+                    <div class="flex flex-col lg:flex-row items-center gap-3 mb-14">
+                        {processImages.map((image: any, index: number) => (
+                            <Fragment>
+                                <div class="w-full lg:flex-1">
+                                    <ImageCard client:only="react" image={image} />
+                                </div>
+                                {index < processImages.length - 1 && (
+                                    <ArrowRight
+                                        className="shrink-0 text-primary rotate-90 lg:rotate-0"
+                                        size={32}
+                                    />
+                                )}
+                            </Fragment>
+                        ))}
+                    </div>
+
+                    <div class={proseClasses}>
+                        <Content />
+                    </div>
+                </Fragment>
+            ) : (
+                <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
+                    <!-- TEXT: appears first on mobile -->
+                    <div class={proseClasses}>
+                        <Content />
+                    </div>
+
+                    <!-- IMAGES: below text on mobile, sticky on md+ -->
+                    <div class="lg:sticky lg:top-24 self-start h-fit">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 5xl:grid-cols-3 gap-4">
+                            {videos?.map((video: any) => (
+                                <VideoCard client:only="react" video={video} />
+                            ))}
+                            {images?.map((image: any) => (
+                                <ImageCard client:only="react" image={image} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            )
+        }
     </div>
     <Footer />
 </Layout>

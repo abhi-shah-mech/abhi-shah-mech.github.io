@@ -94,6 +94,7 @@ Projects are stored as `.md` files in the `contents/projects/` folder. Each proj
    ---
    title: Project Title
    slug: project-slug
+   order: 12
    description: A short description of the project.
    cover: "image-file-name.png"
    tags: [Tag1, Tag2, Tag3]
@@ -106,7 +107,8 @@ Projects are stored as `.md` files in the `contents/projects/` folder. Each proj
        src: "video-link"
    ---
 
-   Note that videos section is optional.
+   Note that videos section is optional. `order` controls where the project
+   falls in the list on the homepage (lower numbers appear first).
 
    # Project Title
 
@@ -126,6 +128,46 @@ Projects are stored as `.md` files in the `contents/projects/` folder. Each proj
    ```
 
 3. Save the file with a unique name (e.g., `new-project.md`).
+
+### **Optional: Process Layout**
+
+Most projects use the default layout (text on one side, an image/video gallery
+on the other). For a project that's better told as a step-by-step sequence
+(e.g. render → prototype → testing → final product), you can opt into the
+**process layout** instead: the title appears at the top, followed by a
+row of images connected by arrows, with the rest of the content (Requirements,
+Responsibilities, Results) below.
+
+To use it, replace `images:` with `process_images:` in the frontmatter:
+
+```md
+---
+title: Project Title
+slug: project-slug
+order: 12
+description: A short description of the project.
+cover: "image-file-name.png"
+tags: [Tag1, Tag2, Tag3]
+process_images:
+  - description: Render
+    src: "render.png"
+  - description: Prototype
+    src: "prototype.png"
+  - description: Final Product
+    src: "product.png"
+---
+
+## Requirements:
+...
+```
+
+Notes:
+- Don't include a `# Project Title` heading in the body when using this
+  layout — the title is already rendered above the image row.
+- Any number of `process_images` entries works; arrows are added
+  automatically between each one.
+- A project can use `images`/`videos` (default layout) OR `process_images`
+  (process layout), not both.
 
 ### **To Edit an Existing Project**
 

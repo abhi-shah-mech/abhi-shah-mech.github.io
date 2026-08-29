@@ -9,7 +9,9 @@ tags: [
   "Hazardous Environment",
   "Safety Device"
 ]
-images:
+process_images:
+  - description: Render
+    src: "dual-gas-detector5.png"
   - description: Prototype
     src: "dual-gas-detector3.png"
   - description: IP67 Waterproof Testing
@@ -17,8 +19,6 @@ images:
   - description: Product
     src: "dual-gas-detector1.png"
 ---
-
-# CO2 & H2S Gas Detector
 
 ## REQUIREMENTS
 A handheld dual gas detector
