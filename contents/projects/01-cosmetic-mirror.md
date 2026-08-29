@@ -5,21 +5,19 @@ order: 1
 description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
 cover: "cosmetic-mirror-4.png"
 tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Aluminum Extrusion", "Ball & Socket Joint", "Springs", "Lighting Design"]
-images:
-  - description: Rendering
-    src: "cosmetic-mirror-5.png"
+process_images:
   - description: CAD Model - Collapsed
     src: "cosmetic-mirror-3.png"
   - description: CAD Model - Extended
     src: "cosmetic-mirror-2.png"
-
-videos:
-  - description: Product Testing
+  - description: Rendering
+    src: "cosmetic-mirror-5.png"
+  - description: Product Prototype
     thumbnail: "cosmetic-mirror-1.png"
     src: "cosmetic-mirror.mp4"
+  - description: Production
+    src: "cosmetic-mirror-production.jpg"
 ---
-
-# Cosmetic Mirror With 4 D.O.F.
 
 ## REQUIREMENTS
 - Create a cosmetic mirror that adapts to the user, eliminating bending, strain, and awkward posture
