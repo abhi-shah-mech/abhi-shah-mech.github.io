@@ -1,0 +1,194 @@
+---
+// Decorative 4-bar crank-rocker linkage that "assembles" itself as the
+// user scrolls it into view, piece by piece: ground hatching, crank,
+// coupler, rocker, then the pivot joints snap into place.
+
+// Ground pivots (fixed) and moving joints, in a 1000x200 viewBox.
+const A = { x: 120, y: 150 }; // fixed pivot, crank base
+const D = { x: 880, y: 150 }; // fixed pivot, rocker base
+const B = { x: 230, y: 60 }; // crank tip
+const C = { x: 700, y: 45 }; // coupler / rocker joint
+
+// Small ground-hatch symbol (engineering-drawing convention for a fixed pivot)
+function groundHatch(px: number, py: number, mirror = false) {
+    const dir = mirror ? -1 : 1;
+    const baseLeft = px - 20 * dir;
+    const baseRight = px + 20 * dir;
+    const ticks = [-15, -5, 5, 15].map((offset) => {
+        const x1 = px + offset * dir;
+        const x2 = x1 - 10 * dir;
+        return `M${x1},${py} L${x2},${py + 12}`;
+    });
+    return {
+        base: `M${baseLeft},${py} L${baseRight},${py}`,
+        ticks,
+    };
+}
+
+const hatchA = groundHatch(A.x, A.y, true);
+const hatchD = groundHatch(D.x, D.y, false);
+---
+
+<div
+    class="linkage w-full overflow-hidden"
+    id="mechanical-linkage"
+    aria-hidden="true"
+>
+    <svg
+        viewBox="0 0 1000 200"
+        class="w-full h-auto max-w-4xl mx-auto block"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <!-- Ground hatching: ticks (0 - 0.12), base line (0.10 - 0.18) -->
+        {
+            hatchA.ticks.map((d) => (
+                <path d={d} class="linkage-line linkage-hatch" data-seg="0,0.12" />
+            ))
+        }
+        <path d={hatchA.base} class="linkage-line linkage-hatch" data-seg="0.1,0.18" />
+        {
+            hatchD.ticks.map((d) => (
+                <path d={d} class="linkage-line linkage-hatch" data-seg="0,0.12" />
+            ))
+        }
+        <path d={hatchD.base} class="linkage-line linkage-hatch" data-seg="0.1,0.18" />
+
+        <!-- Crank: A -> B -->
+        <path
+            d={`M${A.x},${A.y} L${B.x},${B.y}`}
+            class="linkage-line linkage-link"
+            data-seg="0.18,0.45"
+        />
+        <!-- Coupler: B -> C -->
+        <path
+            d={`M${B.x},${B.y} L${C.x},${C.y}`}
+            class="linkage-line linkage-link"
+            data-seg="0.45,0.7"
+        />
+        <!-- Rocker: D -> C -->
+        <path
+            d={`M${D.x},${D.y} L${C.x},${C.y}`}
+            class="linkage-line linkage-link"
+            data-seg="0.7,0.92"
+        />
+
+        <!-- Pivot joints, snapping into place as their link completes -->
+        <circle cx={A.x} cy={A.y} r="8" class="linkage-pivot" data-seg="0.14,0.22" />
+        <circle cx={D.x} cy={D.y} r="8" class="linkage-pivot" data-seg="0.14,0.22" />
+        <circle cx={B.x} cy={B.y} r="7" class="linkage-pivot" data-seg="0.4,0.5" />
+        <circle cx={C.x} cy={C.y} r="7" class="linkage-pivot" data-seg="0.85,0.95" />
+    </svg>
+</div>
+
+<style>
+    .linkage-line {
+        stroke: var(--color-primary);
+        stroke-width: 3;
+        stroke-linecap: round;
+        opacity: 0.9;
+    }
+
+    .linkage-hatch {
+        stroke-width: 2;
+        opacity: 0.5;
+    }
+
+    .linkage-pivot {
+        fill: var(--color-primary);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .linkage-line,
+        .linkage-pivot {
+            stroke-dashoffset: 0 !important;
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+    }
+</style>
+
+<script>
+    const container = document.getElementById("mechanical-linkage");
+    if (container) {
+        const lines = Array.from(
+            container.querySelectorAll<SVGPathElement>(".linkage-line")
+        ).map((el) => {
+            const length = el.getTotalLength();
+            const [segStart, segEnd] = (el.dataset.seg ?? "0,1")
+                .split(",")
+                .map(Number);
+            el.style.strokeDasharray = `${length}`;
+            return { el, length, segStart, segEnd };
+        });
+
+        const pivots = Array.from(
+            container.querySelectorAll<SVGCircleElement>(".linkage-pivot")
+        ).map((el) => {
+            const [segStart, segEnd] = (el.dataset.seg ?? "0,1")
+                .split(",")
+                .map(Number);
+            return { el, segStart, segEnd };
+        });
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        function localProgress(
+            progress: number,
+            segStart: number,
+            segEnd: number
+        ) {
+            if (segEnd <= segStart) return progress >= segEnd ? 1 : 0;
+            return Math.min(
+                1,
+                Math.max(0, (progress - segStart) / (segEnd - segStart))
+            );
+        }
+
+        function render(progress: number) {
+            lines.forEach(({ el, length, segStart, segEnd }) => {
+                const p = localProgress(progress, segStart, segEnd);
+                el.style.strokeDashoffset = `${length * (1 - p)}`;
+            });
+            pivots.forEach(({ el, segStart, segEnd }) => {
+                const p = localProgress(progress, segStart, segEnd);
+                el.style.opacity = `${p}`;
+                el.style.transform = `scale(${0.4 + 0.6 * p})`;
+            });
+        }
+
+        if (reduceMotion) {
+            render(1);
+        } else {
+            let ticking = false;
+
+            function update() {
+                ticking = false;
+                const rect = container!.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const start = vh * 0.95;
+                const end = vh * 0.35;
+                const progress = Math.min(
+                    1,
+                    Math.max(0, (start - rect.top) / (start - end))
+                );
+                render(progress);
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("resize", onScroll);
+            update();
+        }
+    }
+</script>
