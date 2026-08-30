@@ -12,18 +12,17 @@ tags: [
   "Stepper Motor",
   "Custom Gearbox"
 ]
-images:
-  - description: Prototype
-    src: "baseball-2.png"
+process_images:
   - description: CAD Model
     src: "baseball-4.png"
-videos:
+  - description: Prototype
+    src: "baseball-2.png"
+    group: 1
   - description: Product Testing
     thumbnail: "baseball-3.png"
     src: "baseball-4-way-junction.mp4"
+    group: 1
 ---
-
-# Baseball 4 Way Junction
 
 ## Requirements:
 
