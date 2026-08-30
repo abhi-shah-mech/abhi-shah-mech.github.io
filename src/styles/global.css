@@ -23,6 +23,12 @@ section li::marker {
     animation: borderAnim 2s linear infinite;
 }
 
+/* Site accent color: amber */
+[data-theme="cupcake"] {
+    --color-primary: oklch(80% 0.09 70.697);
+    --color-primary-content: oklch(47% 0.157 37.304);
+}
+
 @keyframes borderAnim {
     0% {
         background-position: 0% 50%;
