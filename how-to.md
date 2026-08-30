@@ -168,6 +168,67 @@ Notes:
   automatically between each one.
 - A project can use `images`/`videos` (default layout) OR `process_images`
   (process layout), not both.
+- A step can be a video instead of an image — add a `thumbnail` field to
+  that entry (same as the `videos:` format) and it renders as a playable
+  video card instead of a static image.
+- To group two or more consecutive steps into a single column (no arrow
+  between them), give them the same `group` number:
+
+  ```md
+  process_images:
+    - description: CAD Model
+      src: "cad.png"
+    - description: Prototype
+      src: "prototype.png"
+      group: 1
+    - description: Product Testing
+      thumbnail: "test-thumb.png"
+      src: "test-video.mp4"
+      group: 1
+  ```
+
+  This renders CAD Model as its own column, then Prototype and Product
+  Testing stacked together in the next column — useful when two steps
+  don't need their own arrow-separated step, or just to keep the row from
+  getting too crowded (fewer columns means each one renders bigger).
+
+- To drop the arrows entirely and just show the images in a plain grid,
+  add `process_columns: N` (e.g. `process_columns: 3`) at the top level
+  of the frontmatter, alongside `process_images`. Use this when the
+  images aren't really a sequence, just a small set of photos to show
+  bigger than the default gallery thumbnails.
+
+### **Optional: Split Layout**
+
+For a project with a lot of write-up but only one or two images/videos
+that don't need their own gallery, you can use the **split layout**:
+the title spans the full width at the top (same as the default layout),
+then the body splits into a wide 2/3 text column on the left and a
+narrower 1/3 column on the right with the images/videos stacked
+vertically.
+
+To use it, add `layout: split` and keep `images:`/`videos:` as normal:
+
+```md
+---
+title: Project Title
+slug: project-slug
+order: 12
+description: A short description of the project.
+cover: "image-file-name.png"
+tags: [Tag1, Tag2, Tag3]
+images:
+  - description: Image Description
+    src: "image-file-name.png"
+layout: split
+---
+
+## Requirements:
+...
+```
+
+Note: same as the process layout, don't include a `# Project Title`
+heading in the body — the title is already rendered above the split.
 
 ### **To Edit an Existing Project**
 

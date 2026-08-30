@@ -29,6 +29,12 @@ const projects = defineCollection({
         })
       )
       .optional(),
+    // when set, process_images renders as a plain N-column grid with no
+    // arrows, instead of the default arrow-connected flow
+    process_columns: z.number().optional(),
+    // "split" gives the default (non-process) layout a 2/3 text, 1/3
+    // vertically-stacked-images column split instead of the usual 50/50
+    layout: z.enum(["default", "split"]).optional(),
   }),
 });
 

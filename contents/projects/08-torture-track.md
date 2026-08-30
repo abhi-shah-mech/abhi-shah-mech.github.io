@@ -16,9 +16,8 @@ videos:
   - description: Product Testing
     thumbnail: "torture-track-2.png"
     src: "torture-track.mp4"
+layout: split
 ---
-
-# Torture Track
 
 ## Requirements:
 

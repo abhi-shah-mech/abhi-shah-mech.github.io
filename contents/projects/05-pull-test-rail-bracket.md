@@ -9,16 +9,13 @@ tags: [
   "Product Design",
   "Prototyping"
 ]
-images:
-  - description: Final Product
+process_images:
+  - description: Test Setup
     src: "rail-bracket-1.png"
-videos:
-  - description: Product Testing
+  - description: Testing - Press to Play
     thumbnail: "rail-bracket-2.png"
     src: "pull-test-rail-bracket.mp4"
 ---
-
-# Pull Test Rail Bracket
 
 ## Requirements:
 

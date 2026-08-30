@@ -18,7 +18,7 @@ process_images:
   - description: Prototype
     src: "baseball-2.png"
     group: 1
-  - description: Product Testing
+  - description: Prototype - Press to Play
     thumbnail: "baseball-3.png"
     src: "baseball-4-way-junction.mp4"
     group: 1

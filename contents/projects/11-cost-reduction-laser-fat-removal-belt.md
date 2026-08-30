@@ -14,13 +14,12 @@ images:
     src: "fat-removal-belt-2.png"
   - description: After
     src: "fat-removal-belt-1.png"
+layout: split
 ---
-
-# Cost Reduction - Laser Fat Removal Belt
 
 ## Requirements:
 
-End to end mechanical development of a custom syringe, adapter and storage container for cornea graft tissue
+Reduce the manufacturing cost of an existing laser fat removal belt's injection molded enclosure while keeping the same vendor and maintaining product performance and quality
 
 ## Responsibilities:
 

@@ -1,5 +1,5 @@
 ---
-title: ICON Wire Chain Spool
+title: 10 ft tall Cable Chain Spool
 slug: icon-wire-chain-spool
 order: 7
 description: Simplify 800 lbs of cable chain spooling and transportation.
@@ -9,12 +9,11 @@ images:
   - description: Chain Spool
     src: "icon-wire-2.png"
 videos:
-  - description: Product Testing
+  - description: Spool - Press to Play
     thumbnail: "icon-wire-1.png"
     src: "icon-wire-chain-spool.mp4"
+layout: split
 ---
-
-# ICON Wire Chain Spool
 
 ## Requirements:
 

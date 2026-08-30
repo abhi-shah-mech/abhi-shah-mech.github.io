@@ -3,23 +3,22 @@ title: Android-Car BackupCam
 slug: android-car-backupcam
 order: 10
 description: Make any car backup camera work with an Android device with virtually no lag.
-cover: "AndroidCam.png"
+cover: "android-cam-demo-2.jpg"
 tags: [Prototyping, Injection Mold, Electromechanical, App Development]
 images:
   - description: Packaging with Instruction Manual
     src: "AndroidCam.png"
 videos:
   - description: System demo video 1
-    thumbnail: "AndroidCam.png"
+    thumbnail: "android-cam-demo-1.jpg"
     src: "https://www.youtube.com/embed/Raw0RzyteF0"
 
   - description: System demo video 2
-    thumbnail: "AndroidCam.png"
+    thumbnail: "android-cam-demo-2.jpg"
     src: "https://www.youtube.com/embed/Zx80_kAq00o"
 
+layout: split
 ---
-
-# Android-Car BackupCam
 
 ## Requirements
 1. Enable an Android smartphone to function as a live display for an off-the-shelf automotive backup camera without a dedicated head unit.

@@ -16,9 +16,8 @@ videos:
   - description: CAD Video
     thumbnail: "track-switcher-2.png"
     src: "track-switcher.mp4"
+layout: split
 ---
-
-# Track Switcher
 
 ## Requirements:
 
