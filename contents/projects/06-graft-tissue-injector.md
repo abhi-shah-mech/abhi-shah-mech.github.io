@@ -4,7 +4,7 @@ slug: graft-tissue-injector
 order: 6
 description: A graft tissue injector and storage system designed for medical applications.
 cover: "graft-tissue-2.png"
-tags: ["Graft Tissue Injector", "Medical Device", "Storage System"]
+category: Medical
 images:
   - description: Cornea Graft Tissue storage
     src: "graft-tissue-2.png"

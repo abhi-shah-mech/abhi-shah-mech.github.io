@@ -2,6 +2,14 @@ import { defineCollection, z } from "astro:content";
 
 import { glob } from "astro/loaders";
 
+export const CATEGORIES = [
+  "Robotics and Automation",
+  "Consumer Electronics",
+  "Software Automation Tools",
+  "Hardware Automation Tools",
+  "Medical",
+] as const;
+
 const projects = defineCollection({
   loader: glob({
     pattern: "**/*.md",
@@ -13,7 +21,7 @@ const projects = defineCollection({
     cover: z.string(),
     slug: z.string(),
     order: z.number(),
-    tags: z.array(z.string()),
+    category: z.enum(CATEGORIES),
     images: z.array(z.any()).optional(),
     videos: z.array(z.any()).optional(),
     process_images: z

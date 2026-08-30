@@ -4,11 +4,7 @@ slug: cost-reduction-laser-fat-removal-belt
 order: 11
 description: Cost reduction of a laser fat removal belt
 cover: "fat-removal-belt-2.png"
-tags: [
-  "cost-reduction",
-  "product-design",
-  "mechanical-design"
-]
+category: Consumer Electronics
 images:
   - description: Before
     src: "fat-removal-belt-2.png"

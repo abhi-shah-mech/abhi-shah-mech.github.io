@@ -4,11 +4,7 @@ slug: track-switcher
 order: 9
 description: A compact, stepper motor driven track switch that routes a cart straight or right, offering a smaller footprint alternative to a 4-way junction.
 cover: "track-switcher-1.png"
-tags: [
-  "Mechanical Engineering",
-  "Product Design",
-  "Prototyping"
-]
+category: Robotics and Automation
 images:
   - description: CAD Design
     src: "track-switcher-1.png"

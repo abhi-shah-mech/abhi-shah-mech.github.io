@@ -4,11 +4,7 @@ slug: pull-test-rail-bracket
 order: 5
 description: Pull test rail bracket for a cart
 cover: "rail-bracket-1.png"
-tags: [
-  "Mechanical Engineering",
-  "Product Design",
-  "Prototyping"
-]
+category: Robotics and Automation
 process_images:
   - description: Test Setup
     src: "rail-bracket-1.png"

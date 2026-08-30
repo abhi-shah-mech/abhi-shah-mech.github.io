@@ -4,14 +4,7 @@ slug: baseball-4-way-junction
 order: 4
 description: A baseball-style turntable for the AUTTR system
 cover: "baseball-2.png"
-tags: [
-  "AUTTR",
-  "4 Way Junction",
-  "Baseball Turntable",
-  "XYZ",
-  "Stepper Motor",
-  "Custom Gearbox"
-]
+category: Robotics and Automation
 process_images:
   - description: CAD Model
     src: "baseball-4.png"

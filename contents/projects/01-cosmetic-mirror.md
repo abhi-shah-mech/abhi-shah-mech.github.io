@@ -4,7 +4,7 @@ slug: cosmetic-mirror
 order: 1
 description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
 cover: "cosmetic-mirror-4.png"
-tags: ["Injection Mold", "Die Cast", "Cam and Lever", "Belt and Pulley", "Aluminum Extrusion", "Ball & Socket Joint", "Springs", "Lighting Design"]
+category: Consumer Electronics
 process_images:
   - description: CAD Model - Collapsed
     src: "cosmetic-mirror-3.png"

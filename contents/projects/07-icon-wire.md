@@ -4,7 +4,7 @@ slug: icon-wire-chain-spool
 order: 7
 description: Simplify 800 lbs of cable chain spooling and transportation.
 cover: "icon-wire-2.png"
-tags: ["Chain Spool", "Cable Management", "Transportation"]
+category: Hardware Automation Tools
 images:
   - description: Chain Spool
     src: "icon-wire-2.png"

@@ -4,11 +4,7 @@ slug: torture-track
 order: 8
 description: A stress-test track with configurable corner geometries used to validate cart cornering behavior and magnetic suspension performance under install tolerance extremes.
 cover: "torture-track-1.png"
-tags: [
-  "Mechanical Engineering",
-  "Product Design",
-  "Prototyping"
-]
+category: Robotics and Automation
 images:
   - description: Prototype
     src: "torture-track-1.png"

@@ -4,12 +4,7 @@ slug: underground-restaurant-drive-thru
 order: 3
 description: A drive-thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
 cover: "drive-thru-1.png"
-tags: [
-  "Robotics",
-  "Automation",
-  "Industrial Equipment",
-  "NEMA4X"
-]
+category: Robotics and Automation
 process_images:
   - description: CAD Model in Onshape
     src: "drive-thru-3.png"

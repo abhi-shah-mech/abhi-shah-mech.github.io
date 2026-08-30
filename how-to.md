@@ -97,7 +97,7 @@ Projects are stored as `.md` files in the `contents/projects/` folder. Each proj
    order: 12
    description: A short description of the project.
    cover: "image-file-name.png"
-   tags: [Tag1, Tag2, Tag3]
+   category: Robotics and Automation
    images:
      - description: Image Description
        src: "image-file-name.png"
@@ -109,6 +109,14 @@ Projects are stored as `.md` files in the `contents/projects/` folder. Each proj
 
    Note that videos section is optional. `order` controls where the project
    falls in the list on the homepage (lower numbers appear first).
+
+   `category` controls which filter pill the project shows under on the
+   homepage. It must be exactly one of:
+   - `Robotics and Automation`
+   - `Consumer Electronics`
+   - `Software Automation Tools`
+   - `Hardware Automation Tools`
+   - `Medical`
 
    # Project Title
 
@@ -147,7 +155,7 @@ slug: project-slug
 order: 12
 description: A short description of the project.
 cover: "image-file-name.png"
-tags: [Tag1, Tag2, Tag3]
+category: Robotics and Automation
 process_images:
   - description: Render
     src: "render.png"
@@ -235,7 +243,7 @@ slug: project-slug
 order: 12
 description: A short description of the project.
 cover: "image-file-name.png"
-tags: [Tag1, Tag2, Tag3]
+category: Robotics and Automation
 images:
   - description: Image Description
     src: "image-file-name.png"
@@ -252,7 +260,7 @@ heading in the body — the title is already rendered above the split.
 ### **To Edit an Existing Project**
 
 1. Open the `.md` file for the project you want to edit in the `contents/projects/` folder.
-2. Update the fields (e.g., `title`, `description`, `tags`, etc.).
+2. Update the fields (e.g., `title`, `description`, `category`, etc.).
 3. Save the file.
 
 ---

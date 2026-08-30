@@ -4,11 +4,7 @@ slug: personal-dual-gas-detector
 order: 2
 description: A personal dual gas detector for hazardous environments
 cover: "dual-gas-detector5.png"
-tags: [
-  "Gas Detector",
-  "Hazardous Environment",
-  "Safety Device"
-]
+category: Consumer Electronics
 process_images:
   - description: Render
     src: "dual-gas-detector5.png"
