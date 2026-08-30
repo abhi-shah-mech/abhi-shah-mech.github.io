@@ -5,8 +5,7 @@ import { glob } from "astro/loaders";
 export const CATEGORIES = [
   "Robotics and Automation",
   "Consumer Electronics",
-  "Software Automation Tools",
-  "Hardware Automation Tools",
+  "Software",
   "Medical",
   "Personal Projects",
   "AI Assisted",
@@ -20,7 +19,8 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    cover: z.string(),
+    // omit for a "coming soon" placeholder card with no cover image yet
+    cover: z.string().optional(),
     slug: z.string(),
     order: z.number(),
     year: z.number(),

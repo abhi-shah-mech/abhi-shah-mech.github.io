@@ -7,57 +7,52 @@ import about from "../../contents/about.yaml";
     class="container border-t border-zinc-800 pt-8 mt-4 mx-auto px-5"
     id="contact"
 >
-    <div class="grid grid-cols-1 py-16 md:grid-cols-2 gap-5">
-        <div>
-            <h3 class="font-bold mb-5 text-4xl text-primary">
-                Schedule a call with me to see if I can help
-            </h3>
-            <p class="text-xl">
-                Reach out to me today and let’s discuss how I can help you
-                achieve your goals.
-            </p>
-        </div>
-        <div class="space-y-5">
-            <a href={`tel:${about.phone}`} class="block">
-                <div
-                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
-                >
-                    <div class="p-3 border border-primary/40 text-primary rounded-full">
-                        <PhoneIcon />
-                    </div>
-                    {about.phone}
-                </div>
-            </a>
-            <a href={`mailto:${about.email}`} class="block">
-                <div
-                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
-                >
-                    <div class="p-3 border border-primary/40 text-primary rounded-full">
-                        <MailIcon />
-                    </div>
-                    {about.email}
-                </div>
-            </a>
-            <a
-                href={about.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block"
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 pb-8">
+        <a href={`tel:${about.phone}`} class="block">
+            <div
+                class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
             >
-                <div
-                    class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
-                >
-                    <div class="p-3 border border-primary/40 text-primary rounded-full">
-                        <LinkedinIcon />
-                    </div>
-                    {about.linkedin}
+                <div class="p-3 border border-primary/40 text-primary rounded-full">
+                    <PhoneIcon />
                 </div>
-            </a>
-        </div>
+                {about.phone}
+            </div>
+        </a>
+        <a href={`mailto:${about.email}`} class="block">
+            <div
+                class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
+            >
+                <div class="p-3 border border-primary/40 text-primary rounded-full">
+                    <MailIcon />
+                </div>
+                {about.email}
+            </div>
+        </a>
+        <a
+            href={about.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+        >
+            <div
+                class="flex gap-3 transition-all duration-500 items-center text-xl hover:text-primary"
+            >
+                <div class="p-3 border border-primary/40 text-primary rounded-full">
+                    <LinkedinIcon />
+                </div>
+                {about.linkedin}
+            </div>
+        </a>
     </div>
-    <div class="text-center pb-5">
+    <div class="flex flex-col-reverse md:flex-row items-center md:justify-between gap-2 pb-5">
         <p class="text-sm text-zinc-500">
             © {new Date().getFullYear()} - All rights reserved.
+        </p>
+        <p
+            class="text-3xl text-primary"
+            style="font-family: 'Dancing Script', cursive;"
+        >
+            Abhishek Shah
         </p>
     </div>
 </footer>

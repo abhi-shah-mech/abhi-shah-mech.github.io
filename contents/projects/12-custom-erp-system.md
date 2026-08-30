@@ -6,7 +6,7 @@ year: 2025
 description: A custom ERP system built with Google Sheets and Apps Script to manage BOMs, part numbering, and vendor procurement.
 cover: "erp-bom-center.png"
 category:
-  - Software Automation Tools
+  - Software
   - Personal Projects
   - AI Assisted
 images:

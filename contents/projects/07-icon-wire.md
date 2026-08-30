@@ -5,7 +5,7 @@ order: 7
 year: 2022
 description: Simplify 800 lbs of cable chain spooling and transportation.
 cover: "icon-wire-2.png"
-category: Hardware Automation Tools
+category: Robotics and Automation
 images:
   - description: Chain Spool
     src: "icon-wire-2.png"

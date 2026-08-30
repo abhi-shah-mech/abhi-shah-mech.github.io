@@ -1,10 +1,12 @@
 Here is my projectcard.astro
 ---
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Hammer } from "lucide-react";
 import settings from "../../config/settings.yaml";
 const { data } = Astro.props;
 const { data: project } = data;
-const cover = `${settings.base_url}/project-images/${project.cover}`;
+const cover = project.cover
+    ? `${settings.base_url}/project-images/${project.cover}`
+    : undefined;
 const url = `${settings.base_url}/projects/${project.slug}`;
 ---
 
@@ -12,15 +14,27 @@ const url = `${settings.base_url}/projects/${project.slug}`;
     href={url}
     data-category={project.category.join("|")}
     data-year={project.year}
-    class="group border rounded-box border-base-100/20 flex flex-col cursor-pointer justify-center gap-4 items-start"
+    class="group border-2 rounded-box border-base-100/20 flex flex-col cursor-pointer justify-start gap-4 items-start transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
 >
-    <div class="overflow-hidden bg-white rounded-t-box w-full">
-        <img
-            src={cover}
-            alt={project.title}
-            loading="lazy"
-            class="w-full aspect-video object-contain align-top transition-transform duration-500 transform group-hover:scale-105"
-        />
+    <div
+        class:list={[
+            "overflow-hidden rounded-t-box w-full",
+            cover ? "bg-white" : "bg-base-100/5 border-b border-dashed border-base-100/20",
+        ]}
+    >
+        {cover ? (
+            <img
+                src={cover}
+                alt={project.title}
+                loading="lazy"
+                class="w-full aspect-video object-contain align-top transition-transform duration-500 transform group-hover:scale-105"
+            />
+        ) : (
+            <div class="w-full aspect-video flex flex-col items-center justify-center gap-2 text-base-100/40">
+                <Hammer size={24} />
+                <span class="text-xs uppercase tracking-wide">Coming Soon</span>
+            </div>
+        )}
     </div>
 
     <div class="p-4 space-y-4 w-full">
@@ -29,15 +43,15 @@ const url = `${settings.base_url}/projects/${project.slug}`;
         </h3>
         <p class="text-base-300 text-sm line-clamp-3 min-h-[4.00rem]">{project.description}</p>
 
-        <div class="relative h-7 w-full overflow-hidden">
+        <div class="relative w-full overflow-hidden">
             <p
-                class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full tracking-normal [font-feature-settings:normal] flex items-center justify-between gap-2 w-full"
+                class="transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full tracking-normal [font-feature-settings:normal] w-full leading-6"
             >
-                <span class="truncate">{project.category.join(", ")}</span>
-                <span class="shrink-0 text-primary font-bold">{project.year}</span>
+                <span class="float-right shrink-0 text-primary font-bold pl-2">{project.year}</span>
+                {project.category.join(", ")}
             </p>
             <button
-                class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
+                class="absolute inset-0 transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"
                 aria-label={`View project: ${project.title}`}
             >
                 <div class="flex gap-3 items-center justify-start">
