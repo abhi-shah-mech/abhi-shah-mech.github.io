@@ -18,8 +18,10 @@ process_images:
     src: "underground-food-delivery.mp4"
   - description: Input Portal
     src: "drive-thru-5.png"
+    group: 1
   - description: Output Portal and Cache Storage
     src: "drive-thru-1.png"
+    group: 1
 ---
 
 ## REQUIREMENTS
