@@ -2,9 +2,13 @@
 title: Custom ERP System
 slug: custom-erp-system
 order: 12
+year: 2025
 description: A custom ERP system built with Google Sheets and Apps Script to manage BOMs, part numbering, and vendor procurement.
 cover: "erp-bom-center.png"
-category: Software Automation Tools
+category:
+  - Software Automation Tools
+  - Personal Projects
+  - AI Assisted
 images:
   - description: BOM Center
     src: "erp-bom-center.png"

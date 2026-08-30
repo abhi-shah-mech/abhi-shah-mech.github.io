@@ -8,7 +8,7 @@ const items = (await getCollection("projects")).sort(
 );
 import settings from "../../config/settings.yaml";
 
-const filters = ["All", ...CATEGORIES];
+const filters = ["All", "By Year", ...CATEGORIES];
 ---
 
 <section
@@ -55,7 +55,9 @@ const filters = ["All", ...CATEGORIES];
 
     if (filterBar && grid) {
         const buttons = filterBar.querySelectorAll("button[data-filter]");
-        const cards = grid.querySelectorAll("[data-category]");
+        const originalOrder = Array.from(
+            grid.querySelectorAll("[data-category]")
+        );
 
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
@@ -70,12 +72,27 @@ const filters = ["All", ...CATEGORIES];
                     b.classList.toggle("text-base-100/70", !active);
                 });
 
-                cards.forEach((card) => {
-                    const show =
-                        filter === "All" ||
-                        card.getAttribute("data-category") === filter;
-                    card.classList.toggle("hidden", !show);
-                });
+                if (filter === "By Year") {
+                    const byYear = [...originalOrder].sort(
+                        (a, b) =>
+                            Number(b.getAttribute("data-year")) -
+                            Number(a.getAttribute("data-year"))
+                    );
+                    byYear.forEach((card) => grid.appendChild(card));
+                    originalOrder.forEach((card) =>
+                        card.classList.remove("hidden")
+                    );
+                } else {
+                    originalOrder.forEach((card) => grid.appendChild(card));
+                    originalOrder.forEach((card) => {
+                        const categories =
+                            card.getAttribute("data-category")?.split("|") ??
+                            [];
+                        const show =
+                            filter === "All" || categories.includes(filter);
+                        card.classList.toggle("hidden", !show);
+                    });
+                }
             });
         });
     }

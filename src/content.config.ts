@@ -8,6 +8,8 @@ export const CATEGORIES = [
   "Software Automation Tools",
   "Hardware Automation Tools",
   "Medical",
+  "Personal Projects",
+  "AI Assisted",
 ] as const;
 
 const projects = defineCollection({
@@ -21,7 +23,10 @@ const projects = defineCollection({
     cover: z.string(),
     slug: z.string(),
     order: z.number(),
-    category: z.enum(CATEGORIES),
+    year: z.number(),
+    category: z
+      .union([z.enum(CATEGORIES), z.array(z.enum(CATEGORIES))])
+      .transform((c) => (Array.isArray(c) ? c : [c])),
     images: z.array(z.any()).optional(),
     videos: z.array(z.any()).optional(),
     process_images: z

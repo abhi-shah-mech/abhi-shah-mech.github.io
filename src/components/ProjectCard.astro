@@ -10,7 +10,8 @@ const url = `${settings.base_url}/projects/${project.slug}`;
 
 <a
     href={url}
-    data-category={project.category}
+    data-category={project.category.join("|")}
+    data-year={project.year}
     class="group border rounded-box border-base-100/20 flex flex-col cursor-pointer justify-center gap-4 items-start"
 >
     <div class="overflow-hidden bg-white rounded-t-box w-full">
@@ -22,7 +23,7 @@ const url = `${settings.base_url}/projects/${project.slug}`;
         />
     </div>
 
-    <div class="p-4 space-y-4">
+    <div class="p-4 space-y-4 w-full">
         <h3 class="text-xl line-clamp-2 min-h-[3.25rem] text-primary font-bold">
             {project.title}
         </h3>
@@ -30,9 +31,10 @@ const url = `${settings.base_url}/projects/${project.slug}`;
 
         <div class="relative h-7 w-full overflow-hidden">
             <p
-                class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full tracking-normal [font-feature-settings:normal]"
+                class="absolute transition-all duration-500 text-base-300 text-xs uppercase transform group-hover:-translate-y-full tracking-normal [font-feature-settings:normal] flex items-center justify-between gap-2 w-full"
             >
-                {project.category}
+                <span class="truncate">{project.category.join(", ")}</span>
+                <span class="shrink-0 text-primary font-bold">{project.year}</span>
             </p>
             <button
                 class="absolute transition-all duration-500 transform translate-y-full group-hover:translate-y-0 text-primary font-bold w-full"

@@ -2,6 +2,7 @@
 title: Pull Test Rail Bracket
 slug: pull-test-rail-bracket
 order: 5
+year: 2024
 description: Pull test rail bracket for a cart
 cover: "rail-bracket-1.png"
 category: Robotics and Automation

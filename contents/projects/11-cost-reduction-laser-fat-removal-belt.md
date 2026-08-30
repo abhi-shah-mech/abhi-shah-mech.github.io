@@ -2,6 +2,7 @@
 title: Laser Fat Removal Belt
 slug: cost-reduction-laser-fat-removal-belt
 order: 11
+year: 2019
 description: Cost reduction of a laser fat removal belt
 cover: "fat-removal-belt-2.png"
 category: Consumer Electronics

@@ -2,6 +2,7 @@
 title: Underground Food Delivery
 slug: underground-restaurant-drive-thru
 order: 3
+year: 2025
 description: A drive thru system for an underground restaurant, designed to deliver orders from the kitchen to a temperature-controlled cache outside.
 cover: "drive-thru-1.png"
 category: Robotics and Automation

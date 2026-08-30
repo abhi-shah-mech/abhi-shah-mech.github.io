@@ -1,19 +1,22 @@
 ---
-title: Android-Car BackupCam
+title: Backup Camera - Android System
 slug: android-car-backupcam
 order: 10
+year: 2019
 description: Make any car backup camera work with an Android device with virtually no lag.
 cover: "android-cam-demo-2.jpg"
-category: Consumer Electronics
+category:
+  - Consumer Electronics
+  - Personal Projects
 images:
   - description: Packaging with Instruction Manual
     src: "AndroidCam.png"
 videos:
-  - description: System demo video 1
+  - description: User Experience - Press to Play
     thumbnail: "android-cam-demo-1.jpg"
     src: "https://www.youtube.com/embed/Raw0RzyteF0"
 
-  - description: System demo video 2
+  - description: Demo - Press to Play
     thumbnail: "android-cam-demo-2.jpg"
     src: "https://www.youtube.com/embed/Zx80_kAq00o"
 

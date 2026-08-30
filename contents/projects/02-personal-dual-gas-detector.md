@@ -2,6 +2,7 @@
 title: CO2 & H2S Gas Detector
 slug: personal-dual-gas-detector
 order: 2
+year: 2022
 description: A personal dual gas detector for hazardous environments
 cover: "dual-gas-detector5.png"
 category: Consumer Electronics

@@ -2,6 +2,7 @@
 title: 10 ft tall Cable Chain Spool
 slug: icon-wire-chain-spool
 order: 7
+year: 2022
 description: Simplify 800 lbs of cable chain spooling and transportation.
 cover: "icon-wire-2.png"
 category: Hardware Automation Tools

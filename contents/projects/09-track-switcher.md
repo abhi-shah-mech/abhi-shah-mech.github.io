@@ -2,6 +2,7 @@
 title: Track Switcher
 slug: track-switcher
 order: 9
+year: 2024
 description: A compact, stepper motor driven track switch that routes a cart straight or right, offering a smaller footprint alternative to a 4-way junction.
 cover: "track-switcher-1.png"
 category: Robotics and Automation

@@ -2,6 +2,7 @@
 title: Tissue Injector & Storage
 slug: graft-tissue-injector
 order: 6
+year: 2021
 description: A graft tissue injector and storage system designed for medical applications.
 cover: "graft-tissue-2.png"
 category: Medical

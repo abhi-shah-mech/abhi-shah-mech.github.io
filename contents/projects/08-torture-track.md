@@ -2,6 +2,7 @@
 title: Torture Track
 slug: torture-track
 order: 8
+year: 2024
 description: A stress test track with configurable corner geometries used to validate cart cornering behavior and magnetic suspension performance under install tolerance extremes.
 cover: "torture-track-1.png"
 category: Robotics and Automation
