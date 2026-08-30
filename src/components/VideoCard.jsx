@@ -61,7 +61,7 @@ export default function VideoCard({ video }) {
               </svg>
             </button>
           </div>
-          <form className="modal-backdrop">
+          <form className="modal-backdrop backdrop-blur-sm">
             <button onClick={() => setShowModal(false)}>close</button>
           </form>
         </div>
