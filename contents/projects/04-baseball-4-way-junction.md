@@ -2,7 +2,7 @@
 title: Baseball 4 Way Junction
 slug: baseball-4-way-junction
 order: 4
-description: A baseball-style turntable for the AUTTR system
+description: A baseball style turntable for the AUTTR system
 cover: "baseball-2.png"
 category: Robotics and Automation
 process_images:

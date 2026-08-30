@@ -2,7 +2,7 @@
 title: Cosmetic Mirror With 4 D.O.F.
 slug: cosmetic-mirror
 order: 1
-description: An intuitive height-adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
+description: An intuitive height adjustable beauty mirror with dual magnification, lighting, and ergonomic design for effortless routines.
 cover: "cosmetic-mirror-4.png"
 category: Consumer Electronics
 process_images:
