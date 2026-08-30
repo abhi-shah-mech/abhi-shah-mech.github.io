@@ -1,0 +1,203 @@
+---
+// Decorative cantilever beam with a downward point load that "loads up"
+// and bends as the user scrolls it into view: wall hatch draws in, then
+// the beam, then a force arrow at the free end, then the beam
+// progressively deflects downward under the load.
+
+const WALL_X = 100;
+const BEAM_Y = 100;
+const TIP_X = 900;
+const MAX_DEFLECTION = 70;
+
+const wallHatchTicks = [40, 60, 80, 100, 120, 140, 160].map((y) => {
+    return `M${WALL_X},${y} L${WALL_X - 22},${y + 14}`;
+});
+---
+
+<div class="beam w-full overflow-hidden" id="cantilever-beam" aria-hidden="true">
+    <svg
+        viewBox="0 0 1000 220"
+        class="w-full h-auto max-w-4xl mx-auto block"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <!-- Wall (fixed support): vertical spine + hatch ticks -->
+        <path
+            d={`M${WALL_X},30 L${WALL_X},170`}
+            class="beam-line beam-hatch"
+            data-seg="0.04,0.1"
+        />
+        {
+            wallHatchTicks.map((d) => (
+                <path d={d} class="beam-line beam-hatch" data-seg="0,0.06" />
+            ))
+        }
+
+        <!-- Beam: draws in straight, then bends under the load -->
+        <path
+            id="beam-path"
+            d={`M${WALL_X},${BEAM_Y} L${TIP_X},${BEAM_Y}`}
+            class="beam-line beam-beam"
+            data-seg="0.1,0.22"
+        />
+
+        <!-- Force vector: tail above the beam, head touching the surface -->
+        <g id="force-arrow" data-seg="0.24,0.35">
+            <path
+                d={`M${TIP_X},20 L${TIP_X},${BEAM_Y - 8}`}
+                class="beam-line beam-arrow-line"
+                data-seg="0.24,0.35"
+            />
+            <path
+                d={`M${TIP_X - 8},${BEAM_Y - 16} L${TIP_X},${BEAM_Y - 4} L${TIP_X + 8},${BEAM_Y - 16}`}
+                class="beam-line beam-arrow-head"
+                data-seg="0.24,0.35"
+            />
+            <text x={TIP_X - 22} y="24" class="beam-label">F</text>
+        </g>
+    </svg>
+</div>
+
+<style>
+    .beam-line {
+        stroke: var(--color-primary);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.9;
+    }
+
+    .beam-hatch {
+        stroke-width: 2;
+        opacity: 0.5;
+    }
+
+    .beam-beam {
+        stroke-width: 8;
+    }
+
+    .beam-arrow-line,
+    .beam-arrow-head {
+        stroke-width: 3;
+    }
+
+    .beam-label {
+        fill: var(--color-primary);
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .beam-line {
+            stroke-dashoffset: 0 !important;
+            opacity: 1 !important;
+        }
+        #force-arrow {
+            opacity: 1 !important;
+        }
+    }
+</style>
+
+<script define:vars={{ WALL_X, BEAM_Y, TIP_X, MAX_DEFLECTION }}>
+    const container = document.getElementById("cantilever-beam");
+
+    function beamPath(bendT) {
+        const delta = MAX_DEFLECTION * bendT;
+        const c1x = WALL_X + (TIP_X - WALL_X) * 0.55;
+        const c1y = BEAM_Y;
+        const c2x = WALL_X + (TIP_X - WALL_X) * 0.9;
+        const c2y = BEAM_Y + delta * 0.65;
+        const ey = BEAM_Y + delta;
+        return `M${WALL_X},${BEAM_Y} C${c1x},${c1y} ${c2x},${c2y} ${TIP_X},${ey}`;
+    }
+
+    if (container) {
+        const beamEl = container.querySelector("#beam-path");
+        const arrowEl = container.querySelector("#force-arrow");
+
+        const drawLines = Array.from(
+            container.querySelectorAll(".beam-line")
+        ).map((el) => {
+            const length = el.getTotalLength();
+            const [segStart, segEnd] = (el.dataset.seg ?? "0,1")
+                .split(",")
+                .map(Number);
+            el.style.strokeDasharray = `${length}`;
+            return { el, length, segStart, segEnd };
+        });
+
+        const [arrowSegStart, arrowSegEnd] = arrowEl.dataset.seg
+            .split(",")
+            .map(Number);
+
+        const bendSegStart = 0.4;
+        const bendSegEnd = 1;
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        function localProgress(progress, segStart, segEnd) {
+            if (segEnd <= segStart) return progress >= segEnd ? 1 : 0;
+            return Math.min(
+                1,
+                Math.max(0, (progress - segStart) / (segEnd - segStart))
+            );
+        }
+
+        function render(progress) {
+            drawLines.forEach(({ el, length, segStart, segEnd }) => {
+                if (el === beamEl) return; // beam handled separately below
+                const p = localProgress(progress, segStart, segEnd);
+                el.style.strokeDashoffset = `${length * (1 - p)}`;
+            });
+
+            const beamDrawP = localProgress(
+                progress,
+                Number(beamEl.dataset.seg.split(",")[0]),
+                Number(beamEl.dataset.seg.split(",")[1])
+            );
+            const bendP = localProgress(progress, bendSegStart, bendSegEnd);
+
+            beamEl.setAttribute("d", beamPath(bendP));
+            const beamLength = beamEl.getTotalLength();
+            beamEl.style.strokeDasharray = `${beamLength}`;
+            beamEl.style.strokeDashoffset = `${beamLength * (1 - beamDrawP)}`;
+
+            const arrowP = localProgress(progress, arrowSegStart, arrowSegEnd);
+            arrowEl.style.opacity = `${arrowP}`;
+            const dropAtTip = MAX_DEFLECTION * bendP;
+            arrowEl.setAttribute("transform", `translate(0, ${dropAtTip})`);
+        }
+
+        if (reduceMotion) {
+            render(1);
+        } else {
+            let ticking = false;
+
+            function update() {
+                ticking = false;
+                const rect = container.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const start = vh * 0.95;
+                const end = vh * 0.1;
+                const progress = Math.min(
+                    1,
+                    Math.max(0, (start - rect.top) / (start - end))
+                );
+                render(progress);
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("resize", onScroll);
+            update();
+        }
+    }
+</script>
