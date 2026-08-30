@@ -2,7 +2,7 @@ Here is my projectcard.astro
 ---
 import { ArrowRight, Hammer } from "lucide-react";
 import settings from "../../config/settings.yaml";
-const { data, delay = 0 } = Astro.props;
+const { data } = Astro.props;
 const { data: project } = data;
 const cover = project.cover
     ? `${settings.base_url}/project-images/${project.cover}`
@@ -11,8 +11,7 @@ const url = `${settings.base_url}/projects/${project.slug}`;
 ---
 
 <div
-    class="reveal h-full"
-    style={`--reveal-delay: ${delay}ms;`}
+    class="h-full"
     data-category={project.category.join("|")}
     data-year={project.year}
 >

@@ -75,11 +75,11 @@ const { Content } = await render(article);
 
 const proseClasses = `prose max-w-none
     prose-a:text-primary
-    prose-li:marker:text-base-100/50
-    prose-h1:text-white
+    prose-li:marker:text-base-300/50
+    prose-h1:text-primary
     prose-h2:text-primary
-    prose-p:text-base-100
-    prose-li:text-base-200
+    prose-p:text-base-300!
+    prose-li:text-base-300!
     list-disc`;
 ---
 
@@ -95,7 +95,7 @@ const proseClasses = `prose max-w-none
             processImages && processImages.length > 0 ? (
                 <Fragment>
                     <!-- PROCESS layout: title, then a step-by-step image flow, then full-width text -->
-                    <h1 class="text-3xl md:text-5xl font-black text-white mb-10">
+                    <h1 class="text-3xl md:text-5xl font-black text-primary mb-10">
                         {article?.data?.title}
                     </h1>
 
@@ -146,7 +146,7 @@ const proseClasses = `prose max-w-none
             ) : article?.data?.layout === "split" ? (
                 <Fragment>
                     <!-- TITLE: full width, above the split -->
-                    <h1 class="text-3xl md:text-5xl font-black text-white mb-10">
+                    <h1 class="text-3xl md:text-5xl font-black text-primary mb-10">
                         {article?.data?.title}
                     </h1>
 
@@ -170,24 +170,30 @@ const proseClasses = `prose max-w-none
                     </div>
                 </Fragment>
             ) : (
-                <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
-                    <!-- TEXT: appears first on mobile -->
-                    <div class={proseClasses}>
-                        <Content />
-                    </div>
+                <Fragment>
+                    <h1 class="text-3xl md:text-5xl font-black text-primary mb-10">
+                        {article?.data?.title}
+                    </h1>
 
-                    <!-- IMAGES: below text on mobile, sticky on md+ -->
-                    <div class="lg:sticky lg:top-24 self-start h-fit">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 5xl:grid-cols-3 gap-4">
-                            {videos?.map((video: any) => (
-                                <VideoCard client:only="react" video={video} />
-                            ))}
-                            {images?.map((image: any) => (
-                                <ImageCard client:only="react" image={image} />
-                            ))}
+                    <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
+                        <!-- TEXT: appears first on mobile -->
+                        <div class={proseClasses}>
+                            <Content />
+                        </div>
+
+                        <!-- IMAGES: below text on mobile, sticky on md+ -->
+                        <div class="lg:sticky lg:top-24 self-start h-fit">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 5xl:grid-cols-3 gap-4">
+                                {videos?.map((video: any) => (
+                                    <VideoCard client:only="react" video={video} />
+                                ))}
+                                {images?.map((image: any) => (
+                                    <ImageCard client:only="react" image={image} />
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Fragment>
             )
         }
     </div>

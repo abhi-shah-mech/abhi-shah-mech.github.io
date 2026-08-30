@@ -14,14 +14,13 @@ const filters = ["All", "By Year", ...CATEGORIES];
 <section
     id="portfolio"
     style={`padding-bottom: ${settings.vertical_spacing}px;`}
-    class="flex flex-col gap-4 items-center justify-center container mx-auto px-4"
+    class="reveal flex flex-col gap-4 items-center justify-center container mx-auto px-4"
 >
-    <h2 class="reveal text-4xl mb-8 text-primary font-bold text-center">
+    <h2 class="text-4xl mb-8 text-primary font-bold text-center">
         {projects.projects_title}
     </h2>
     <div
-        class="reveal flex flex-wrap gap-2 justify-center"
-        style="--reveal-delay: 100ms;"
+        class="flex flex-wrap gap-2 justify-center"
         id="project-filters"
     >
         {
@@ -47,13 +46,7 @@ const filters = ["All", "By Year", ...CATEGORIES];
     >
         {
             items.map((item, index) => {
-                return (
-                    <ProjectCard
-                        data={item}
-                        key={index}
-                        delay={(index % 3) * 100}
-                    />
-                );
+                return <ProjectCard data={item} key={index} />;
             })
         }
     </div>
