@@ -17,11 +17,10 @@ process_images:
     src: "baseball-4.png"
   - description: Prototype
     src: "baseball-2.png"
-    group: 1
   - description: Prototype - Press to Play
     thumbnail: "baseball-3.png"
     src: "baseball-4-way-junction.mp4"
-    group: 1
+    no_arrow: true
 ---
 
 ## Requirements:

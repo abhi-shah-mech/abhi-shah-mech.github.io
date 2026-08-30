@@ -197,6 +197,25 @@ Notes:
   of the frontmatter, alongside `process_images`. Use this when the
   images aren't really a sequence, just a small set of photos to show
   bigger than the default gallery thumbnails.
+- To keep two steps as separate side-by-side columns but drop just the
+  arrow between them (unlike `group`, which stacks them into one
+  column), add `no_arrow: true` to the second step:
+
+  ```md
+  process_images:
+    - description: CAD Model
+      src: "cad.png"
+    - description: Prototype
+      src: "prototype.png"
+    - description: Product Testing
+      thumbnail: "test-thumb.png"
+      src: "test-video.mp4"
+      no_arrow: true
+  ```
+
+  This renders all three as equal-width columns in one row, with an
+  arrow between CAD Model and Prototype but none between Prototype and
+  Product Testing.
 
 ### **Optional: Split Layout**
 

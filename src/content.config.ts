@@ -26,6 +26,9 @@ const projects = defineCollection({
           // consecutive entries sharing the same `group` number are stacked
           // together in one column instead of each getting their own
           group: z.number().optional(),
+          // when true, no arrow renders between this column and the one
+          // before it (the two still render as separate columns)
+          no_arrow: z.boolean().optional(),
         })
       )
       .optional(),

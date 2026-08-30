@@ -128,7 +128,7 @@ const proseClasses = `prose max-w-none
                                             )
                                         ))}
                                     </div>
-                                    {index < processGroups.length - 1 && (
+                                    {index < processGroups.length - 1 && !processGroups[index + 1][0].no_arrow && (
                                         <ArrowRight
                                             className="shrink-0 text-primary rotate-90 lg:rotate-0"
                                             size={32}
