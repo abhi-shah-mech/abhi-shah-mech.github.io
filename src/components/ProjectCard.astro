@@ -2,7 +2,7 @@ Here is my projectcard.astro
 ---
 import { ArrowRight, Hammer } from "lucide-react";
 import settings from "../../config/settings.yaml";
-const { data } = Astro.props;
+const { data, delay = 0 } = Astro.props;
 const { data: project } = data;
 const cover = project.cover
     ? `${settings.base_url}/project-images/${project.cover}`
@@ -10,11 +10,15 @@ const cover = project.cover
 const url = `${settings.base_url}/projects/${project.slug}`;
 ---
 
-<a
-    href={url}
+<div
+    class="reveal h-full"
+    style={`--reveal-delay: ${delay}ms;`}
     data-category={project.category.join("|")}
     data-year={project.year}
-    class="group border-2 rounded-box border-base-100/20 flex flex-col cursor-pointer justify-start gap-4 items-start transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
+>
+<a
+    href={url}
+    class="group border-2 rounded-box border-base-100/20 flex flex-col cursor-pointer justify-start gap-4 items-start h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
 >
     <div
         class:list={[
@@ -61,3 +65,4 @@ const url = `${settings.base_url}/projects/${project.slug}`;
         </div>
     </div>
 </a>
+</div>

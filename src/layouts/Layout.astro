@@ -24,3 +24,25 @@ const { title = "Home" } = Astro.props;
     <slot />
   </body>
 </html>
+
+<script>
+    const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        revealEls.forEach((el) => el.classList.add("is-visible"));
+    } else {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    entry.target.classList.toggle(
+                        "is-visible",
+                        entry.isIntersecting
+                    );
+                });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+        );
+
+        revealEls.forEach((el) => observer.observe(el));
+    }
+</script>
