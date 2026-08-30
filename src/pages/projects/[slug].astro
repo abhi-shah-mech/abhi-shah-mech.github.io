@@ -151,13 +151,13 @@ const proseClasses = `prose max-w-none
                     </h1>
 
                     <div class="grid gap-8 grid-cols-1 lg:grid-cols-3 items-start">
-                        <!-- TEXT: 2/3 width, appears first on mobile -->
-                        <div class={`${proseClasses} lg:col-span-2`}>
+                        <!-- TEXT: 2/3 width; below images on mobile, left on desktop -->
+                        <div class={`${proseClasses} order-2 lg:order-1 lg:col-span-2`}>
                             <Content />
                         </div>
 
-                        <!-- IMAGES: 1/3 width sidebar, always stacked vertically -->
-                        <div class="lg:sticky lg:top-24 self-start h-fit w-full">
+                        <!-- IMAGES: 1/3 width sidebar; above text on mobile, right on desktop -->
+                        <div class="order-1 lg:order-2 lg:sticky lg:top-24 self-start h-fit w-full">
                             <div class="grid grid-cols-1 gap-4">
                                 {images?.map((image: any) => (
                                     <ImageCard client:only="react" image={image} />
