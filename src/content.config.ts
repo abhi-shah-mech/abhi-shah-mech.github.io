@@ -9,6 +9,7 @@ export const CATEGORIES = [
   "Medical",
   "Personal Projects",
   "AI Assisted",
+  "Process Automation",
 ] as const;
 
 const projects = defineCollection({
