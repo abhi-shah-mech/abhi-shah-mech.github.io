@@ -1,0 +1,209 @@
+---
+// Scroll-linked rocket: ignites over the first bit of scroll, then climbs
+// out of the viewport as the reader works down the page.
+const puffs = [
+  { dx: -46, dy: -6, size: 34 },
+  { dx: -26, dy: -14, size: 42 },
+  { dx: -8, dy: -4, size: 30 },
+  { dx: 10, dy: -12, size: 40 },
+  { dx: 28, dy: -6, size: 36 },
+  { dx: 46, dy: -16, size: 30 },
+];
+---
+
+<div id="rocket-launch" class="rocket-launch hidden xl:block" aria-hidden="true">
+  <div class="rocket-trail"></div>
+
+  {puffs.map((p) => (
+    <span
+      class="rocket-puff"
+      style={`--dx:${p.dx}px; --dy:${p.dy}px; --size:${p.size}px;`}
+    ></span>
+  ))}
+
+  <div class="rocket-flight">
+    <div class="rocket-body">
+      <svg viewBox="0 0 60 160" class="rocket-svg">
+        <!-- Exhaust -->
+        <g class="rocket-flame">
+          <path d="M21 108 Q30 168 39 108 Z" fill="#f97316" />
+          <path d="M24 108 Q30 150 36 108 Z" fill="#fbbf24" />
+          <path d="M27 108 Q30 132 33 108 Z" fill="#fef3c7" />
+        </g>
+        <!-- Fins -->
+        <path d="M17 76 L3 106 L3 112 L17 102 Z" class="rocket-accent" />
+        <path d="M43 76 L57 106 L57 112 L43 102 Z" class="rocket-accent" />
+        <!-- Nozzle -->
+        <path d="M22 100 L38 100 L40 109 L20 109 Z" fill="#57534e" />
+        <!-- Fuselage -->
+        <path d="M30 2 C41 16 44 32 44 48 L44 102 L16 102 L16 48 C16 32 19 16 30 2 Z" fill="#e7e5e4" />
+        <path d="M30 2 C41 16 44 32 44 48 L44 102 L36 102 L36 48 C36 30 34 16 30 2 Z" fill="#a8a29e" opacity="0.35" />
+        <!-- Nose cone -->
+        <path d="M30 2 C37 11 40.5 19 42 28 L18 28 C19.5 19 23 11 30 2 Z" class="rocket-accent" />
+        <!-- Band + centre fin -->
+        <rect x="16" y="86" width="28" height="4" class="rocket-accent" />
+        <rect x="28.5" y="90" width="3" height="16" fill="#78716c" />
+        <!-- Window -->
+        <circle cx="30" cy="52" r="8" fill="#57534e" />
+        <circle cx="30" cy="52" r="5.5" fill="#0e7490" />
+        <circle cx="28" cy="50" r="1.8" fill="#a5f3fc" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Launch pad -->
+  <svg viewBox="0 0 120 24" class="rocket-pad">
+    <path d="M14 0 L14 20 M24 0 L24 20 M14 4 L24 10 M24 4 L14 10 M14 10 L24 16 M24 10 L14 16" stroke="#57534e" stroke-width="1.5" fill="none" />
+    <rect x="30" y="16" width="60" height="4" rx="1" fill="#57534e" />
+    <rect x="0" y="20" width="120" height="4" fill="#292524" />
+  </svg>
+</div>
+
+<style>
+  .rocket-launch {
+    --pad-h: 24px;
+    position: fixed;
+    top: 4rem; /* navbar height */
+    right: 1rem;
+    bottom: 0;
+    width: 120px;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .rocket-pad {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: var(--pad-h);
+  }
+
+  .rocket-flight {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--pad-h) - 12px);
+    width: 56px;
+    margin-left: -28px;
+    transform: translateY(calc(var(--lift-px, 0) * -1px));
+    will-change: transform;
+  }
+
+  .rocket-svg {
+    display: block;
+    width: 56px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .rocket-accent {
+    fill: var(--color-primary);
+  }
+
+  .rocket-flame {
+    transform-box: fill-box;
+    transform-origin: 50% 0;
+    transform: scaleY(var(--flame, 0));
+    opacity: min(1, calc(var(--flame, 0) * 3));
+  }
+
+  .rocket-launch.is-lit .rocket-flame path {
+    transform-box: fill-box;
+    transform-origin: 50% 0;
+    animation: flicker 0.12s ease-in-out infinite alternate;
+  }
+
+  .rocket-launch.is-rumbling .rocket-body {
+    animation: rumble 0.09s linear infinite;
+  }
+
+  .rocket-puff {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--pad-h) - 4px);
+    width: var(--size);
+    height: var(--size);
+    margin-left: calc(var(--size) / -2);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(231, 229, 228, 0.55), rgba(231, 229, 228, 0) 70%);
+    transform: translate(calc(var(--dx) * var(--smoke, 0)), calc(var(--dy) * var(--smoke, 0)))
+      scale(calc(0.3 + var(--smoke, 0) * 1.1));
+    opacity: var(--smoke-o, 0);
+  }
+
+  .rocket-trail {
+    position: absolute;
+    left: 50%;
+    bottom: var(--pad-h);
+    width: 14px;
+    margin-left: -7px;
+    height: calc(var(--lift-px, 0) * 1px);
+    background: linear-gradient(to top, rgba(231, 229, 228, 0.28), rgba(231, 229, 228, 0.06));
+    filter: blur(5px);
+    border-radius: 7px;
+    opacity: var(--trail-o, 0);
+  }
+
+  @keyframes flicker {
+    from { transform: scaleY(0.85) scaleX(1.05); }
+    to { transform: scaleY(1.1) scaleX(0.95); }
+  }
+
+  @keyframes rumble {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-0.8px, 0.4px); }
+    50% { transform: translate(0.8px, -0.4px); }
+    75% { transform: translate(-0.5px, -0.3px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rocket-launch.is-lit .rocket-flame path,
+    .rocket-launch.is-rumbling .rocket-body {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const el = document.getElementById("rocket-launch");
+  if (el) {
+    // Scroll distance (px) over which the engine spools up before liftoff.
+    const IGNITION = 250;
+    const clamp = (v: number) => Math.min(1, Math.max(0, v));
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+      const y = window.scrollY;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+      const ignite = clamp(y / IGNITION);
+      const lift = clamp((y - IGNITION) / Math.max(1, maxScroll - IGNITION));
+      // Accelerate like a real launch: slow off the pad, fast at the top.
+      const eased = Math.pow(lift, 1.8);
+      const travel = el!.clientHeight + 200;
+      const liftPx = eased * travel;
+
+      el!.style.setProperty("--lift-px", liftPx.toFixed(1));
+      el!.style.setProperty("--flame", (ignite * (1 + lift * 0.5)).toFixed(3));
+      el!.style.setProperty("--smoke", ignite.toFixed(3));
+      el!.style.setProperty("--smoke-o", (ignite * 0.9 * (1 - clamp(lift * 4))).toFixed(3));
+      el!.style.setProperty("--trail-o", (clamp(lift * 10) * (1 - lift * 0.6)).toFixed(3));
+
+      el!.classList.toggle("is-lit", ignite > 0);
+      el!.classList.toggle("is-rumbling", ignite > 0.2 && lift < 0.08);
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  }
+</script>
