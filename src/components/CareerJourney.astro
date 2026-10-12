@@ -1,0 +1,470 @@
+---
+// Career progression drawn as a copper PCB trace routed through six solder
+// pads. Hovering (or focusing/tapping) a pad sends a bright "signal" along the
+// trace to that pad, lights the pads before it, and shows a photo card.
+// Below the lg breakpoint the diagram is replaced by a simple vertical list.
+import about from "../../contents/about.yaml";
+import settings from "./../../config/settings.yaml";
+
+const stages = about.journey;
+
+// Pad positions along the trace (viewBox units), and where each label stack
+// starts (years line; title/sublabel are drawn below it).
+const PADS = [
+    { x: 150, y: 300, label: 336 },
+    { x: 265, y: 250, label: 186 },
+    { x: 440, y: 300, label: 336 },
+    { x: 610, y: 250, label: 186 },
+    { x: 775, y: 300, label: 336 },
+    { x: 880, y: 170, label: 68 },
+];
+// Invisible hover targets covering each pad + its labels: [x, y, w, h]
+const HITS = [
+    [75, 270, 150, 115],
+    [190, 180, 150, 105],
+    [365, 270, 150, 115],
+    [535, 180, 150, 105],
+    [700, 270, 150, 115],
+    [805, 60, 150, 135],
+];
+const TRACE =
+    "M40 300 H150 L200 250 H330 L380 300 H500 L550 250 H670 L720 300 H830 L880 140 H960";
+
+const img = (src: string) => `${settings.base_url}/${src}`;
+---
+
+<div class="journey" id="career-journey">
+    <h3 class="text-xl md:text-2xl text-primary font-bold text-center mb-6">
+        {about.journey_title}
+    </h3>
+
+    <!-- Desktop: interactive PCB trace -->
+    <div class="journey-desktop" id="journey-stage">
+        <svg viewBox="0 -30 1000 430" class="w-full h-auto block overflow-visible" role="group" aria-label={about.journey_title}>
+            <path d={TRACE} class="trace-glow" />
+            <path d={TRACE} class="trace-base" />
+            <path d="M960 140 l-14 -9 v18z" class="trace-arrow" />
+            <path d={TRACE} class="trace-flow" id="journey-flow" />
+
+            {
+                stages.map((_: unknown, i: number) => (
+                    <g transform={`translate(${PADS[i].x},${PADS[i].y})`}>
+                        <g class="pad" data-i={i}>
+                            <circle class="ring" r="20" />
+                            <circle class="dot" r="7" />
+                        </g>
+                    </g>
+                ))
+            }
+
+            {
+                stages.map((s: any, i: number) => (
+                    <g class="lbl" data-i={i} text-anchor="middle">
+                        <text class="ly" x={PADS[i].x} y={PADS[i].label}>{s.years}</text>
+                        <text class="lt" x={PADS[i].x} y={PADS[i].label + 22}>{s.label}</text>
+                        <text class="ld" x={PADS[i].x} y={PADS[i].label + 40}>{s.sublabel}</text>
+                    </g>
+                ))
+            }
+
+            {
+                stages.map((s: any, i: number) => (
+                    <rect
+                        class="hit"
+                        data-i={i}
+                        x={HITS[i][0]}
+                        y={HITS[i][1]}
+                        width={HITS[i][2]}
+                        height={HITS[i][3]}
+                        rx="12"
+                        tabindex="0"
+                        role="button"
+                        aria-label={`${s.years}: ${s.title}`}
+                    />
+                ))
+            }
+        </svg>
+
+        {
+            stages.map((s: any, i: number) => (
+                <div class="journey-card" data-i={i} aria-hidden="true">
+                    {s.image && (
+                        <img
+                            src={img(s.image)}
+                            alt=""
+                            loading="lazy"
+                            style={`object-fit:${s.fit ?? "cover"}`}
+                        />
+                    )}
+                    <div class="journey-card-body">
+                        <span class="journey-years">{s.years}</span>
+                        <h4>{s.title}</h4>
+                        <p>{s.description}</p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <!-- Mobile / tablet: vertical list -->
+    <ol class="journey-list">
+        {
+            stages.map((s: any) => (
+                <li>
+                    <span class="journey-years">{s.years}</span>
+                    <h4>{s.title}</h4>
+                    <p>{s.description}</p>
+                    {s.image && (
+                        <img
+                            src={img(s.image)}
+                            alt={s.title}
+                            loading="lazy"
+                            style={`object-fit:${s.fit ?? "cover"}`}
+                        />
+                    )}
+                </li>
+            ))
+        }
+    </ol>
+</div>
+
+<style>
+    .journey {
+        --j-amber: var(--color-primary);
+        width: 100%;
+        max-width: 64rem;
+        margin-inline: auto;
+    }
+
+    /* Desktop shows the diagram; smaller screens show the list. */
+    .journey-desktop {
+        display: none;
+        position: relative;
+    }
+    @media (min-width: 1024px) {
+        .journey-desktop {
+            display: block;
+        }
+        .journey-list {
+            display: none !important;
+        }
+    }
+
+    /* ---------- trace ---------- */
+    .trace-glow {
+        fill: none;
+        stroke: color-mix(in oklab, var(--j-amber) 14%, transparent);
+        stroke-width: 18;
+        stroke-linejoin: round;
+    }
+    .trace-base {
+        fill: none;
+        stroke: var(--j-amber);
+        stroke-width: 5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    .trace-arrow {
+        fill: var(--j-amber);
+        stroke: var(--j-amber);
+        stroke-width: 3;
+        stroke-linejoin: round;
+    }
+    .trace-flow {
+        fill: none;
+        stroke: #fff6e6;
+        stroke-width: 5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        opacity: 0;
+        filter: drop-shadow(0 0 6px var(--j-amber));
+        transition:
+            stroke-dashoffset 0.55s ease-out,
+            opacity 0.2s;
+    }
+    .journey-desktop.hov .trace-flow {
+        opacity: 1;
+    }
+
+    /* ---------- pads ---------- */
+    .pad {
+        transition: opacity 0.25s;
+    }
+    .pad :global(*) {
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+    .ring {
+        fill: #0b0b0b;
+        stroke: var(--j-amber);
+        stroke-width: 4;
+        transition: all 0.3s;
+    }
+    .dot {
+        fill: var(--j-amber);
+        transition: all 0.3s;
+    }
+    .journey-desktop.hov .pad {
+        opacity: 0.3;
+    }
+    .journey-desktop.hov .pad.lit {
+        opacity: 1;
+    }
+    .pad.lit .dot {
+        fill: #fff6e6;
+    }
+    .pad.on .ring {
+        fill: #3a2d1a;
+    }
+    .pad.on .dot {
+        transform: scale(1.5);
+        fill: #fff;
+        filter: drop-shadow(0 0 5px var(--j-amber));
+    }
+
+    /* ---------- labels ---------- */
+    svg text {
+        font-family: Inter, system-ui, sans-serif;
+    }
+    .ly {
+        fill: var(--j-amber);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .lt {
+        fill: #f2efe9;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .ld {
+        fill: #8d8a84;
+        font-size: 12px;
+    }
+    .lbl {
+        transition: opacity 0.25s;
+    }
+    .journey-desktop.hov .lbl {
+        opacity: 0.3;
+    }
+    .journey-desktop.hov .lbl.on {
+        opacity: 1;
+    }
+
+    .hit {
+        fill: transparent;
+        cursor: pointer;
+        outline: none;
+    }
+    .hit:focus-visible {
+        stroke: var(--j-amber);
+        stroke-dasharray: 4 4;
+    }
+
+    /* ---------- photo card ---------- */
+    .journey-card {
+        position: absolute;
+        width: 260px;
+        background: #181818;
+        border: 1px solid var(--j-amber);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 12px 40px #000c;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(8px) scale(0.97);
+        transition:
+            opacity 0.2s,
+            transform 0.2s;
+        z-index: 5;
+    }
+    .journey-card.show {
+        opacity: 1;
+        transform: none;
+    }
+    .journey-card img {
+        display: block;
+        width: 100%;
+        height: 150px;
+        background: #0c0c0c;
+    }
+    .journey-card-body {
+        padding: 0.65rem 0.75rem 0.75rem;
+    }
+    .journey-card h4,
+    .journey-list h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #f2efe9;
+    }
+    .journey-card p,
+    .journey-list p {
+        margin: 0.2rem 0 0;
+        font-size: 0.8rem;
+        color: #8d8a84;
+    }
+    .journey-years {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--j-amber);
+        border: 1px solid color-mix(in oklab, var(--j-amber) 40%, transparent);
+        background: color-mix(in oklab, var(--j-amber) 8%, transparent);
+        border-radius: 999px;
+        padding: 1px 9px;
+        margin-bottom: 0.3rem;
+    }
+
+    /* ---------- mobile list ---------- */
+    .journey-list {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 1.25rem;
+        border-left: 2px solid var(--j-amber);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .journey-list li {
+        position: relative;
+        text-align: left;
+    }
+    .journey-list li::before {
+        content: "";
+        position: absolute;
+        left: calc(-1.25rem - 7px);
+        top: 0.35rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--j-amber);
+        box-shadow: 0 0 0 4px #0b0b0b;
+    }
+    .journey-list img {
+        display: block;
+        width: 100%;
+        max-width: 20rem;
+        height: 9rem;
+        margin-top: 0.6rem;
+        border-radius: 0.5rem;
+        border: 1px solid #2a2a2a;
+        background: #0c0c0c;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .trace-flow,
+        .journey-card,
+        .pad,
+        .dot,
+        .ring {
+            transition: none;
+        }
+    }
+</style>
+
+<script>
+    const stage = document.getElementById("journey-stage");
+    const heading = document.querySelector<HTMLElement>("#career-journey > h3");
+
+    if (stage) {
+        const svg = stage.querySelector("svg") as SVGSVGElement;
+        const flow = stage.querySelector("#journey-flow") as SVGPathElement;
+        const pads = [...stage.querySelectorAll<SVGGElement>(".pad")];
+        const lbls = [...stage.querySelectorAll<SVGGElement>(".lbl")];
+        const cards = [...stage.querySelectorAll<HTMLElement>(".journey-card")];
+        const hits = stage.querySelectorAll<SVGRectElement>(".hit");
+
+        // Must match PADS in the frontmatter: [x, y, labelY].
+        const P = [
+            [150, 300, 336],
+            [265, 250, 186],
+            [440, 300, 336],
+            [610, 250, 186],
+            [775, 300, 336],
+            [880, 170, 68],
+        ];
+        const VB_TOP = 30; // viewBox starts at y = -30
+
+        const total = flow.getTotalLength();
+        flow.style.strokeDasharray = String(total);
+        flow.style.strokeDashoffset = String(total);
+
+        // Length along the trace nearest to each pad.
+        const at = P.map(([x, y]) => {
+            let best = 0;
+            let bestD = Infinity;
+            for (let l = 0; l <= total; l += 2) {
+                const p = flow.getPointAtLength(l);
+                const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+                if (d < bestD) {
+                    bestD = d;
+                    best = l;
+                }
+            }
+            return best;
+        });
+
+        function show(i: number) {
+            stage!.classList.add("hov");
+            pads.forEach((p, k) => {
+                p.classList.toggle("on", k === i);
+                p.classList.toggle("lit", k <= i);
+            });
+            lbls.forEach((t, k) => t.classList.toggle("on", k === i));
+            cards.forEach((c, k) => c.classList.toggle("show", k === i));
+            flow.style.strokeDashoffset = String(total - at[i]);
+
+            // Place the card above the pad, clamped inside the stage.
+            const b = stage!.getBoundingClientRect();
+            const r = svg.getBoundingClientRect();
+            const sc = r.width / 1000;
+            const c = cards[i];
+            const px = r.left - b.left + P[i][0] * sc;
+            const py = r.top - b.top + (P[i][1] + VB_TOP) * sc;
+            const w = c.offsetWidth;
+            const clampX = (x: number) => Math.max(4, Math.min(x, b.width - w - 4));
+            // Labels above the pad (upper pads) need extra clearance.
+            const lift = P[i][2] < P[i][1] ? P[i][1] - P[i][2] + 12 : 34;
+            // May extend above the stage (into the heading gap) for the upper pads.
+            const top = py - lift * sc - c.offsetHeight - 6;
+            let left = clampX(px - w / 2);
+
+            // If the card would cover the section heading, slide it sideways.
+            if (heading) {
+                const range = document.createRange();
+                range.selectNodeContents(heading);
+                const hr = range.getBoundingClientRect();
+                const hL = hr.left - b.left - 12;
+                const hR = hr.right - b.left + 12;
+                const cardTop = b.top + top;
+                const hitsY = cardTop < hr.bottom && cardTop + c.offsetHeight > hr.top;
+                if (hitsY && left < hR && left + w > hL) {
+                    const goLeft = clampX(hL - w);
+                    const goRight = clampX(hR);
+                    left = Math.abs(goLeft - left) <= Math.abs(goRight - left) ? goLeft : goRight;
+                }
+            }
+            c.style.left = `${left}px`;
+            c.style.top = `${top}px`;
+        }
+
+        function hide() {
+            stage!.classList.remove("hov");
+            pads.forEach((p) => p.classList.remove("on", "lit"));
+            lbls.forEach((t) => t.classList.remove("on"));
+            cards.forEach((c) => c.classList.remove("show"));
+            flow.style.strokeDashoffset = String(total);
+        }
+
+        hits.forEach((h) => {
+            const i = Number(h.dataset.i);
+            h.addEventListener("mouseenter", () => show(i));
+            h.addEventListener("mouseleave", hide);
+            h.addEventListener("focus", () => show(i));
+            h.addEventListener("blur", hide);
+            h.addEventListener("click", () => show(i));
+        });
+    }
+</script>

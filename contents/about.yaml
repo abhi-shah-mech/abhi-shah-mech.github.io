@@ -8,6 +8,53 @@ about_description: |
 
   Outside of work, I spend time on hands on Arduino/ESP32 based home automation and woodworking. I also love volleyball and PC gaming, which complement my technical interests, teamwork and leadership skills.
 
+journey_title: My Professional Journey
+# NOTE: years below are placeholders - replace with real dates.
+# The diagram is laid out for exactly 6 stages, in order.
+# image is optional (a path inside /public); fit is "cover" (default) or "contain".
+journey:
+  - years: 2014 – 2016
+    label: Manufacturing
+    sublabel: PCBA production
+    title: Manufacturing (PCBA)
+    description: Involved in PCBA production
+    image: journey/pcba-assembly-line.jpg
+
+  - years: 2016 – 2018
+    label: Validation & Testing
+    sublabel: Ensured reliability
+    title: Validation & Testing
+    description: Ensured product reliability
+    image: journey/vibe-testing-novatel.jpg
+
+  - years: 2018 – 2020
+    label: Product Design
+    sublabel: End-to-end owner
+    title: End-to-End Product Design (Owner)
+    description: Took ownership of product design
+    image: journey/shepherd-gas-detector.png
+    fit: contain
+
+  - years: 2020 – 2022
+    label: Cost / DFM / DFA
+    sublabel: Supply chain savings
+    title: Cost Reduction, DFM, DFA, Supply Chain
+    description: Implemented cost-saving measures
+    image: journey/hdl310.jpg
+
+  - years: 2022 – 2024
+    label: Robotics & Automation
+    sublabel: Led initiatives
+    title: Robotics & Automation (Lead)
+    description: Led robotics initiatives
+    image: journey/drive-thru.png
+
+  - years: 2024 – Now
+    label: Architecture
+    sublabel: Lead · ERD & systems
+    title: Architecture Design (Lead)
+    description: Directed ERD and architecture design
+
 skills_title: SKILLS
 skills:
   - title: Electromechanical System Design
