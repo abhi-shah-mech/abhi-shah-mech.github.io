@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # raw/unprocessed media staging area, not site assets
 photos and videos/
+
+# resume source file - editable master kept locally, never published
+*.docx
